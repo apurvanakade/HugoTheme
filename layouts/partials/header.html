@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }}{{ if eq .IsHome false }} | {{ .Site.Title }}{{ end }}</title>
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/style.css">
+  </head>
+
+  <body>
+    <div id="wrapper-main"> <!-- main use for setting column width-->

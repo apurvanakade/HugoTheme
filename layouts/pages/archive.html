@@ -1,0 +1,54 @@
+{{ partial "header" . }}
+
+<table id="mainText">
+  <tr>
+    <td>
+      <h2 id="postTitle">
+        <a href="{{ $.Site.BaseURL }}">Archive</a>
+      </h2>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table class="compact">
+        {{ range where $.Site.Pages "Type" "post" }}
+          <tr>
+            <td>
+              <a href="{{ $.Site.BaseURL }}posts/{{ .Title | urlize }}">{{ .Title }}
+            </td>
+            <td>
+              {{ .Date.Format "Jan 2, 2006" }}
+            </td>
+            <td>
+              {{ if .Params.categories}}
+                <a href="{{ $.Site.BaseURL }}categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
+              {{ end }}
+            </td>
+            <td>
+              {{ if .Params.tags}}
+                {{ range .Params.tags }}
+                  <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">#{{.}}</a>
+                {{ end }}
+              {{ end }}
+            </td>
+          </tr>
+        {{ end }}
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+    </td>
+  </tr>
+</table>
+
+<table id="navBar"><!-- style="border-bottom: 1px solid white;"-->
+  <tr>
+    <td>
+      <h3><a href="{{ .Site.BaseURL }}">&#9664;</a></h3>
+    </td>
+  </tr>
+</table>
+
+{{ partial "footer" . }}

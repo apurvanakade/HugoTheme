@@ -1,0 +1,17 @@
+<table id="navBar"><!-- style="border-bottom: 1px solid white;"-->
+  <tr>
+    <td>
+      {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}">&#9664;</a>
+      {{ end }}
+    </td>
+    <td>
+      <a href="{{ $.Site.BaseURL }}pages/archive">Archive</a>
+    </td>
+    <td>
+      {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}">&#9654;</a>
+      {{ end }}
+    </td>
+  </tr>
+</table>

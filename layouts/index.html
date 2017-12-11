@@ -1,0 +1,57 @@
+{{ $paginator := .Paginate (where .Data.Pages "Type" "post") 10 }}
+{{ partial "header" . }}
+
+  <table id="mainText" class="two-column-page">
+    <tr>
+      <td>
+        <a href="{{ $.Site.BaseURL }}">
+          <h1 id="siteTitle">{{ .Site.Title }}</h1>
+        </a>
+      </td>
+    </tr>
+
+
+    {{ range sort .Paginator.Pages }}
+      <tr>
+        <td>
+          <h3>
+            <a href="{{ .Permalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a>
+          </h3>
+          <p class="date">{{ .Date.Format "January 2" }}</p>
+        </td>
+        <td class="post">
+          {{ if gt (len .Summary) 400 }}
+            {{slicestr .Summary 0 400 | plainify | safeHTML }}
+          {{ else }}
+            {{ .Summary | plainify | safeHTML }}
+          {{ end }}
+
+          <span class="read-more">
+             <a href="{{ .Permalink }}">
+              . . . Read more</a>
+          </span>
+
+          <div class="tags-display">
+            {{ if .Params.categories }}
+              <a href="{{ $.Site.BaseURL }}categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
+            {{ end }}
+
+            {{ if .Params.tags}}
+              {{ range .Params.tags }}
+                <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">#{{.}}</a>
+              {{ end }}
+            {{ end }}
+          </div>
+          <br>
+          <br>
+        </td>
+      </tr>
+    {{ end }}
+  </table>
+
+{{ partial "navBar" . }}
+{{ partial "tagCloud" . }}
+<div class="footer-credits">
+  Powered by <a href="https://gohugo.io/">Hugo</a>.
+</div>
+{{ partial "footer" . }}

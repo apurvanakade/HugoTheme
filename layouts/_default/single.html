@@ -1,0 +1,46 @@
+{{ partial "header" . }}
+
+<table id="mainText" class="one-column">
+  <tr>
+    <td>
+      <h2 id="postTitle">
+        <a href="{{ .Site.BaseURL }}">{{ .Title }}</a>
+      </h2>
+      <p class="date">{{ .Date.Format "January 2, 2006" }} <br>
+        {{ if .Params.categories}}
+          Filed under
+          <a href="{{ $.Site.BaseURL }}categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
+        {{ end }}
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="post">{{ .Content }}</td>
+  </tr>
+
+  {{ if .Params.tags}}
+  <tr>
+    <td>
+      <div class="tags-display">
+        {{ if .Params.tags}}
+          {{ range .Params.tags }}
+            <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">#{{.}}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+    </td>
+  </tr>
+  {{ end }}
+</table>
+
+<table id="navBar"><!-- style="border-bottom: 1px solid white;"-->
+  <tr>
+    <td>
+      <h3><a href="{{ .Site.BaseURL }}">&#9664;</a></h3>
+    </td>
+  </tr>
+</table>
+
+{{ partial "disqus" . }}
+{{ partial "footer" . }}

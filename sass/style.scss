@@ -1,0 +1,161 @@
+$page-background-color: #f0f0f0;
+$font-background-color: #ffffff;
+$hyperlink-new: #2583FF;
+$hyperlink-old: #2583AD;
+$font-families: "Helvetica Neue", "Helvetica", "sans-serif";
+$font-color: black;
+$unit-padding: 10px;
+
+/***********************/
+/***********************/
+/* global CSS elements */
+/***********************/
+/***********************/
+
+body {
+  background-color: $page-background-color;
+  font: 18px $font-families;
+}
+
+#wrapper-main {
+    max-width: 900px;
+    margin: auto;
+    margin-top: 5*$unit-padding;
+    margin-bottom: 10*$unit-padding;
+}
+
+#siteTitle {
+/* This id only occurs on index.html */
+  font-size: 2em;
+  color: $font-color;
+  padding-bottom: $unit-padding;
+}
+
+#postTitle {
+  a {
+      color: $font-color;
+  }
+}
+
+#mainText {
+  background-color: $font-background-color;
+  width: 100%;
+  line-height: 150%;
+  padding: 2*$unit-padding;
+  padding-right: 3*$unit-padding;
+}
+
+table.two-column-page {
+  td:first-of-type {
+    width: 120px;
+    text-align: left;
+  }
+}
+
+td{
+  vertical-align: top;
+  .post {
+    text-align: justify;
+  }
+}
+
+
+h3, h4, h5, h6 {
+/* for the blog titles on the front page */
+  font-size: 1.1em;
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  &:link {
+    color: $hyperlink-new;
+  }
+  &:active, &:hover, &:visited {
+    color: $hyperlink-old;
+  }
+}
+
+.date {
+/* date at the top of the post and on index.html*/
+  font-size: small;
+}
+
+.footer-credits {
+/* Powered by Hugo */
+	font-size: small;
+	text-align: right;
+}
+
+.tags-display {
+	font-size: small;
+  text-align: right;
+}
+
+.read-more {
+/* for truncated summaries*/
+  font-size: small;
+  font-weight: bold;
+}
+
+
+/***************************************/
+/***************************************/
+/* CSS elements used in some pages */
+/***************************************/
+/***************************************/
+#tagCloud {
+  margin-left:0px;
+  font-size:smaller;
+  td.categories {
+  }
+  td.tags {
+  }
+}
+
+#navBar {
+  width: 100%;
+  font-size: small;
+  font-weight: bold;
+  border-bottom: 1px solid rgba( $font-background-color, 0.5 );
+  text-align: center;
+  td:last-of-type {
+    text-align: right;
+  }
+  td:first-of-type {
+    text-align: left;
+  }
+}
+
+.compact {
+  font-size: small;
+  td {
+    vertical-align: middle;
+  }
+}
+
+/***************************************/
+/***************************************/
+/* CSS elements for markdown */
+/***************************************/
+/***************************************/
+figure.large {
+    text-align: center;
+    padding-top: 3*$unit-padding;
+    padding-bottom: 3*$unit-padding;
+  img {
+      max-width: 100%;
+  }
+}
+
+figure.xlarge {
+  text-align: center;
+  padding-top: 3*$unit-padding;
+  padding-bottom: 3*$unit-padding;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin: auto;
+  img {
+    width: 100%;
+  }
+}

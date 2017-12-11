@@ -1,0 +1,51 @@
+{{ partial "header" . }}
+
+<table id="mainText" class="two-column-page">
+<tr>
+  <td>
+    <h2 id="postTitle">
+      <a href="{{ .Site.BaseURL }}">{{ .Title }}</a>
+    </h2>
+  </td>
+  <td>
+  </td>
+</tr>
+
+{{ .Content }}
+{{ range sort .Pages }}
+<tr>
+  <td>
+    <h3> <a href="{{ .Permalink }}">{{ .Title }}</a> </h3>
+    <p class="date">{{ .Date.Format "January 2" }}</p>
+  </td>
+
+  <td class="post">
+    {{ if gt (len .Summary) 200 }}
+      {{slicestr .Summary 0 200 | plainify | safeHTML }}
+    {{ else }}
+      {{ .Summary | plainify | safeHTML }}
+    {{ end }}
+    <span class="read-more"><a href="{{ .Permalink }}">. . . Read more</a></span>
+
+    <div class="tags-display">
+      {{ if .Params.categories}}
+        <a href="{{ $.Site.BaseURL }}categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
+      {{ end }}
+
+      {{ if .Params.tags}}
+        {{ range .Params.tags }}
+          <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">#{{.}}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+    <br>
+  </td>
+</tr>
+{{ end }}
+</table>
+
+{{ partial "navBar" . }}
+{{ partial "tagCloud" . }}
+
+
+{{ partial "footer" . }}
