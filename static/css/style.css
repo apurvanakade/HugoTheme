@@ -36,7 +36,8 @@ table.two-column-page td:first-of-type {
 td {
   vertical-align: top; }
   td .post {
-    text-align: justify; }
+    text-align: justify;
+    hyphens: auto; }
 
 h3, h4, h5, h6 {
   /* for the blog titles on the front page */
