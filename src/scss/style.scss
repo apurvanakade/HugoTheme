@@ -62,10 +62,11 @@ table.two-column-page {
 
 td{
   vertical-align: top;
-  .post {
-    text-align: justify;
-    hyphens: auto;
-  }
+}
+
+td.post{
+  text-align: justify;
+  hyphens: auto;
 }
 
 
@@ -148,16 +149,19 @@ a {
 /* CSS elements for markdown */
 /***************************************/
 /***************************************/
-figure.large {
+.large {
     text-align: center;
     padding-top: 3*$unit-padding;
     padding-bottom: 3*$unit-padding;
+    max-width: 80%;
+    margin: auto;
   img {
       max-width: 100%;
   }
 }
 
-figure.xlarge {
+
+.xlarge {
   text-align: center;
   padding-top: 3*$unit-padding;
   padding-bottom: 3*$unit-padding;
