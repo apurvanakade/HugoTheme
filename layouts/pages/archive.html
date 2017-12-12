@@ -1,4 +1,6 @@
 {{ partial "header" . }}
+<body class="list-page">
+<div id="wrapper-main"> <!-- main use for setting column width-->
 
 <table id="mainText">
   <tr>
@@ -46,7 +48,7 @@
 <table id="navBar"><!-- style="border-bottom: 1px solid white;"-->
   <tr>
     <td>
-      <h3><a href="{{ .Site.BaseURL }}">&#9664;</a></h3>
+      <h3><a href="javascript:history.back()">Back</a></h3>
     </td>
   </tr>
 </table>

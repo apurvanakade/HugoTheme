@@ -1,0 +1,27 @@
+{
+  "name": "ApurvasTheme",
+  "version": "1.0.0",
+  "description": "A Hugo theme I designed for my blog at https://apurvnakade.github.io/blog/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apurvnakade/HugoTheme.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apurvnakade/HugoTheme/issues"
+  },
+  "homepage": "https://github.com/apurvnakade/HugoTheme#readme",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-hash": "^4.1.1",
+    "gulp-sass": "^3.1.0"
+  }
+}

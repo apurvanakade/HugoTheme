@@ -6,6 +6,7 @@ $font-families: "Helvetica Neue", "Helvetica", "sans-serif";
 $font-color: black;
 $unit-padding: 10px;
 
+
 /***********************/
 /***********************/
 /* global CSS elements */
@@ -15,6 +16,11 @@ $unit-padding: 10px;
 body {
   background-color: $page-background-color;
   font: 18px $font-families;
+}
+
+body.single-post {
+  $page-background-color: $font-background-color;
+  background-color: $font-background-color;
 }
 
 #wrapper-main {
@@ -47,16 +53,20 @@ body {
 
 table.two-column-page {
   td:first-of-type {
-    width: 120px;
     text-align: left;
+    @media screen and (min-width: 500px) {
+      min-width: 100px;
+    }
   }
 }
 
 td{
   vertical-align: top;
-  .post {
-    text-align: justify;
-  }
+}
+
+.post {
+  text-align: justify;
+  hyphens: auto;
 }
 
 
