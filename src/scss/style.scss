@@ -62,11 +62,10 @@ table.two-column-page {
 
 td{
   vertical-align: top;
-}
-
-.post {
-  text-align: justify;
-  hyphens: auto;
+  .post {
+    text-align: justify;
+    hyphens: auto;
+  }
 }
 
 

@@ -1,1 +1,5 @@
+
+*.scssc
+*.css.map
+*.map
 node_modules/
