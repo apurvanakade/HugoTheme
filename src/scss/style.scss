@@ -1,4 +1,4 @@
-$page-background-color: #ffffff;
+$page-background-color: #f0f0f0;
 $font-background-color: #ffffff;
 $hyperlink-new: #2583FF;
 $hyperlink-old: #2583AD;
@@ -6,8 +6,7 @@ $font-families: "Helvetica Neue", "Helvetica", "sans-serif";
 $font-color: black;
 $unit-padding: 10px;
 
-$fast-transition: all 1s ease-in-out;
-$slow-transition: all 3s ease-in-out;
+$shadow-transition: all 1s ease-in-out;
 
 /***********************/
 /***********************/
@@ -64,7 +63,6 @@ body {
   line-height: 150%;
   padding: 2*$unit-padding;
   padding-right: 3*$unit-padding;
-  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 table.two-column-page {
@@ -127,35 +125,26 @@ a {
 /******************************/
 /******************************/
 
+body, #mainText {
+  -webkit-transition: $shadow-transition;
+  -moz-transition: $shadow-transition;
+  -o-transition: $shadow-transition;
+  transition: $shadow-transition;
+}
 
-body.list-page {
+body.flat2raised{
+  background-color: $font-background-color;
   #mainText {
     box-shadow: none;
   }
-  #mainText.raise-shadow{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-transition: $fast-transition;
-    -moz-transition: $fast-transition;
-    -o-transition: $fast-transition;
-    transition: $fast-transition;
-  }
 }
 
-body.single-post {
-  #mainText{
+body.raised2flat {
+  background-color: $page-background-color;
+  #mainText {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
-  #mainText.flatten-shadow{
-    box-shadow: none;
-    -webkit-transition: $slow-transition;
-    -moz-transition: $slow-transition;
-    -o-transition: $slow-transition;
-    transition: $slow-transition;
-  }
 }
-
-
-
 
 /***************************************/
 /***************************************/
@@ -176,7 +165,6 @@ body.single-post {
   font-size: small;
   font-weight: bold;
   padding-top: 5px;
-  //border-bottom: 1px solid rgba( $font-background-color, 0.5 );
   text-align: center;
   td:last-of-type {
     text-align: right;

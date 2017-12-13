@@ -8,18 +8,6 @@
     <title>{{ .Title }}{{ if eq .IsHome false }} | {{ .Site.Title }}{{ end }}</title>
     <link rel="stylesheet" href='/css/{{ index .Site.Data.css.hash "style.css" }}'>
 
-    <script type="text/javascript">
-      $( document ).ready(function() {
-        if ($("body").hasClass("single-post")) {
-          console.log("hi");
-           $('#mainText').addClass("flatten-shadow");
-        }
-        else if ($("body").hasClass("list-page")) {
-          console.log("hello");
-           $('#mainText').addClass("raise-shadow");
-        }
-
-      });
-    </script>
+    <script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "shadow-transition.js" }}'></script>
 
   </head>
