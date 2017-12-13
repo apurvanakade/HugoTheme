@@ -39,6 +39,12 @@ body.single-post {
   background-color: $font-background-color;
 }
 
+body.list-page {
+  #mainText {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
 #wrapper-main {
     max-width: 900px;
     margin: auto;
@@ -140,7 +146,8 @@ a {
   width: 100%;
   font-size: small;
   font-weight: bold;
-  border-bottom: 1px solid rgba( $font-background-color, 0.5 );
+  padding-top: 5px;
+  //border-bottom: 1px solid rgba( $font-background-color, 0.5 );
   text-align: center;
   td:last-of-type {
     text-align: right;
