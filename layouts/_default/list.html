@@ -2,7 +2,6 @@
 <body class="list-page">
   <div id="wrapper-main"> <!-- main use for setting column width-->
 
-
 <table id="mainText" class="two-column-page">
 <tr>
   <td>
@@ -10,19 +9,23 @@
       <a href="{{ .Site.BaseURL }}">{{ .Title }}</a>
     </h2>
   </td>
-  <td>
-  </td>
 </tr>
 
 {{ .Content }}
 {{ range sort .Pages }}
 <tr>
-  <td>
+  <td class = "wide-screen-only">
     <h3> <a href="{{ .Permalink }}">{{ .Title }}</a> </h3>
     <p class="date">{{ .Date.Format "January 2" }}</p>
   </td>
 
   <td class="post">
+    <div class="narrow-screen-only">
+      <h3> <a href="{{ .Permalink }}">{{ .Title }}</a> </h3>
+      <p class="date">{{ .Date.Format "January 2" }}</p>
+    </div>
+
+
     {{ if gt (len .Summary) 200 }}
       {{slicestr .Summary 0 200 | plainify | safeHTML }}
     {{ else }}

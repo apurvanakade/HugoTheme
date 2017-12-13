@@ -17,13 +17,17 @@
 
     {{ range sort .Paginator.Pages }}
       <tr>
-        <td>
-          <h3>
-            <a href="{{ .Permalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a>
-          </h3>
+        <td class = "wide-screen-only">
+          <h3><a href="{{ .Permalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a></h3>
           <p class="date">{{ .Date.Format "January 2" }}</p>
         </td>
+
         <td class="post">
+          <div class = "narrow-screen-only">
+            <h3><a href="{{ .Permalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a></h3>
+            <p class="date">{{ .Date.Format "January 2" }}</p>
+          </div>
+
           {{ if gt (len .Summary) 400 }}
             {{slicestr .Summary 0 400 | plainify | safeHTML }}
           {{ else }}

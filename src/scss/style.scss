@@ -13,6 +13,22 @@ $unit-padding: 10px;
 /***********************/
 /***********************/
 
+@media (max-width: 700px) {
+  .wide-screen-only {
+    display: none;
+  }
+}
+
+@media (min-width: 700px) {
+  .narrow-screen-only {
+    display: none;
+  }
+  .wide-screen-only {
+    min-width: 100px;
+  }
+}
+
+
 body {
   background-color: $page-background-color;
   font: 18px $font-families;
@@ -54,9 +70,6 @@ body.single-post {
 table.two-column-page {
   td:first-of-type {
     text-align: left;
-    @media screen and (min-width: 500px) {
-      min-width: 100px;
-    }
   }
 }
 
