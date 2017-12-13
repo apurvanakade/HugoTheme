@@ -1,4 +1,4 @@
-$page-background-color: #f0f0f0;
+$page-background-color: #ffffff;
 $font-background-color: #ffffff;
 $hyperlink-new: #2583FF;
 $hyperlink-old: #2583AD;
@@ -6,6 +6,8 @@ $font-families: "Helvetica Neue", "Helvetica", "sans-serif";
 $font-color: black;
 $unit-padding: 10px;
 
+$fast-transition: all 1s ease-in-out;
+$slow-transition: all 3s ease-in-out;
 
 /***********************/
 /***********************/
@@ -13,12 +15,7 @@ $unit-padding: 10px;
 /***********************/
 /***********************/
 
-@media (max-width: 700px) {
-  .wide-screen-only {
-    display: none;
-  }
-}
-
+//for wider screens
 @media (min-width: 700px) {
   .narrow-screen-only {
     display: none;
@@ -28,21 +25,17 @@ $unit-padding: 10px;
   }
 }
 
+//for narrower screens
+@media (max-width: 700px) {
+  .wide-screen-only {
+    display: none;
+  }
+}
+
 
 body {
   background-color: $page-background-color;
   font: 18px $font-families;
-}
-
-body.single-post {
-  $page-background-color: $font-background-color;
-  background-color: $font-background-color;
-}
-
-body.list-page {
-  #mainText {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
 }
 
 #wrapper-main {
@@ -71,6 +64,7 @@ body.list-page {
   line-height: 150%;
   padding: 2*$unit-padding;
   padding-right: 3*$unit-padding;
+  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 table.two-column-page {
@@ -126,6 +120,41 @@ a {
   font-size: small;
   font-weight: bold;
 }
+
+/******************************/
+/******************************/
+/* CSS elements for animation */
+/******************************/
+/******************************/
+
+
+body.list-page {
+  #mainText {
+    box-shadow: none;
+  }
+  #mainText.raise-shadow{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-transition: $fast-transition;
+    -moz-transition: $fast-transition;
+    -o-transition: $fast-transition;
+    transition: $fast-transition;
+  }
+}
+
+body.single-post {
+  #mainText{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  #mainText.flatten-shadow{
+    box-shadow: none;
+    -webkit-transition: $slow-transition;
+    -moz-transition: $slow-transition;
+    -o-transition: $slow-transition;
+    transition: $slow-transition;
+  }
+}
+
+
 
 
 /***************************************/

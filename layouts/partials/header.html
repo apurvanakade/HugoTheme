@@ -1,8 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ .Title }}{{ if eq .IsHome false }} | {{ .Site.Title }}{{ end }}</title>
     <link rel="stylesheet" href='/css/{{ index .Site.Data.css.hash "style.css" }}'>
+
+    <script type="text/javascript">
+      $( document ).ready(function() {
+        if ($("body").hasClass("single-post")) {
+          console.log("hi");
+           $('#mainText').addClass("flatten-shadow");
+        }
+        else if ($("body").hasClass("list-page")) {
+          console.log("hello");
+           $('#mainText').addClass("raise-shadow");
+        }
+
+      });
+    </script>
+
   </head>
