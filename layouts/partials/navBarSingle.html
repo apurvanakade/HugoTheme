@@ -1,0 +1,21 @@
+<table id="navBar"><!-- style="border-bottom: 1px solid white;"-->
+  <tr>
+    <td>
+      {{ if .PrevInSection }}
+        <a href="{{.PrevInSection.Permalink}}">&#9664; Prev</a>
+      {{ else }}
+        <p style="opacity: 0">&#9664; Prev</p>
+      {{ end }}
+    </td>
+    <td>
+      <a href="{{ $.Site.BaseURL }}">Home</a>
+    </td>
+    <td>
+      {{ if .NextInSection }}
+        <a href="{{.NextInSection.Permalink}}">Next &#9654;</a>
+      {{ else }}
+        <p style="opacity: 0">Next &#9654;</p>
+      {{ end }}
+    </td>
+  </tr>
+</table>

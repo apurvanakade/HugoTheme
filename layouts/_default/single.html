@@ -36,13 +36,6 @@
   {{ end }}
 </table>
 
-<!-- <table id="navBar">
-  <tr>
-    <td>
-      <h3><a href="{{ $.Site.BaseURL }}">Home</a></h3>
-    </td>
-  </tr>
-</table> -->
-
+{{ partial "navBarSingle" . }}
 {{ partial "disqus" . }}
 {{ partial "footer" . }}

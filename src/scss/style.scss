@@ -6,8 +6,6 @@ $font-families: "Helvetica Neue", "Helvetica", "sans-serif";
 $font-color: black;
 $unit-padding: 10px;
 
-$shadow-transition: all 2s ease-in-out;
-
 /***********************/
 /***********************/
 /* global CSS elements */
@@ -125,11 +123,12 @@ a {
 /******************************/
 /******************************/
 
-body, #mainText:after {
-  -webkit-transition: $shadow-transition;
-  -moz-transition: $shadow-transition;
-  -o-transition: $shadow-transition;
-  transition: $shadow-transition;
+body {
+  transition: background-color 1s ease-in-out;
+}
+
+#mainText:after {
+  transition: opacity 1s ease-in-out;
 }
 
 #mainText {
@@ -183,6 +182,9 @@ body.raised2flat {
   font-weight: bold;
   padding-top: 5px;
   text-align: center;
+  td {
+    column-width: 33%;
+  }
   td:last-of-type {
     text-align: right;
   }
