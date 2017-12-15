@@ -1,45 +1,60 @@
 {{ partial "header" . }}
+<script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "sortTable.js" }}'></script>
+
 <body class="list-page">
   <script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "setPageType.js" }}'></script>
 
 <div id="wrapper-main"> <!-- main use for setting column width-->
 
 <table id="mainText">
-  <tr>
-    <td>
-      <h1 id="postTitle">
-        <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Archive</a>
-      </h1>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <table class="compact">
-        {{ range where $.Site.Pages "Type" "post" }}
-          <tr>
-            <td>
-              <a class="crosslink" href="/posts/{{ .Title | urlize }}">{{ .Title }}
-            </td>
-            <td>
-              {{ .Date.Format "Jan 2, 2006" }}
-            </td>
-            <td>
-              {{ if .Params.categories}}
-                <a class="crosslink" href="/categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
-              {{ end }}
-            </td>
-            <td>
-              {{ if .Params.tags}}
-                {{ range .Params.tags }}
-                  <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a>
-                {{ end }}
-              {{ end }}
-            </td>
-          </tr>
-        {{ end }}
-      </table>
-    </td>
-  </tr>
+  <thead>
+    <tr>
+      <td>
+        <h1 id="postTitle">
+          <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Archive</a>
+        </h1>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <table id="archiveTable">
+          <thead>
+            <tr>
+              <th class="sortDesc"> <a onclick="javascript:sortTable(0)"> Date </a></th>
+              <th> <a onclick="javascript:sortTable(1)"> Title </a> </th>
+              <th> <a onclick="javascript:sortTable(2)"> Category </a> </th>
+              <th> </th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ range where $.Site.Pages "Type" "post" }}
+              <tr>
+                <td>
+                  {{ .Date.Format "2006-1-2" }}
+                </td>
+                <td>
+                  <a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}
+                </td>
+                <td>
+                  <a class="crosslink" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
+                </td>
+                <td>
+                  {{ if .Params.tags}}
+                    {{ range .Params.tags }}
+                      <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a>
+                    {{ end }}
+                  {{ end }}
+                </td>
+              </tr>
+            {{ end }}
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+
 </table>
 
 <table id="navBar">

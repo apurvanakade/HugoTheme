@@ -138,6 +138,7 @@ a {
   height: 100%;
   position: absolute;
   content: '';
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 body.animateShadow {
@@ -151,7 +152,6 @@ body.animateShadow {
 body.flat{
   background-color: $font-background-color;
   #mainText::after {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     opacity: 0;
   }
 }
@@ -159,7 +159,6 @@ body.flat{
 body.raised {
   background-color: $page-background-color;
   #mainText::after {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     opacity: 1;
   }
 }
@@ -183,7 +182,6 @@ body.raised {
   width: 100%;
   font-size: small;
   font-weight: bold;
-  margin-top: -1.5*$unit-padding;
   margin-bottom: 1.5*$unit-padding;
   line-height: 50%;
   text-align: center;
@@ -199,11 +197,25 @@ body.raised {
   }
 }
 
-.compact {
+#archiveTable {
+  margin: auto;
+  width: 100%;
+  text-align: left;
   font-size: small;
   td {
     vertical-align: middle;
+    width: 18%;
   }
+  td:last-of-type {
+    width: 46%;
+  }
+}
+
+.sortDesc::before {
+  content: ' ↓';
+}
+.sortAsc::before {
+  content: ' ↑';
 }
 
 /***************************************/

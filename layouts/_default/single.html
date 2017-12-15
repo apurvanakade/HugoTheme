@@ -11,10 +11,8 @@
         <a class="crosslink" href="{{ .Site.BaseURL | relURL}}">{{ .Title }}</a>
       </h2>
       <p class="date">{{ .Date.Format "January 2, 2006" }} <br>
-        {{ if .Params.categories}}
           Filed under
-          <a class="crosslink" href="/categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
-        {{ end }}
+          <a class="crosslink" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
       </div>
     </td>
   </tr>

@@ -39,9 +39,7 @@
           </span>
 
           <div class="tags-display">
-            {{ if .Params.categories }}
-              <a class="crosslink" href="/categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
-            {{ end }}
+            <a class="crosslink" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
 
             {{ if .Params.tags}}
               {{ range .Params.tags }}
