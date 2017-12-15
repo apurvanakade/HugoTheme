@@ -1,12 +1,14 @@
 {{ partial "header" . }}
-<body class="list-page flat2raised">
+<body class="list-page">
+  <script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "setPageType.js" }}'></script>
+
 <div id="wrapper-main"> <!-- main use for setting column width-->
 
 <table id="mainText">
   <tr>
     <td>
       <h2 id="postTitle">
-        <a href="{{ $.Site.BaseURL }}">Archive</a>
+        <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Archive</a>
       </h2>
     </td>
   </tr>
@@ -16,20 +18,20 @@
         {{ range where $.Site.Pages "Type" "post" }}
           <tr>
             <td>
-              <a href="{{ $.Site.BaseURL }}posts/{{ .Title | urlize }}">{{ .Title }}
+              <a class="crosslink" href="/posts/{{ .Title | urlize }}">{{ .Title }}
             </td>
             <td>
               {{ .Date.Format "Jan 2, 2006" }}
             </td>
             <td>
               {{ if .Params.categories}}
-                <a href="{{ $.Site.BaseURL }}categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
+                <a class="crosslink" href="/categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
               {{ end }}
             </td>
             <td>
               {{ if .Params.tags}}
                 {{ range .Params.tags }}
-                  <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">#{{.}}</a>
+                  <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a>
                 {{ end }}
               {{ end }}
             </td>
@@ -45,12 +47,12 @@
   </tr>
 </table>
 
-<table id="navBar"><!-- style="border-bottom: 1px solid white;"-->
+<!-- <table id="navBar">
   <tr>
     <td>
-      <h3><a href="javascript:history.back()">Back</a></h3>
+      <h3><a class="crosslink" href="javascript:history.back()">Home</a></h3>
     </td>
   </tr>
-</table>
+</table> -->
 
 {{ partial "footer" . }}

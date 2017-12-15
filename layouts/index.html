@@ -1,16 +1,15 @@
 {{ $paginator := .Paginate (where .Data.Pages "Type" "post") 10 }}
 {{ partial "header" . }}
 
-<body class="list-page flat2raised">
+<body class="list-page">
+<script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "setPageType.js" }}'></script>
   <div id="wrapper-main"> <!-- main use for setting column width-->
 
 
   <table id="mainText" class="two-column-page">
     <tr>
       <td>
-        <a href="{{ $.Site.BaseURL }}">
-          <h1 id="siteTitle">{{ .Site.Title }}</h1>
-        </a>
+        <h1 id="siteTitle">{{ .Site.Title }}</h1>
       </td>
     </tr>
 
@@ -18,13 +17,13 @@
     {{ range sort .Paginator.Pages }}
       <tr>
         <td class = "wide-screen-only">
-          <h3><a href="{{ .Permalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a></h3>
+          <h3><a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a></h3>
           <p class="date">{{ .Date.Format "January 2" }}</p>
         </td>
 
         <td class="post">
           <div class = "narrow-screen-only">
-            <h3><a href="{{ .Permalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a></h3>
+            <h3><a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a></h3>
             <p class="date">{{ .Date.Format "January 2" }}</p>
           </div>
 
@@ -35,18 +34,18 @@
           {{ end }}
 
           <span class="read-more">
-             <a href="{{ .Permalink }}">
+             <a class="crosslink" href="{{ .RelPermalink }}">
               . . . Read more</a>
           </span>
 
           <div class="tags-display">
             {{ if .Params.categories }}
-              <a href="{{ $.Site.BaseURL }}categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
+              <a class="crosslink" href="/categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
             {{ end }}
 
             {{ if .Params.tags}}
               {{ range .Params.tags }}
-                <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">#{{.}}</a>
+                <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a>
               {{ end }}
             {{ end }}
           </div>

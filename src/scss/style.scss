@@ -123,14 +123,6 @@ a {
 /******************************/
 /******************************/
 
-body {
-  transition: background-color 1s ease-in-out;
-}
-
-#mainText:after {
-  transition: opacity 1s ease-in-out;
-}
-
 #mainText {
   position: relative;
 }
@@ -146,17 +138,25 @@ body {
   content: '';
 }
 
-body.flat2raised{
+body.animateShadow {
+  transition: background-color 2s ease-in-out;
+  #mainText::after {
+    transition: opacity 2s ease-in-out;
+  }
+}
+
+
+body.flat{
   background-color: $font-background-color;
-  #mainText:after {
+  #mainText::after {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     opacity: 0;
   }
 }
 
-body.raised2flat {
+body.raised {
   background-color: $page-background-color;
-  #mainText:after {
+  #mainText::after {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     opacity: 1;
   }

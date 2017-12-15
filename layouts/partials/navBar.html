@@ -1,18 +1,18 @@
-<table id="navBar"><!-- style="border-bottom: 1px solid white;"-->
+<table id="navBar">
   <tr>
     <td>
       {{ if .Paginator.HasPrev }}
-        <a href="{{ .Paginator.Prev.URL }}">&#9664; Prev</a>
+        <a class="crosslink" href="{{ .Paginator.Prev.URL | relURL }}">&#9664; Prev</a>
       {{ else }}
           <p style="opacity: 0">&#9664; Prev</p>
       {{ end }}
     </td>
     <td>
-      <a href="{{ $.Site.BaseURL }}pages/archive">Archive</a>
+      <a class="crosslink" href="/pages/archive">Archive</a>
     </td>
     <td>
       {{ if .Paginator.HasNext }}
-        <a href="{{ .Paginator.Next.URL }}">Next &#9654;</a>
+        <a class="crosslink" href="{{ .Paginator.Next.URL | relURL }}">Next &#9654;</a>
       {{ else }}
         <p style="opacity: 0">Next &#9654;</p>
       {{ end }}

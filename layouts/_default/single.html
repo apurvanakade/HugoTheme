@@ -1,17 +1,19 @@
 {{ partial "header" . }}
-<body class="single-post raised2flat">
+<body class="single-post">
+<script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "setPageType.js" }}'></script>
+
   <div id="wrapper-main"> <!-- main use for setting column width-->
 
 <table id="mainText" class="one-column">
   <tr>
     <td>
       <h2 id="postTitle">
-        <a href="{{ .Site.BaseURL }}">{{ .Title }}</a>
+        <a class="crosslink" href="{{ .Site.BaseURL | relURL}}">{{ .Title }}</a>
       </h2>
       <p class="date">{{ .Date.Format "January 2, 2006" }} <br>
         {{ if .Params.categories}}
           Filed under
-          <a href="{{ $.Site.BaseURL }}categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
+          <a class="crosslink" href="/categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
         {{ end }}
       </div>
     </td>
@@ -27,7 +29,7 @@
       <div class="tags-display">
         {{ if .Params.tags}}
           {{ range .Params.tags }}
-            <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">#{{.}}</a>
+            <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a>
           {{ end }}
         {{ end }}
       </div>
