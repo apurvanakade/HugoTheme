@@ -1,20 +1,20 @@
 <table id="navBar">
   <tr>
     <td>
-      {{ if .Paginator.HasPrev }}
-        <a class="crosslink" href="{{ .Paginator.Prev.URL | relURL }}">&#9664; Prev</a>
+      {{ if .Paginator.HasNext }}
+        <a class="crosslink" href="{{ .Paginator.Next.URL | relURL }}">&#9664; Older</a>
       {{ else }}
-          <p style="opacity: 0">&#9664; Prev</p>
+        <p style="opacity: 0">&#9664; Older</p>
       {{ end }}
     </td>
     <td>
       <a class="crosslink" href="/pages/archive">Archive</a>
     </td>
     <td>
-      {{ if .Paginator.HasNext }}
-        <a class="crosslink" href="{{ .Paginator.Next.URL | relURL }}">Next &#9654;</a>
+      {{ if .Paginator.HasPrev }}
+        <a class="crosslink" href="{{ .Paginator.Prev.URL | relURL }}">Newer &#9654;</a>
       {{ else }}
-        <p style="opacity: 0">Next &#9654;</p>
+          <p style="opacity: 0">Newer &#9654;</p>
       {{ end }}
     </td>
   </tr>

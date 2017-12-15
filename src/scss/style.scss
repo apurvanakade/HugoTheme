@@ -43,10 +43,12 @@ body {
 }
 
 #siteTitle {
-/* This id only occurs on index.html */
   font-size: 2em;
   color: $font-color;
   padding-bottom: $unit-padding;
+    a {
+        color: $font-color;
+    }
 }
 
 #postTitle {
@@ -168,7 +170,8 @@ body.raised {
 /***************************************/
 /***************************************/
 #tagCloud {
-  margin-left:0px;
+  padding-top: 2*$unit-padding;
+  padding-bottom: 2*$unit-padding;
   font-size:smaller;
   td.categories {
   }
@@ -180,10 +183,13 @@ body.raised {
   width: 100%;
   font-size: small;
   font-weight: bold;
-  padding-top: 5px;
+  margin-top: -1.5*$unit-padding;
+  margin-bottom: 1.5*$unit-padding;
+  line-height: 50%;
   text-align: center;
   td {
     column-width: 33%;
+    vertical-align: bottom;
   }
   td:last-of-type {
     text-align: right;

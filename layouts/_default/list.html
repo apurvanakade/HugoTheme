@@ -1,59 +1,61 @@
+{{ $paginator := .Paginate (where .Data.Pages "Type" "post") 10 }}
 {{ partial "header" . }}
-<body class="list-page">
-  <script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "setPageType.js" }}'></script>
 
+<body class="list-page">
+<script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "setPageType.js" }}'></script>
   <div id="wrapper-main"> <!-- main use for setting column width-->
 
-<table id="mainText" class="two-column-page">
-<tr>
-  <td>
-    <h2 id="postTitle">
-      <a class="crosslink" href="{{ .Site.BaseURL | relURL}}">{{ .Title }}</a>
-    </h2>
-  </td>
-</tr>
 
-{{ .Content }}
-{{ range sort .Pages }}
-<tr>
-  <td class = "wide-screen-only">
-    <h3> <a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}</a> </h3>
-    <p class="date">{{ .Date.Format "January 2" }}</p>
-  </td>
-
-  <td class="post">
-    <div class="narrow-screen-only">
-      <h3> <a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}</a> </h3>
-      <p class="date">{{ .Date.Format "January 2" }}</p>
-    </div>
+  <table id="mainText" class="two-column-page">
+    <tr>
+      <td>
+        <h1 id="siteTitle"><a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">{{ .Title}}</a></h1>
+      </td>
+    </tr>
 
 
-    {{ if gt (len .Summary) 200 }}
-      {{slicestr .Summary 0 200 | plainify | safeHTML }}
-    {{ else }}
-      {{ .Summary | plainify | safeHTML }}
+    {{ range sort .Paginator.Pages }}
+      <tr>
+        <td class = "wide-screen-only">
+          <h3><a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a></h3>
+          <p class="date">{{ .Date.Format "January 2" }}</p>
+        </td>
+
+        <td class="post">
+          <div class = "narrow-screen-only">
+            <h3><a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a></h3>
+            <p class="date">{{ .Date.Format "January 2" }}</p>
+          </div>
+
+          {{ if gt (len .Summary) 400 }}
+            {{slicestr .Summary 0 400 | plainify | safeHTML }}
+          {{ else }}
+            {{ .Summary | plainify | safeHTML }}
+          {{ end }}
+
+          <span class="read-more">
+             <a class="crosslink" href="{{ .RelPermalink }}">
+              . . . Read more</a>
+          </span>
+
+          <div class="tags-display">
+            {{ if .Params.categories }}
+              <a class="crosslink" href="/categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
+            {{ end }}
+
+            {{ if .Params.tags}}
+              {{ range .Params.tags }}
+                <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a>
+              {{ end }}
+            {{ end }}
+          </div>
+          <br>
+          <br>
+        </td>
+      </tr>
     {{ end }}
-    <span class="read-more"><a class="crosslink" href="{{ .RelPermalink }}">. . . Read more</a></span>
-
-    <div class="tags-display">
-      {{ if .Params.categories}}
-        <a class="crosslink" href="/categories/{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
-      {{ end }}
-
-      {{ if .Params.tags}}
-        {{ range .Params.tags }}
-          <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a>
-        {{ end }}
-      {{ end }}
-    </div>
-    <br>
-  </td>
-</tr>
-{{ end }}
-</table>
+  </table>
 
 {{ partial "navBar" . }}
 {{ partial "tagCloud" . }}
-
-
 {{ partial "footer" . }}
