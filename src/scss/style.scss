@@ -211,10 +211,10 @@ body.raised {
   }
 }
 
-.sortDesc::before {
+.sortAsc::before {
   content: ' ↓';
 }
-.sortAsc::before {
+.sortDesc::before {
   content: ' ↑';
 }
 
