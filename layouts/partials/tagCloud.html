@@ -9,9 +9,15 @@ Source: https://www.henriksommerfeld.se/hugo-tag-could/
 <table id="tagCloud">
     <tr class="categories">
         <td>
-            {{ range where .Site.Pages "Section" "posts" }}
-              {{ if and (.IsSection) (ne .Title "Posts") }}
-                <a class="crosslink" href="{{ .RelPermalink }}">{{.Title}}</a>
+            {{ $home := .Site.Home }}
+            {{ template "section-tree-nav" $home }}
+            {{ define "section-tree-nav" }}
+              {{ range .Sections.Reverse}}
+                {{ if eq .Title "Posts"}}
+                    {{ range .Sections.Reverse}}
+                    <a class="crosslink" href="{{ .RelPermalink }}">{{.Title}}</a>
+                    {{ end }}
+                {{ end }}
               {{ end }}
             {{ end }}
         <td>
@@ -48,5 +54,4 @@ Source: https://www.henriksommerfeld.se/hugo-tag-could/
 <div id="footer-credits">
   <a href="https://gohugo.io/" data="hugo.png" target="_blank"> </a>
   <a href="https://github.com/apurvnakade/" data="github.svg" target="_blank"> </a>
-  <a href="https://www.iconfinder.com/iconsets/black-white-social-media" data="www.svg" target="_blank"> </a>
 </div>

@@ -20,36 +20,41 @@
     <tr>
       <td>
         <table id="archiveTable">
-          <thead>
-            <tr>
-              <th class="sortDesc"> <a onclick="javascript:sortTable(0)"> Date </a></th>
-              <th> <a onclick="javascript:sortTable(1)"> Title </a> </th>
-              <th> <a onclick="javascript:sortTable(2)"> Category </a> </th>
-              <th> </th>
-            </tr>
-          </thead>
-          <tbody>
-            {{ range where $.Site.Pages "Type" "post" }}
-              <tr>
-                <td>
-                  {{ .Date.Format "2006-1-2" }}
-                </td>
-                <td>
-                  <a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}
-                </td>
-                <td>
-                  <a class="crosslink" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
-                </td>
-                <td>
-                  {{ if .Params.tags}}
-                    {{ range .Params.tags }}
-                      <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a>
+            {{ template "section-tree-nav1" .Site.Home }}
+            {{ define "section-tree-nav1" }}
+              {{ range .Sections}}
+                {{ if eq .Title "Posts"}}
+                    {{ range .Sections}}
+                    <tr>
+                      <td>
+                        <a class="crosslink" href="{{ .RelPermalink }}">{{.Title}}</a>
+                      </td>
+                          {{ range .Pages }}
+                            <td>
+                              <a href="{{ .RelPermalink}}">{{ .Title }}</a>
+                            </td>
+                            <td>
+                              {{ .Date.Format "2006-1-2" }}
+                            </td>
+                            <td>
+                              {{ if .Params.tags}}
+                                {{ range .Params.tags }}
+                                  <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a>
+                                {{ end }}
+                              {{ end }}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                          {{ end }}
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
                     {{ end }}
-                  {{ end }}
-                </td>
-              </tr>
+                {{ end }}
+              {{ end }}
             {{ end }}
-          </tbody>
         </table>
       </td>
     </tr>
