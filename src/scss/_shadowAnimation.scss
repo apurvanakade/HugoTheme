@@ -9,11 +9,11 @@
 /* Animating the raised box at pageload */
 /****************************************/
 
-#mainText {
+.mainText {
   position: relative;
 }
 
-#mainText:after {
+.mainText:after {
   z-index: -1;
   top: 0;
   bottom: 0;
@@ -27,7 +27,7 @@
 
 body.animateShadow {
   transition: background-color 2s ease-in-out;
-  #mainText::after {
+  .mainText::after {
     transition: opacity 2s ease-in-out;
   }
 }
@@ -35,14 +35,14 @@ body.animateShadow {
 
 body.flat{
   background-color: $font-background-color;
-  #mainText::after {
+  .mainText::after {
     opacity: 0;
   }
 }
 
 body.raised {
   background-color: $page-background-color;
-  #mainText::after {
+  .mainText::after {
     opacity: 1;
   }
 }
