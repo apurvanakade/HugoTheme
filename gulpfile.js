@@ -25,14 +25,14 @@ gulp.task("scss", function () {
 })
 
 // Hash images
-gulp.task("images", function () {
-    del(["static/images/**/*"])
-    gulp.src("src/images/**/*")
-        .pipe(hash())
-        .pipe(gulp.dest("static/images"))
-        .pipe(hash.manifest("hash.json"))
-        .pipe(gulp.dest("data/images"))
-})
+// gulp.task("images", function () {
+//     del(["static/images/**/*"])
+//     gulp.src("src/images/**/*")
+//         .pipe(hash())
+//         .pipe(gulp.dest("static/images"))
+//         .pipe(hash.manifest("hash.json"))
+//         .pipe(gulp.dest("data/images"))
+// })
 
 // Hash javascript
 gulp.task("js", function () {
@@ -45,9 +45,9 @@ gulp.task("js", function () {
 })
 
 // Watch asset folder for changes
-gulp.task("watch", ["scss", "images", "js"], function () {
+gulp.task("watch", ["scss", "js"], function () {
     gulp.watch("src/scss/**/*", ["scss"])
-    gulp.watch("src/images/**/*", ["images"])
+//    gulp.watch("src/images/**/*", ["images"])
     gulp.watch("src/js/**/*", ["js"])
 })
 

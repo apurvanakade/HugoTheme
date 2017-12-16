@@ -7,18 +7,16 @@ Source: https://www.henriksommerfeld.se/hugo-tag-could/
 -->
 
 <table id="tagCloud">
-    <tr>
+    <tr class="categories">
         <td>
             {{ range where .Site.Pages "Section" "posts" }}
-              {{ if ne .Type "post" }}
-                {{ if ne .Title "Posts"}}
+              {{ if and (.IsSection) (ne .Title "Posts") }}
                 <a class="crosslink" href="{{ .RelPermalink }}">{{.Title}}</a>
-                {{ end}}
               {{ end }}
             {{ end }}
         <td>
       </tr>
-      <tr>
+      <tr class="tags">
         <td>
 
             {{ $fontUnit := "em" }}
@@ -46,6 +44,9 @@ Source: https://www.henriksommerfeld.se/hugo-tag-could/
     </tr>
 </table>
 
-<div class="footer-credits">
-  <em>Credits: </em><a href="https://gohugo.io/">Hugo</a>.
+<script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "addIcons.js" }}'></script>
+<div id="footer-credits">
+  <a href="https://gohugo.io/" data="hugo.png" target="_blank"> </a>
+  <a href="https://github.com/apurvnakade/" data="github.svg" target="_blank"> </a>
+  <a href="https://www.iconfinder.com/iconsets/black-white-social-media" data="www.svg" target="_blank"> </a>
 </div>

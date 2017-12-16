@@ -102,12 +102,6 @@ a {
   font-size: small;
 }
 
-.footer-credits {
-/* Powered by Hugo */
-	font-size: small;
-	text-align: right;
-}
-
 .tags-display {
 	font-size: small;
   text-align: right;
@@ -216,6 +210,16 @@ body.raised {
 }
 .sortDesc::before {
   content: ' ↑';
+}
+
+#footer-credits {
+  text-align:right;
+  font-size: small;
+  vertical-align: top;
+  img {
+    height: 20px;
+    margin-bottom:-5px;
+  }
 }
 
 /***************************************/

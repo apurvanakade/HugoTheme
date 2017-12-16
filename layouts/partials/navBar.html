@@ -1,4 +1,5 @@
 <table id="navBar">
+
   <tr>
     <td>
       {{ if .Paginator.HasNext }}
@@ -8,7 +9,7 @@
       {{ end }}
     </td>
     <td>
-      <a class="crosslink" href="/pages/archive">Archive</a>
+      <a class="crosslink" href="/pages/archive">Archive</a> {{ if not .IsHome }}| <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a> {{ end }}</td>
     </td>
     <td>
       {{ if .Paginator.HasPrev }}
