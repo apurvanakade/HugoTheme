@@ -1,0 +1,20 @@
+<table id="navBar"><!-- style="border-bottom: 1px solid white;"-->
+  <tr>
+    <td>
+      {{ if .PrevInSection }}
+        <a class="crosslink" href="{{.PrevInSection.RelPermalink}}">&#9664; Prev</a>
+      {{ else }}
+        <p style="opacity: 0">&#9664; Prev</p>
+      {{ end }}
+    </td>
+    <td>
+      <a class="crosslink" href="{{ .Parent.RelPermalink }}">Up</a> |  <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a> </td>
+    <td>
+      {{ if .NextInSection }}
+        <a class="crosslink" href="{{.Next.RelPermalink}}">Next &#9654;</a>
+      {{ else }}
+        <p style="opacity: 0">Next &#9654;</p>
+      {{ end }}
+    </td>
+  </tr>
+</table>

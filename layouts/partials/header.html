@@ -9,11 +9,4 @@
     <link rel="stylesheet" href='/css/{{ index .Site.Data.css.hash "style.css" }}'>
 
     <script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "main.js" }}'></script>
-    <script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "siteMap.js" }}'></script>
-    <script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "addIcons.js" }}'></script>
   </head>
-
-    <body class='{{ if eq .Type "post"}}single-post{{ else }}list-page{{ end }}'>
-      <script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "setPageType.js" }}'></script>
-
-      <div id="wrapper-main">

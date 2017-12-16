@@ -1,6 +1,8 @@
 {{ partial "header" . }}
-{{ partial "siteMap" .}}
+<body class="single-post">
+<script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "setPageType.js" }}'></script>
 
+<<<<<<< HEAD
     <table class="mainText one-column wide">
       <tr>
         <td>
@@ -11,23 +13,42 @@
             <a class="crosslink" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
         </td>
       </tr>
+=======
+  <div id="wrapper-main"> <!-- main use for setting column width-->
+>>>>>>> parent of d25cecb... Archive is now a sidebar
 
-      <tr>
-        <td class="post">{{ .Content }}</td>
-      </tr>
+<table id="mainText" class="one-column">
+  <tr>
+    <td>
+      <h2 id="postTitle">
+        <a class="crosslink" href="{{ .Site.BaseURL | relURL}}">{{ .Title }}</a>
+      </h2>
+      <p class="date">{{ .Date.Format "January 2, 2006" }} <br>
+          Filed under
+          <a class="crosslink" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
+      </div>
+    </td>
+  </tr>
 
-      {{ if .Params.tags}}
-      <tr>
-        <td>
-          <div class="tags-display">
-            {{ if .Params.tags}} {{ range .Params.tags }}
-            <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a> {{ end }} {{ end }}
-          </div>
-        </td>
-      </tr>
-      {{ end }}
-    </table>
+  <tr>
+    <td class="post">{{ .Content }}</td>
+  </tr>
 
-{{ partial "navBar" . }}
+  {{ if .Params.tags}}
+  <tr>
+    <td>
+      <div class="tags-display">
+        {{ if .Params.tags}}
+          {{ range .Params.tags }}
+            <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+    </td>
+  </tr>
+  {{ end }}
+</table>
+
+{{ partial "navBarSingle" . }}
 {{ partial "social" . }}
 {{ partial "footer" . }}
