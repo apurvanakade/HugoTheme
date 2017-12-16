@@ -1,0 +1,102 @@
+/***********************/
+/***********************/
+/* global CSS elements */
+/***********************/
+/***********************/
+
+//for wider screens
+@media (min-width: 700px) {
+  .narrow-screen-only {
+    display: none;
+  }
+  .wide-screen-only {
+    min-width: 100px;
+  }
+}
+
+//for narrower screens
+@media (max-width: 700px) {
+  .wide-screen-only {
+    display: none;
+  }
+}
+
+
+body {
+  background-color: $page-background-color;
+  font: 18px $font-families;
+  color: $font-color;
+  line-height: 150%;
+}
+
+a {
+  text-decoration: none;
+  &:link {
+    color: $hyperlink-new;
+  }
+  &:active, &:hover, &:visited {
+    color: $hyperlink-old;
+  }
+}
+
+#wrapper-main {
+    max-width: 900px;
+    margin: auto;
+    margin-top: 5*$unit-padding;
+    margin-bottom: 10*$unit-padding;
+}
+
+.Title {
+  font-size: 2em;
+  font-weight: bold;
+  padding-top: 2*$unit-padding;
+  a {
+      color: $font-color;
+  }
+}
+
+#mainText {
+  background-color: $font-background-color;
+  width: 100%;
+  padding: 2*$unit-padding;
+  padding-right: 3*$unit-padding;
+}
+
+table.wide {
+  width: 100%;
+}
+
+table.two-column-page {
+  td:first-of-type {
+    text-align: left;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+}
+
+td{
+  vertical-align: top;
+}
+
+td.post{
+  text-align: justify;
+  hyphens: auto;
+}
+
+.date {
+/* date at the top of the post and on index.html*/
+  font-size: small;
+  font-weight: normal;
+  padding-left: $unit-padding/2;
+}
+
+.tags-display {
+	font-size: small;
+  text-align: right;
+}
+
+.read-more {
+/* for truncated summaries*/
+  font-size: small;
+  font-weight: bold;
+}

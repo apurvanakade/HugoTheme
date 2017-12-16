@@ -1,0 +1,48 @@
+/******************************/
+/******************************/
+/* CSS elements for animation */
+/******************************/
+/******************************/
+
+
+/****************************************/
+/* Animating the raised box at pageload */
+/****************************************/
+
+#mainText {
+  position: relative;
+}
+
+#mainText:after {
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  content: '';
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+body.animateShadow {
+  transition: background-color 2s ease-in-out;
+  #mainText::after {
+    transition: opacity 2s ease-in-out;
+  }
+}
+
+
+body.flat{
+  background-color: $font-background-color;
+  #mainText::after {
+    opacity: 0;
+  }
+}
+
+body.raised {
+  background-color: $page-background-color;
+  #mainText::after {
+    opacity: 1;
+  }
+}

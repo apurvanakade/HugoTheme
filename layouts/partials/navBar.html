@@ -1,22 +1,39 @@
 <table id="navBar">
-
-  <tr>
-    <td>
-      {{ if .Paginator.HasNext }}
-        <a class="crosslink" href="{{ .Paginator.Next.URL | relURL }}">&#9664; Older</a>
-      {{ else }}
-        <p style="opacity: 0">&#9664; Older</p>
-      {{ end }}
-    </td>
-    <td>
-      <a class="crosslink" href="/pages/archive">Archive</a> {{ if not .IsHome }}| <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a> {{ end }}</td>
-    </td>
-    <td>
-      {{ if .Paginator.HasPrev }}
-        <a class="crosslink" href="{{ .Paginator.Prev.URL | relURL }}">Newer &#9654;</a>
-      {{ else }}
-          <p style="opacity: 0">Newer &#9654;</p>
-      {{ end }}
-    </td>
-  </tr>
+     <tr>
+      <td>
+        {{ if eq .Type "post"}}
+          {{ if .PrevInSection }}
+            <a class="crosslink" href="{{.PrevInSection.RelPermalink}}">&#9664; Prev</a>
+          {{ else }}
+            <p style="opacity: 0">&#9664; Prev</p>
+          {{ end }}
+        {{ else }}
+          {{ if .Paginator.HasNext }}
+            <a class="crosslink" href="{{ .Paginator.Next.URL | relURL }}">&#9664; Older</a>
+          {{ else }}
+            <p style="opacity: 0">&#9664; Older</p>
+          {{ end }}
+        {{ end }}
+      </td>
+      <td>
+        <a href="javascript:showSiteMap()">Site Map</a> {{ if not .IsHome }}| <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a> {{ end }}</td>
+      </td>
+      <td>
+        {{ if eq .Type "post"}}
+          {{ if .NextInSection }}
+            <a class="crosslink" href="{{.Next.RelPermalink}}">Next &#9654;</a>
+          {{ else }}
+            <p style="opacity: 0">Next &#9654;</p>
+          {{ end }}
+        {{ else }}
+          {{ if .Paginator.HasPrev }}
+            <a class="crosslink" href="{{ .Paginator.Prev.URL | relURL }}">Newer &#9654;</a>
+          {{ else }}
+              <p style="opacity: 0">Newer &#9654;</p>
+          {{ end }}
+        {{ end }}
+      </td>
+    </tr>
 </table>
+
+{{ partial "tagCloud" . }}

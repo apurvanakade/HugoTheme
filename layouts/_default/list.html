@@ -1,14 +1,11 @@
-{{ $paginator := .Paginate (where .Data.Pages "Type" "post") 10 }}
 {{ partial "header" . }}
-
-<body class="list-page">
-<script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "setPageType.js" }}'></script>
-  <div id="wrapper-main"> <!-- main use for setting column width-->
+{{ partial "siteMap" .}}
 
   <table id="mainText" class="two-column-page">
     <tr>
       <td>
-        <h1 id="siteTitle"><a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">{{ .Title}}</a></h1>
+        <div class="Title"><a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">{{ .Title}}</a></div>
+        <br>
       </td>
     </tr>
 
@@ -16,7 +13,7 @@
     {{ range sort .Paginator.Pages }}
       <tr>
         <td class = "wide-screen-only">
-          <h3><a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a></h3>
+          <a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a>
           <p class="date">{{ .Date.Format "January 2" }}</p>
         </td>
 
@@ -53,8 +50,5 @@
     {{ end }}
   </table>
 
-
-
 {{ partial "navBar" . }}
-{{ partial "tagCloud" . }}
 {{ partial "footer" . }}

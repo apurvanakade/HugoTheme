@@ -1,0 +1,28 @@
+/*****************************/
+/*****************************/
+/* CSS elements for markdown */
+/*****************************/
+/*****************************/
+.large {
+    text-align: center;
+    padding-top: 3*$unit-padding;
+    padding-bottom: 3*$unit-padding;
+    max-width: 80%;
+    margin: auto;
+  img {
+      max-width: 100%;
+  }
+}
+
+
+.xlarge {
+  text-align: center;
+  padding-top: 3*$unit-padding;
+  padding-bottom: 3*$unit-padding;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin: auto;
+  img {
+    width: 100%;
+  }
+}

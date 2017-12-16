@@ -1,41 +1,33 @@
 {{ partial "header" . }}
-<body class="single-post">
-<script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "setPageType.js" }}'></script>
+{{ partial "siteMap" .}}
 
-  <div id="wrapper-main"> <!-- main use for setting column width-->
+    <table id="mainText" class="one-column">
+      <tr>
+        <td>
+          <div class="Title">
+              <a class="crosslink" href="{{ .Site.BaseURL | relURL}}">{{ .Title }}</a>
+          </div>
+          <p class="date">{{ .Date.Format "January 2, 2006" }} <br> Filed under
+            <a class="crosslink" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
+        </td>
+      </tr>
 
-<table id="mainText" class="one-column">
-  <tr>
-    <td>
-      <h2 id="postTitle">
-        <a class="crosslink" href="{{ .Site.BaseURL | relURL}}">{{ .Title }}</a>
-      </h2>
-      <p class="date">{{ .Date.Format "January 2, 2006" }} <br>
-          Filed under
-          <a class="crosslink" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
-      </div>
-    </td>
-  </tr>
+      <tr>
+        <td class="post">{{ .Content }}</td>
+      </tr>
 
-  <tr>
-    <td class="post">{{ .Content }}</td>
-  </tr>
+      {{ if .Params.tags}}
+      <tr>
+        <td>
+          <div class="tags-display">
+            {{ if .Params.tags}} {{ range .Params.tags }}
+            <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a> {{ end }} {{ end }}
+          </div>
+        </td>
+      </tr>
+      {{ end }}
+    </table>
 
-  {{ if .Params.tags}}
-  <tr>
-    <td>
-      <div class="tags-display">
-        {{ if .Params.tags}}
-          {{ range .Params.tags }}
-            <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a>
-          {{ end }}
-        {{ end }}
-      </div>
-    </td>
-  </tr>
-  {{ end }}
-</table>
-
-{{ partial "navBarSingle" . }}
+{{ partial "navBar" . }}
 {{ partial "social" . }}
 {{ partial "footer" . }}

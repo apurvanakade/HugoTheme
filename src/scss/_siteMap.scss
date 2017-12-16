@@ -1,0 +1,38 @@
+/*********************************/
+/*********************************/
+/* CSS elements used in the tree */
+/*********************************/
+/*********************************/
+#siteMap {
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255, 0.98);
+    overflow-y: auto;
+    transition: 0.5s ease-in-out;
+
+    text-align: left;
+    font-size: small;
+
+    table {
+      margin:auto;
+      width:auto;
+      padding-top: 10*$unit-padding;
+
+      td {
+        vertical-align: middle;
+        padding-right: 2*$unit-padding;
+        line-height: 150%;
+      }
+      td:last-of-type {
+        width: 46%;
+      }
+      td.arrow {
+        padding: 0px;
+        color: darken(red,20%);
+      }
+    }
+}
