@@ -1,7 +1,10 @@
-$page-background-color: #f0f0f0;
+$page-background-color: whitesmoke; //#f0f0f0;
 $font-background-color: #ffffff;
 $hyperlink-new: #2583FF;
 $hyperlink-old: #2583AD;
+$hyperlink-hover: #d50a83;
+$hyperlink-tags: lighten(olivedrab,10%);
+$hyperlink-categories: olivedrab;
 $font-families: "Helvetica Neue", "Helvetica", "sans-serif";
 $font-color: black;
 $unit-padding: 10px;

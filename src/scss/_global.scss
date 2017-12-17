@@ -34,9 +34,32 @@ a {
   &:link {
     color: $hyperlink-new;
   }
-  &:active, &:hover, &:visited {
+  &:active, &:visited {
     color: $hyperlink-old;
   }
+  &:hover {
+    color: $hyperlink-hover;
+  }
+}
+
+a.tags {
+  font-size: 80%;
+    &:link, &:active, &:visited {
+    color: $hyperlink-tags;
+    }
+    &:hover {
+      color: $hyperlink-hover;
+    }
+}
+
+a.categories {
+  font-size: 80%;
+    &:link, &:active, &:visited {
+    color: $hyperlink-categories;
+    }
+    &:hover {
+      color: $hyperlink-hover;
+    }
 }
 
 #wrapper-main {
@@ -91,8 +114,7 @@ td.post{
 }
 
 .tags-display {
-	font-size: small;
-  text-align: right;
+  text-align: right;;
 }
 
 .read-more {

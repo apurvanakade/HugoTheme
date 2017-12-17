@@ -21,7 +21,7 @@
       <td>
         {{ if eq .Type "post"}}
           {{ if .NextInSection }}
-            <a class="crosslink" href="{{.Next.RelPermalink}}">Next &#9654;</a>
+            <a class="crosslink" href="{{.NextInSection.RelPermalink}}">Next &#9654;</a>
           {{ else }}
             <p style="opacity: 0">Next &#9654;</p>
           {{ end }}

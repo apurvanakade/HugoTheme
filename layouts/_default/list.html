@@ -35,11 +35,11 @@
           </span>
 
           <div class="tags-display">
-            <a class="crosslink" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
+            <a class="crosslink categories" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
 
             {{ if .Params.tags}}
               {{ range .Params.tags }}
-                <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a>
+                <a class="crosslink tags" href="/tags/{{ . | urlize }}">#{{.}}</a>
               {{ end }}
             {{ end }}
           </div>

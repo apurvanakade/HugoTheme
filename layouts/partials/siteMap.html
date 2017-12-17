@@ -1,5 +1,4 @@
 {{ $myURL := .Permalink }}
-
 <div id="siteMap" onclick="hideSiteMap()">
   <table class="mainText">
         <thead>
@@ -14,22 +13,26 @@
             {{ if eq .Title "Posts"}}
                 {{ range .Sections}}
                 <tr>
+                  {{ if eq .Permalink $myURL}}
                   <td class="arrow">
-                    {{ if eq .Permalink $myURL}}▶{{ end }}
-                  </td>
+                    ▶ {{ .Title }}
+                  {{ else }}
                   <td>
-                    <a class="crosslink" href="{{ .RelPermalink }}">
-                      {{.Title}}
+                    <a class="crosslink" href="{{ .RelPermalink}}">
+                      {{ .Title }}
                     </a>
-                  </td>
+                  {{ end }}
+                </td>
                       {{ range .Pages }}
-                        <td class="arrow">
-                          {{ if eq .Permalink $myURL}}▶{{ end }}
-                        </td>
-                        <td>
-                          <a class="crosslink" href="{{ .RelPermalink}}">
-                            {{ .Title }}
-                          </a>
+                          {{ if eq .Permalink $myURL}}
+                          <td class="arrow">
+                            ▶ {{ .Title }}
+                          {{ else }}
+                          <td>
+                            <a class="crosslink" href="{{ .RelPermalink}}">
+                              {{ .Title }}
+                            </a>
+                          {{ end }}
                         </td>
                         <td>
                           <span class="wide-screen-only">{{ .Date.Format "Jan 01, 2006" }}</span>
@@ -44,9 +47,7 @@
                       </tr>
                       <tr>
                         <td></td>
-                        <td></td>
                       {{ end }}
-                      <td></td>
                       <td></td>
                       <td></td>
                       <td></td>
