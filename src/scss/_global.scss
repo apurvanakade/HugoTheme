@@ -55,9 +55,9 @@ a {
   }
 }
 
-.mainText {
-  margin: auto;
+#mainText {
   background-color: $font-background-color;
+  width: 100%;
   padding: 2*$unit-padding;
   padding-right: 3*$unit-padding;
 }
