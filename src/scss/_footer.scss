@@ -1,0 +1,40 @@
+/***********************************/
+/***********************************/
+/* CSS elements used in the footer */
+/***********************************/
+/***********************************/
+
+#tagCloud {
+  padding-top: 10*$unit-padding;
+  font-size:smaller;
+}
+
+#footer-credits {
+  text-align:right;
+  font-size: small;
+  vertical-align: top;
+  float: right;
+  img {
+    height: 20px;
+    margin-bottom:-5px;
+  }
+}
+
+#navBar {
+  width: 100%;
+  font-size: small;
+  font-weight: bold;
+  margin-bottom: 1.5*$unit-padding;
+  line-height: 50%;
+  text-align: center;
+  td {
+    column-width: 33%;
+    vertical-align: bottom;
+  }
+  td:last-of-type {
+    text-align: right;
+  }
+  td:first-of-type {
+    text-align: left;
+  }
+}
