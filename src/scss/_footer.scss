@@ -10,7 +10,9 @@
 }
 
 #footer-credits {
-  float: right;
+  margin: auto;
+  text-align: center;
+  padding: 5*$unit-padding;
   img {
     height: 20px;
   }

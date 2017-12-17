@@ -24,7 +24,7 @@
 
 body {
   background-color: $page-background-color;
-  font: 18px $font-families;
+  font: $font-size $font-families;
   color: $font-color;
   line-height: 150%;
 }
@@ -43,7 +43,7 @@ a {
 }
 
 a.tags {
-  font-size: 80%;
+  font-size: 0.7 * $font-size;
     &:link, &:active, &:visited {
     color: $hyperlink-tags;
     }
@@ -53,7 +53,7 @@ a.tags {
 }
 
 a.categories {
-  font-size: 80%;
+  font-size: 0.7 * $font-size;
     &:link, &:active, &:visited {
     color: $hyperlink-categories;
     }

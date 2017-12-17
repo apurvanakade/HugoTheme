@@ -5,7 +5,8 @@ Finally, can't think of any more major changes and the theme is more or less sta
 
 ## TODO:
 0. Put useful links and references in this README file.
-1. Add color.
+1. Create a list page for photos
+
 
 
 ## Useful links:

@@ -31,9 +31,7 @@
          line-height: 150%;
       }
 
-    td.arrow {
+    .arrow {
         color: $hyperlink-hover; //darken(red,20%);
-        position: relative;
-        left: -1.5em;
       }
 }

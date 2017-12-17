@@ -15,7 +15,7 @@
                 <tr>
                   {{ if eq .Permalink $myURL}}
                   <td class="arrow">
-                    ▶ {{ .Title }}
+                     {{ .Title }}
                   {{ else }}
                   <td>
                     <a class="crosslink" href="{{ .RelPermalink}}">
@@ -26,7 +26,7 @@
                       {{ range .Pages }}
                           {{ if eq .Permalink $myURL}}
                           <td class="arrow">
-                            ▶ {{ .Title }}
+                             {{ .Title }}
                           {{ else }}
                           <td>
                             <a class="crosslink" href="{{ .RelPermalink}}">
@@ -40,7 +40,19 @@
                         <td>
                           {{ if .Params.tags}}
                             {{ range .Params.tags }}
-                              <a class="crosslink" href="/tags/{{ . | urlize }}">#{{.}}</a>
+                                {{ $temp:= (printf "/tags/%s/" . | urlize ) }}
+                                  {{ if eq $temp  $.URL }}
+                                  <span class="arrow">
+                                    #{{ . }}
+                                  </span>
+                                  {{ else }}
+                                  <a class="crosslink" href="/tags/{{ . | urlize }}">
+                                    #{{ . }}
+                                  </a>
+                                  {{ end }}
+
+                                </span>
+                              </a>
                             {{ end }}
                           {{ end }}
                         </td>
