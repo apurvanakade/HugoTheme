@@ -1,10 +1,6 @@
 {{ $paginator := .Paginate (where .Data.Pages "Type" "post") 10 }}
 {{ partial "header" . }}
 
-<body class="list-page">
-<script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "setPageType.js" }}'></script>
-  <div id="wrapper-main"> <!-- main use for setting column width-->
-
   <table id="mainText" class="two-column-page">
     <tr>
       <td>
