@@ -10,26 +10,19 @@
 }
 
 #footer-credits {
-  text-align:right;
-  vertical-align: top;
   float: right;
-  line-height: 100%;
   img {
     height: 20px;
-    margin-bottom:-5px;
   }
 }
 
 #navBar {
   width: 100%;
   font-size: small;
-  font-weight: bold;
-  margin-bottom: 1.5*$unit-padding;
-  line-height: 50%;
   text-align: center;
   td {
     column-width: 33%;
-    vertical-align: bottom;
+    vertical-align: middle;
   }
   td:last-of-type {
     text-align: right;

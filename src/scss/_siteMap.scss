@@ -15,6 +15,8 @@
     transition: 0.2s ease-in-out;
     text-align: left;
 
+    font-family: monospace;
+
     table{
         margin:auto;
         margin-top:  5*$unit-padding;
@@ -25,12 +27,13 @@
     td {
          font-size: small;
          vertical-align: middle;
-        padding-right: 2*$unit-padding;
-        line-height: 150%;
+         padding-right: 3*$unit-padding;
+         line-height: 150%;
       }
 
     td.arrow {
-        padding: 0px;
         color: $hyperlink-hover; //darken(red,20%);
+        position: relative;
+        left: -1.5em;
       }
 }
