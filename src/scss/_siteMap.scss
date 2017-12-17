@@ -15,24 +15,19 @@
     transition: 0.5s ease-in-out;
 
     text-align: left;
-    font-size: small;
 
-    table {
-      margin:auto;
-      width:auto;
-      padding-top: 10*$unit-padding;
-
-      td {
-        vertical-align: middle;
+    th {
+        padding-bottom: 5*$unit-padding;
+    }
+    td {
+         font-size: small;
+         vertical-align: middle;
         padding-right: 2*$unit-padding;
         line-height: 150%;
       }
-      td:last-of-type {
-        width: 46%;
-      }
-      td.arrow {
+
+    td.arrow {
         padding: 0px;
         color: darken(red,20%);
       }
-    }
 }
