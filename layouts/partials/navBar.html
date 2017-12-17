@@ -16,7 +16,12 @@
         {{ end }}
       </td>
       <td>
-        <a href="javascript:showSiteMap()">Site Map</a> {{ if not .IsHome }}| <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a> {{ end }}</td>
+        <a href="javascript:showSiteMap()">Site Map</a>
+        {{ if eq .Type "post"}}
+            | <a class="crosslink" href="{{ .Parent.RelPermalink }}">Up</a>
+        {{ else if not .IsHome }}
+            | <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Up</a>
+        {{ end }}
       </td>
       <td>
         {{ if eq .Type "post"}}
