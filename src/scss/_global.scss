@@ -48,7 +48,7 @@ body.list {
 
       .cell {
         position: relative;
-        &:hover::after{
+        &::after{
           content: '';
           position: absolute;
           z-index: -1; /* hide shadow behind image */
@@ -57,6 +57,13 @@ body.list {
           left: -5%; /* one half of the remaining 30% */
           height: 110% ;
           bottom: -5%;
+          opacity: 0;
+        }
+        &:hover::after{
+          opacity: 1;
+        }
+        &:active::after{
+          opacity: 0;
         }
       }
   }
