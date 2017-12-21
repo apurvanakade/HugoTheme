@@ -10,7 +10,7 @@
     <p class="date">{{ .Date.Format "January 2, 2006" }}
       <br> Filed under <a class="crosslink categories" href="{{ .Parent.RelPermalink }}" style="display:inline">{{ .CurrentSection.Title }}</a>
     </p>
-    <td class="post">{{ .Content }}</td>
+    <div class="post">{{ .Content }}</div>
 
     {{ if .Params.tags}}
     <div class="tags-display">
