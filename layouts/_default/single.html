@@ -7,8 +7,10 @@
       <a class="crosslink" href="{{ .Site.BaseURL | relURL}}">{{ .Title }}</a>
     </div>
 
-    <p class="date">{{ .Date.Format "January 2, 2006" }}
-      <br> Filed under <a class="crosslink categories" href="{{ .Parent.RelPermalink }}" style="display:inline">{{ .CurrentSection.Title }}</a>
+    <p>
+      <span class = "date">{{ .Date.Format "January 2, 2006" }}
+      <br> Filed under </span>
+      <a class="crosslink categories" href="{{ .Parent.RelPermalink }}" style="display:inline">{{ .CurrentSection.Title }}</a>
     </p>
     <div class="post">{{ .Content }}</div>
 
@@ -23,6 +25,7 @@
 
   <div class="footer">
     {{ partial "navBar" . }}
+    {{ partial "tagCloud" . }}
     {{ partial "social" . }}
   </div>
 

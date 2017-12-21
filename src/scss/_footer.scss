@@ -4,7 +4,6 @@
 /***********************************/
 /***********************************/
 .footer {
-  font-size: small;
   text-align: center;
   max-width: $max-width;
   margin: auto;
@@ -20,6 +19,7 @@
 }
 
 #navBar {
+  font-size: small;
   width: 100%;
   margin-top: 15*$unit-margin;
 

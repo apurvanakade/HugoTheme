@@ -6,11 +6,9 @@
 
 //for wider screens
 @media (min-width: 750px) {
-  body.list {
-    .mainGrid {
-      margin: 50px;
+ .mainGrid {
+      margin: 5*$unit-margin;
     }
-  }
 }
 
 //for narrower screens
@@ -33,13 +31,6 @@ body {
   margin: 0;
 }
 
-.mainGrid {
-  margin-top: 5*$unit-margin;
-  .cell {
-    padding: 2*$unit-padding;
-  }
-}
-
 body.list {
   font-size: $small-font-size;
   .mainGrid {
@@ -48,11 +39,25 @@ body.list {
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       grid-template-rows: max-content;
 
-      grid-row-gap: 1em;
-      grid-column-gap: 1em;
+      grid-row-gap: 2em;
+      grid-column-gap: 3em;
 
       .Title {
-        margin-top: 12*$unit-margin;
+        margin-top: 10*$unit-margin;
+      }
+
+      .cell {
+        position: relative;
+        &:hover::after{
+          content: '';
+          position: absolute;
+          z-index: -1; /* hide shadow behind image */
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          width: 110%;
+          left: -5%; /* one half of the remaining 30% */
+          height: 110% ;
+          bottom: -5%;
+        }
       }
   }
 }
@@ -86,7 +91,7 @@ a {
 }
 
 a.tags {
-  font-size: 0.7 * $font-size;
+  font-size: 75%;
     &:link, &:active, &:visited {
     color: $hyperlink-tags;
     }
@@ -96,7 +101,7 @@ a.tags {
 }
 
 a.categories {
-  font-size: 0.7 * $font-size;
+  font-size: 75%;
     &:link, &:active, &:visited {
     color: $hyperlink-categories;
     }
@@ -116,6 +121,7 @@ a.categories {
   text-align: justify;
   hyphens: auto;
 }
+
 
 .tags-display {
   text-align: right;

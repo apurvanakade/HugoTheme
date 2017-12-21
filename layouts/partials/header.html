@@ -2,6 +2,8 @@
 <html lang="en">
 
   <head>
+      {{ template "_internal/google_analytics_async.html" . }}
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <meta charset="UTF-8">
@@ -11,4 +13,5 @@
 
     <script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "siteMap.js" }}'></script>
     <script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "addIcons.js" }}'></script>
+
   </head>
