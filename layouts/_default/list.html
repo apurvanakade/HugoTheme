@@ -1,54 +1,36 @@
-{{ partial "header" . }}
-{{ partial "siteMap" .}}
+{{ partial "header" .}}
 
-  <table class="two-column-page wide" id="mainText">
-    <tr>
-      <td>
-        <div class="Title"><a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">{{ .Title}}</a></div>
-        <br>
-      </td>
-    </tr>
+<body class='list'>
+  <div class="mainGrid">
+    <div class="Title">
+      <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">{{ .Title }}</a>
+    </div>
 
 
     {{ range sort .Paginator.Pages }}
-      <tr>
-        <td class = "wide-screen-only">
-          <a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a>
-          <p class="date">{{ .Date.Format "January 2" }}</p>
-        </td>
-
-        <td class="post">
-          <div class = "narrow-screen-only">
-            <h3><a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a></h3>
-            <p class="date">{{ .Date.Format "January 2" }}</p>
-          </div>
-
-          {{ if gt (len .Summary) 400 }}
-            {{slicestr .Summary 0 400 | plainify | safeHTML }}
-          {{ else }}
-            {{ .Summary | plainify | safeHTML }}
-          {{ end }}
-
-          <span class="read-more">
-             <a class="crosslink" href="{{ .RelPermalink }}">
+    <div class="cell">
+      <a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a>
+      <br>
+      <a class="crosslink categories" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
+      <div class="post">
+        {{ if gt (len .Summary) 300 }} {{slicestr .Summary 0 300 | plainify | safeHTML }} {{ else }} {{ .Summary | plainify | safeHTML }} {{ end }}
+        <a class="crosslink read-more" href="{{ .RelPermalink }}">
               . . . Read more</a>
-          </span>
+      </div>
 
-          <div class="tags-display">
-            <a class="crosslink categories" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
+      <div class="tags-display">
+        {{ if .Params.tags}} {{ range .Params.tags }}
+        <a class="crosslink tags" href="/tags/{{ . | urlize }}">#{{.}}</a> {{ end }} {{ end }}
+      </div>
 
-            {{ if .Params.tags}}
-              {{ range .Params.tags }}
-                <a class="crosslink tags" href="/tags/{{ . | urlize }}">#{{.}}</a>
-              {{ end }}
-            {{ end }}
-          </div>
-          <br>
-          <br>
-        </td>
-      </tr>
-    {{ end }}
-  </table>
+    </div>
+    {{ end }} {{ partial "tagCloud" .}}
+  </div>
 
-{{ partial "navBar" . }}
-{{ partial "footer" . }}
+
+  <div class="footer">
+    {{ partial "navBar" .}} {{ partial "siteMap" .}}
+  </div>
+</body>
+
+</html>

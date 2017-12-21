@@ -1,34 +1,31 @@
 {{ partial "header" . }}
-{{ partial "siteMap" .}}
 
-    <table class="one-column wide" id="mainText">
-      <tr>
-        <td>
-          <div class="Title">
-              <a class="crosslink" href="{{ .Site.BaseURL | relURL}}">{{ .Title }}</a>
-          </div>
-          <p class="date">{{ .Date.Format "January 2, 2006" }} <br> Filed under <a class="crosslink categories" href="{{ .Parent.RelPermalink }}" style="display:inline">{{ .CurrentSection.Title }}</a></p>
-        </td>
-      </tr>
+<body class='single'>
+  <div class="mainGrid">
 
-      <tr>
-        <td class="post">{{ .Content }}</td>
-      </tr>
+    <div class="Title">
+      <a class="crosslink" href="{{ .Site.BaseURL | relURL}}">{{ .Title }}</a>
+    </div>
 
-      {{ if .Params.tags}}
-      <tr>
-        <td>
-          <div class="tags-display">
-            {{ range .Params.tags }}
-                <a class="crosslink tags" href="/tags/{{ . | urlize }}">#{{.}}</a>
-            {{ end }}
-          </div>
-          <br><br><br><br>
-        </td>
-      </tr>
-      {{ end }}
-    </table>
+    <p class="date">{{ .Date.Format "January 2, 2006" }}
+      <br> Filed under <a class="crosslink categories" href="{{ .Parent.RelPermalink }}" style="display:inline">{{ .CurrentSection.Title }}</a>
+    </p>
+    <td class="post">{{ .Content }}</td>
 
-{{ partial "navBar" . }}
-{{ partial "social" . }}
-{{ partial "footer" . }}
+    {{ if .Params.tags}}
+    <div class="tags-display">
+      {{ range .Params.tags }}
+      <a class="crosslink tags" href="/tags/{{ . | urlize }}">#{{.}}</a> {{ end }}
+    </div>
+    {{ end }}
+  </div>
+  {{ partial "siteMap" .}}
+
+  <div class="footer">
+    {{ partial "navBar" . }}
+    {{ partial "social" . }}
+  </div>
+
+</body>
+
+</html>

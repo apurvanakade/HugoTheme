@@ -5,28 +5,71 @@
 /***********************/
 
 //for wider screens
-@media (min-width: 700px) {
-  .narrow-screen-only {
-    display: none;
-  }
-  .wide-screen-only {
-    min-width: 100px;
+@media (min-width: 750px) {
+  body.list {
+    .mainGrid {
+      margin: 50px;
+    }
   }
 }
 
 //for narrower screens
-@media (max-width: 700px) {
+@media (max-width: 750px) {
   .wide-screen-only {
     display: none;
   }
-}
+
+  body.single .mainGrid {
+      padding: $unit-padding;
+    }
+  }
 
 
 body {
-  background-color: $page-background-color;
-  font: $font-size $font-families;
+  background-color: $background-color;
+  font-family: $font-families;
   color: $font-color;
   line-height: 150%;
+  margin: 0;
+}
+
+.mainGrid {
+  margin-top: 5*$unit-margin;
+  .cell {
+    padding: 2*$unit-padding;
+  }
+}
+
+body.list {
+  font-size: $small-font-size;
+  .mainGrid {
+      display: grid;
+
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-rows: max-content;
+
+      grid-row-gap: 1em;
+      grid-column-gap: 1em;
+
+      .Title {
+        margin-top: 120px;
+      }
+  }
+}
+
+body.single {
+  font-size: $font-size;
+
+  .mainGrid {
+      line-height: 200%;
+
+      margin-left: auto;
+      margin-right: auto;
+      max-width: $max-width;
+
+      text-align: justify;
+      hyphens: auto;
+  }
 }
 
 a {
@@ -62,63 +105,30 @@ a.categories {
     }
 }
 
-#wrapper-main {
-    max-width: 900px;
-    margin: auto;
-    margin-top: 5*$unit-padding;
-    margin-bottom: 10*$unit-padding;
-}
-
 .Title {
-  font-size: 2em;
-  font-weight: bold;
-  padding-top: 2*$unit-padding;
+  font-size: 3em;
   a {
       color: $font-color;
   }
 }
 
-#mainText {
-  margin: auto;
-  background-color: $font-background-color;
-  padding: 2*$unit-padding;
-  padding-right: 3*$unit-padding;
-}
-
-.wide {
-  width: 100%;
-}
-
-table.two-column-page {
-  td:first-of-type {
-    text-align: left;
-    font-size: 1.1em;
-    font-weight: bold;
-  }
-}
-
-td{
-  vertical-align: top;
-}
-
-td.post{
+.post {
   text-align: justify;
   hyphens: auto;
 }
 
-.date {
-/* date at the top of the post and on index.html*/
-  font-size: small;
-  font-weight: normal;
-  padding-left: $unit-padding/2;
-}
-
 .tags-display {
-  text-align: right;;
+  text-align: right;
+
+  margin-bottom:0px;
+  margin-top:auto;
+
+  line-height:100%;
+  grid-column: 1;
 }
 
-.read-more {
+
+.date, .read-more {
 /* for truncated summaries*/
   font-size: small;
-  font-weight: bold;
 }

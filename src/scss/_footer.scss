@@ -3,16 +3,17 @@
 /* CSS elements used in the footer */
 /***********************************/
 /***********************************/
-
-#tagCloud {
-  padding-top: 10*$unit-padding;
-  line-height: 50%;
+.footer {
+  font-size: small;
+  text-align: center;
+  max-width: $max-width;
+  margin: auto;
+  text-align: center;
 }
 
 #footer-credits {
-  margin: auto;
-  text-align: center;
-  padding: 5*$unit-padding;
+  margin-top: 20*$unit-margin;
+  margin-bottom: 20*$unit-margin;
   img {
     height: 20px;
   }
@@ -20,16 +21,22 @@
 
 #navBar {
   width: 100%;
-  font-size: small;
-  text-align: center;
-  td {
-    column-width: 33%;
-    vertical-align: middle;
+  margin-top: 15*$unit-margin;
+
+  td:first-of-type {
+    text-align: left;
   }
   td:last-of-type {
     text-align: right;
   }
-  td:first-of-type {
-    text-align: left;
+
+  a {
+    text-decoration: none;
+    &:link, &:active, &:visited {
+      color: $font-color;
+    }
+    &:hover {
+      color: $hyperlink-hover;
+    }
   }
 }

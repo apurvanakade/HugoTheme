@@ -3,10 +3,14 @@
 /* CSS elements for markdown */
 /*****************************/
 /*****************************/
+.medium {
+    max-width: 50%;
+  img {
+      max-width: 100%;
+  }
+}
+
 .large {
-    text-align: center;
-    padding-top: 3*$unit-padding;
-    padding-bottom: 3*$unit-padding;
     max-width: 80%;
     margin: auto;
   img {
@@ -16,12 +20,8 @@
 
 
 .xlarge {
-  text-align: center;
-  padding-top: 3*$unit-padding;
-  padding-bottom: 3*$unit-padding;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin: auto;
+  padding: 0px;
+  margin: 0px;
   img {
     width: 100%;
   }
