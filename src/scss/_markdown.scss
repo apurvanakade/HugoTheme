@@ -5,6 +5,7 @@
 /*****************************/
 .medium {
     max-width: 50%;
+    text-align: center;
   img {
       max-width: 100%;
   }
@@ -13,6 +14,7 @@
 .large {
     max-width: 80%;
     margin: auto;
+    text-align: center;
   img {
       max-width: 100%;
   }
@@ -22,6 +24,7 @@
 .xlarge {
   padding: 0px;
   margin: 0px;
+  text-align: center;
   img {
     width: 100%;
   }
