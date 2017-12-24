@@ -9,18 +9,6 @@
 <tr>
   <td>
     <table>
-      <thead><tr>
-      <th>Archive</th>
-      </tr></thead>
-      <tbody>
-        <!-- <tr>
-          <td>  
-            <a class="crosslink categories" href="{{ .Site.BaseURL | relURL}}">Home</a>
-          </td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr> -->
       {{ range .Site.Home.Sections}}
       {{ if eq .Title "Posts"}}
       {{ range .Sections}}
@@ -50,14 +38,10 @@
           <td></td>
         </tr>
       {{ end }}{{ end }}{{ end }}
-      </tbody>
     </table>
   </td>
   <td class="wide-screen-only">
-    <table id="blogRoll">
-      <tr>
-        <th>Recent Posts</th>
-      </tr>
+    <table id="recentPosts">
         {{ range where .Site.Pages "Type" "post"}}
         <tr>
             <td>

@@ -52,7 +52,7 @@ body.list {
 
       .cell {
         padding: 2*$unit-padding;
-        @include shadow_mouseover(0.5s);
+        @include shadow_mouseover(0s);
       }
   }
 }
