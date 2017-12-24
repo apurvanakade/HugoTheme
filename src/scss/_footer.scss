@@ -22,21 +22,12 @@
   font-size: small;
   width: 100%;
   margin-top: 15*$unit-margin;
+  margin-bottom: 5*$unit-margin;
 
   td:first-of-type {
     text-align: left;
   }
   td:last-of-type {
     text-align: right;
-  }
-
-  a {
-    text-decoration: none;
-    &:link, &:active, &:visited {
-      color: $font-color;
-    }
-    &:hover {
-      color: $hyperlink-hover;
-    }
   }
 }

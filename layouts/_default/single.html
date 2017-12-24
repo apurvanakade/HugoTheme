@@ -1,15 +1,15 @@
 {{ partial "header" . }}
 
 <body class='single'>
-  <div class="mainGrid">
+  <div id="mainGrid" class="mainGrid">
 
     <div class="Title">
       <a class="crosslink" href="{{ $.Site.BaseURL | relURL}}">{{ .Title }}</a>
     </div>
 
-    <p>
-      <span class = "date">{{ .Date.Format "January 2, 2006" }}
-      <br> Filed under </span>
+    <p class = "date">
+      {{ .Date.Format "January 2, 2006" }}
+      <br> Filed under 
       <a class="crosslink categories" href="{{ .Parent.RelPermalink }}" style="display:inline">{{ .CurrentSection.Title }}</a>
     </p>
     <div class="post">{{ .Content }}</div>

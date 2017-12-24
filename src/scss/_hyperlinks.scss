@@ -1,0 +1,43 @@
+a {
+  text-decoration: none;
+  &:link {
+    color: $hyperlink-new;
+  }
+  &:active, &:visited {
+    color: $hyperlink-old;
+  }
+  &:hover {
+    color: $hyperlink-hover;
+  }
+}
+
+a.tags {
+    &:link, &:active, &:visited {
+    color: peru;
+    }
+    &:hover {
+      color: $hyperlink-hover;
+    }
+}
+
+a.categories {
+    &:link, &:active, &:visited {
+    color: forestgreen;
+    }
+    &:hover {
+      color: $hyperlink-hover;
+    }
+}
+.Title a {
+  color: $font-color;
+}
+
+#navBar a {
+  text-decoration: none;
+  &:link, &:active, &:visited {
+    color: $font-color;
+  }
+  &:hover {
+    color: $hyperlink-hover;
+  }
+}

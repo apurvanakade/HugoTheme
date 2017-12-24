@@ -6,9 +6,12 @@
 
 //for wider screens
 @media (min-width: 750px) {
- .mainGrid {
-      margin: 5*$unit-margin;
+  body.list .mainGrid {
+      margin: $unit-margin;
     }
+  body.single .mainGrid {
+       margin-top: 5*$unit-padding;
+  }
 }
 
 //for narrower screens
@@ -16,11 +19,15 @@
   .wide-screen-only {
     display: none;
   }
-
+  
   body.single .mainGrid {
-      padding: $unit-padding;
-    }
+       padding: $unit-padding;
+       margin: $unit-margin;
   }
+  .footer {
+       margin: $unit-margin;
+  }
+}
 
 
 body {
@@ -36,35 +43,16 @@ body.list {
   .mainGrid {
       display: grid;
 
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      grid-template-rows: max-content;
-
-      grid-row-gap: 2em;
-      grid-column-gap: 3em;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
 
       .Title {
         margin-top: 10*$unit-margin;
+        padding: 2*$unit-padding;
       }
 
       .cell {
-        position: relative;
-        &::after{
-          content: '';
-          position: absolute;
-          z-index: -1; /* hide shadow behind image */
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          width: 110%;
-          left: -5%; /* one half of the remaining 30% */
-          height: 110% ;
-          bottom: -5%;
-          opacity: 0;
-        }
-        &:hover::after{
-          opacity: 1;
-        }
-        &:active::after{
-          opacity: 0;
-        }
+        padding: 2*$unit-padding;
+        @include shadow_mouseover(0.5s);
       }
   }
 }
@@ -79,49 +67,16 @@ body.single {
       max-width: $max-width;
   }
 
-  p {
+  .post p {
     padding-bottom: 0.5em;
   }
 }
 
-a {
-  text-decoration: none;
-  &:link {
-    color: $hyperlink-new;
-  }
-  &:active, &:visited {
-    color: $hyperlink-old;
-  }
-  &:hover {
-    color: $hyperlink-hover;
-  }
-}
 
-a.tags {
-  font-size: 75%;
-    &:link, &:active, &:visited {
-    color: $hyperlink-tags;
-    }
-    &:hover {
-      color: $hyperlink-hover;
-    }
-}
-
-a.categories {
-  font-size: 75%;
-    &:link, &:active, &:visited {
-    color: $hyperlink-categories;
-    }
-    &:hover {
-      color: $hyperlink-hover;
-    }
-}
 
 .Title {
   font-size: 3em;
-  a {
-      color: $font-color;
-  }
+  padding-bottom: $unit-padding;
 }
 
 .post {
@@ -131,17 +86,19 @@ a.categories {
 
 
 .tags-display {
+  font-size: 75%;
+  
   text-align: right;
 
   margin-bottom:0px;
   margin-top:auto;
 
   line-height:100%;
+  
   grid-column: 1;
 }
 
 
 .date, .read-more {
-/* for truncated summaries*/
   font-size: small;
 }

@@ -1,72 +1,89 @@
+<!-- need more comments on this page,
+- this is currently very hard to parse
+-->
+
 {{ $myURL := .Permalink }}
 <div id="siteMap" onclick="hideSiteMap()">
-  <table class="mainText">
-        <thead>
-          <tr>
-            <th colspan=10 class="Title">
-              <a class="crosslink" href="{{ .Site.BaseURL | relURL}}">Archive</a>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {{ range .Site.Home.Sections}}
-            {{ if eq .Title "Posts"}}
-                {{ range .Sections}}
-                <tr>
-                  {{ if eq .Permalink $myURL}}
-                  <td class="arrow">
-                     {{ .Title }}
-                  {{ else }}
-                  <td>
-                    <a class="crosslink" href="{{ .RelPermalink}}">
-                      {{ .Title }}
-                    </a>
-                  {{ end }}
-                </td>
-                      {{ range .Pages }}
-                          {{ if eq .Permalink $myURL}}
-                          <td class="arrow">
-                             {{ .Title }}
-                          {{ else }}
-                          <td>
-                            <a class="crosslink" href="{{ .RelPermalink}}">
-                              {{ .Title }}
-                            </a>
-                          {{ end }}
-                        </td>
-                        <td>
-                          <span class="wide-screen-only">{{ .Date.Format "Jan 02, 2006" }}</span>
-                        </td>
-                        <td>
-                          {{ if .Params.tags}}
-                            {{ range .Params.tags }}
-                                {{ $temp:= (printf "/tags/%s/" . | urlize ) }}
-                                  {{ if eq $temp  $.URL }}
-                                  <span class="arrow">
-                                    #{{ . }}
-                                  </span>
-                                  {{ else }}
-                                  <a class="crosslink" href="/tags/{{ . | urlize }}">
-                                    #{{ . }}
-                                  </a>
-                                  {{ end }}
 
-                                </span>
-                              </a>
-                            {{ end }}
-                          {{ end }}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                      {{ end }}
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                {{ end }}
-            {{ end }}
+<table>
+<tr>
+  <td>
+    <table>
+      <thead><tr>
+      <th>Archive</th>
+      </tr></thead>
+      <tbody>
+        <!-- <tr>
+          <td>  
+            <a class="crosslink categories" href="{{ .Site.BaseURL | relURL}}">Home</a>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr> -->
+      {{ range .Site.Home.Sections}}
+      {{ if eq .Title "Posts"}}
+      {{ range .Sections}}
+        <tr>
+          <td>
+            {{ template "you_are_here" (slice $myURL .Permalink .Title "categories")}}  
+          </td>
+          
+          {{ range .Pages }}
+          <td>
+            {{ template "you_are_here" (slice $myURL .Permalink .Title "")}}  
+          </td>
+          <td>
+            <span class="wide-screen-only">{{ .Date.Format "Jan 02" }}</span>
+          </td>
+          <td>
+            {{ if .Params.tags}}{{ range .Params.tags }}
+              {{ template "you_are_here" (slice $myURL (printf "%stags/%s/" $.Site.BaseURL (. | urlize) ) (printf "#%s" .) "tags") }}
+            {{ end }}{{ end }}
+          </td>
+          </tr>
+          <tr>
+          <td></td>
           {{ end }}
-        </tbody>
-  </table>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      {{ end }}{{ end }}{{ end }}
+      </tbody>
+    </table>
+  </td>
+  <td class="wide-screen-only">
+    <table id="blogRoll">
+      <tr>
+        <th>Recent Posts</th>
+      </tr>
+        {{ range where .Site.Pages "Type" "post"}}
+        <tr>
+            <td>
+              {{ template "you_are_here" (slice $myURL .Permalink .Title "")}}
+            </td>
+            <td>
+                <time>{{ .Date.Format "Jan 02, 06" }}</time>
+            </td>
+        </tr>
+        {{ end }}
+    </table>    
+  </td>
+</tr>
+
+</table>
 </div>
+
+{{ define "you_are_here"}}
+  {{ if eq (index . 1) (index . 0)}}
+  <span class="you_are_here">{{ index . 2 }}</span>
+  {{ else }}
+    <a class="crosslink {{ index . 3}}" href="{{ index . 1 | relURL}}">
+      {{ index . 2 }}
+    </a>
+  {{ end }}
+{{ end }}
+
+
+

@@ -1,0 +1,22 @@
+@mixin shadow_mouseover($upTime: 0s, $downTime: 0s){
+  position: relative;
+  &::after{
+    content: '';
+    position: absolute;
+    z-index: -1; /* hide shadow behind image */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 100%;
+    left: 0; /* one half of the remaining 30% */
+    height: 100% ;
+    bottom: 0;
+    opacity: 0;
+    transition: $upTime;
+  }
+  &:hover::after{
+    opacity: 1;
+    transition: opacity $downTime;
+  }
+  &:active::after{
+    opacity: 0;
+  }
+}

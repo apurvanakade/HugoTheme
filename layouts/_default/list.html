@@ -1,7 +1,7 @@
 {{ partial "header" .}}
 
 <body class='list'>
-  <div class="mainGrid">
+  <div id="mainGrid" class="mainGrid">
     <div class="Title">
       <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">{{ .Title }}</a>
     </div>
@@ -11,8 +11,8 @@
     <div class="cell">
       <a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a>
       <br>
-      <a class="crosslink categories" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
-      <div class="post" onclick='javascript:window.open("{{ .Permalink }}","_self");'>
+      <a class="crosslink categories date" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
+      <div class="post" onclick='javascript:window.open("{{ .Permalink  }}","_self");'>
         {{ if gt (len .Summary) 300 }} {{slicestr .Summary 0 300 | plainify | safeHTML }} {{ else }} {{ .Summary | plainify | safeHTML }} {{ end }}
         <a class="crosslink read-more" href="{{ .RelPermalink }}">
               . . . Read more</a>

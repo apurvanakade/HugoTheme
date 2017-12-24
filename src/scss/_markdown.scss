@@ -5,10 +5,26 @@
 /*****************************/
 .medium {
     max-width: 50%;
-    text-align: center;
   img {
       max-width: 100%;
   }
+}
+
+.left {
+  float: left;
+  margin: 0;
+  margin-right: 2*$unit-margin;
+}
+
+.right {
+  float: right;
+  margin: 0;
+  margin-left: 2*$unit-margin;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
 }
 
 .large {

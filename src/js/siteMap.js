@@ -15,12 +15,10 @@ var leftEdge = function(e) {
   if (e.pageX < 20) {
     $(window).off();
     if (visible) {
-      document.getElementById("siteMap").style.width = "0";
-      visible = false;
+      hideSiteMap();
     }
     else {
-      document.getElementById("siteMap").style.width = "100%";
-      visible = true;
+      showSiteMap();
     }
 
     setTimeout(() => {

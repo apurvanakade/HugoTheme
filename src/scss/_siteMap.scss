@@ -17,21 +17,30 @@
 
     font-family: monospace;
 
-    table{
+    > table{
         margin:auto;
         margin-top:  5*$unit-margin;
-    }
-    th {
-        padding-bottom: 5*$unit-padding;
-    }
+            th {
+                font-size: large;
+                padding-bottom: 1em;
+            }
+        }
+    
     td {
          font-size: small;
-         vertical-align: middle;
-         padding-right: 3*$unit-padding;
+         vertical-align: top;
          line-height: 150%;
+         padding-left: $unit-padding;
+         padding-right: $unit-padding;
       }
 
-    .arrow {
+    .you_are_here {
         color: $hyperlink-hover; //darken(red,20%);
+        text-decoration: underline;
       }
+      
+    #blogRoll {
+        margin-left: 10*$unit-margin;
+    }
+      
 }
