@@ -36,43 +36,44 @@ body {
   color: $font-color;
   line-height: 150%;
   margin: 0;
-}
 
-body.list {
-  font-size: $small-font-size;
-  .mainGrid {
-      display: grid;
+  &.list {
+    font-size: $small-font-size;
+    .mainGrid {
+        display: grid;
 
-      grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
+        grid-template-columns: repeat(auto-fill, 300px);//minmax(275px, 1fr));
+        grid-template-rows:  repeat(auto-fill, minmax(350px,max-content));
+        justify-content: center;	
 
-      .Title {
-        margin-top: 10*$unit-margin;
-        padding: 2*$unit-padding;
-      }
 
-      .cell {
-        padding: 2*$unit-padding;
-        @include shadow_mouseover(0s);
-      }
-  }
-}
+        .Title {
+          margin-top: 10*$unit-margin;
+          padding: 2*$unit-padding;
+        }
 
-body.single {
-  font-size: $font-size;
-  line-height: 175%;
-
-  .mainGrid {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: $max-width;
+        .cell {
+          @include shadow_mouseover(0s);
+          padding: 2*$unit-padding;
+        }
+    }
   }
 
-  .post p {
-    padding-bottom: 0.5em;
+  &.single {
+    font-size: $font-size;
+    line-height: 175%;
+
+    .mainGrid {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: $max-width;
+    }
+
+    .post p {
+      padding-bottom: 0.5em;
+    }
   }
 }
-
-
 
 .Title {
   font-size: 3em;
@@ -84,20 +85,12 @@ body.single {
   hyphens: auto;
 }
 
-
 .tags-display {
   font-size: 75%;
-  
   text-align: right;
-
-  margin-bottom:0px;
-  margin-top:auto;
-
   line-height:100%;
-  
   grid-column: 1;
 }
-
 
 .date, .read-more {
   font-size: small;

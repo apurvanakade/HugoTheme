@@ -9,25 +9,26 @@ a {
   &:hover {
     color: $hyperlink-hover;
   }
+  
+  &.tags {
+      &:link, &:active, &:visited {
+      color: peru;
+      }
+      &:hover {
+        color: $hyperlink-hover;
+      }
+  }
+  
+  &.categories {
+      &:link, &:active, &:visited {
+      color: forestgreen;
+      }
+      &:hover {
+        color: $hyperlink-hover;
+      }
+  }
 }
 
-a.tags {
-    &:link, &:active, &:visited {
-    color: peru;
-    }
-    &:hover {
-      color: $hyperlink-hover;
-    }
-}
-
-a.categories {
-    &:link, &:active, &:visited {
-    color: forestgreen;
-    }
-    &:hover {
-      color: $hyperlink-hover;
-    }
-}
 .Title a {
   color: $font-color;
 }
