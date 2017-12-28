@@ -10,3 +10,13 @@ $( document ).ready(function() {
     image.setAttribute("onmouseout","this.src = '" + src1 + "'");
   });
 });
+
+$( document ).ready(function() {
+
+  $('#mainGrid').contents().each(function (index) {     
+    setTimeout(() => {
+      $(this).css("opacity","1");
+    }, Math.log(index)*350);
+  });
+
+});

@@ -5,28 +5,35 @@
 /*********************************/
 #siteMap {
     height: 100%;
-    width: 0%;
+    width: 1%;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     background-color: rgba(255,255,255, 0.98);
-    overflow-y: scroll;
+    overflow-y: hidden;
     transition: 0.2s ease-in-out;
+    
     text-align: left;
-
     font-family: monospace;
+
+  .marker {
+        content: 'A \A R \A C \A H \A I \A V \A E';
+        position: absolute;
+        top: 175px;
+        width: 1%;
+        font-weight: bold;
+        font-size: medium;
+        line-height: 2;
+    }
 
     > table{
         margin:auto;
         margin-top:  5*$unit-margin;
-            th {
-                padding-bottom: 1em;
-            }
         }
-    
+
     td {
-         font-size: 90%;
+        font-size: small;
          vertical-align: top;
          line-height: 150%;
          padding-left: $unit-padding;

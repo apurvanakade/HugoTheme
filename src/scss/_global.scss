@@ -36,28 +36,32 @@ body {
   color: $font-color;
   line-height: 150%;
   margin: 0;
+  
+  &.list .mainGrid {
+        font-size: $small-font-size;
 
-  &.list {
-    font-size: $small-font-size;
-    .mainGrid {
         display: grid;
-
         grid-template-columns: repeat(auto-fill, 300px);//minmax(275px, 1fr));
-        grid-template-rows:  repeat(auto-fill, minmax(350px,max-content));
+        grid-template-rows:  repeat(auto-fill, minmax(300px,max-content));
+        grid-column-gap: 0.5em;
+        grid-row-gap: 1em;
         justify-content: center;	
-
-
+        
+        > * {
+          opacity: 0;
+          transition: opacity 1s;
+        }
+        
         .Title {
-          margin-top: 10*$unit-margin;
           padding: 2*$unit-padding;
+          align-self:center;
         }
 
         .cell {
-          @include shadow_mouseover(0s);
+          @include shadow_mouseover(0.5s);
           padding: 2*$unit-padding;
         }
     }
-  }
 
   &.single {
     font-size: $font-size;

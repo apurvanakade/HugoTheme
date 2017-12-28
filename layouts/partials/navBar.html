@@ -9,8 +9,9 @@
           {{ end }}
       </td>
       <td>
-        <a href="javascript:showSiteMap()">Archive</a>
-            | <a class="crosslink" href="{{ .Parent.RelPermalink }}">Up</a>
+        <a class="crosslink" href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
+        |
+        <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a>
       </td>
       <td>
           {{ if .NextInSection }}
@@ -21,29 +22,41 @@
       </td>
     </tr>
   </table>
+  
 {{ else }}
+
   <table id="navBar">
      <tr>
+       <td></td>
       <td>
-          {{ if .Paginator.HasNext }}
-            <a class="crosslink" href="{{ .Paginator.Next.URL | relURL }}">&#9664; Older</a>
-          {{ else }}
-            <p style="opacity: 0">&#9664; Older</p>
-          {{ end }}
-      </td>
-      <td>
+        {{ if gt .Paginator.PageNumber 5}}
+        <a class="crosslink" href="{{ $.RelPermalink}}page/1">
+          &#9664; &#9664;
+        </a>... 
+        {{ end }}
+        {{ range seq (sub .Paginator.PageNumber 5) (sub .Paginator.PageNumber 1)}}
+          {{ if gt . 0}}
+            <a class="crosslink" href="{{ $.RelPermalink}}page/{{ . }}">
+              {{ . }}
+            </a> | 
+        {{ end }}{{ end }}
         <a href="javascript:showSiteMap()">Archive</a>
         {{ if not .IsHome }}
             | <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a>
         {{ end }}
+        {{ range seq (add .Paginator.PageNumber 1) (add .Paginator.PageNumber 5)}}
+            {{ if le . $.Paginator.TotalPages}}
+            | <a class="crosslink" href="{{ $.RelPermalink}}page/{{ . }}">
+              {{ . }}
+            </a>  
+        {{ end }}{{ end }}
+        {{ if gt .Paginator.PageNumber (add .Paginator.PageNumber 5)}}
+         ...<a class="crosslink" href="{{ $.RelPermalink}}page/{{$.Paginator.TotalPages}}">
+          &#9654; &#9654;
+        </a>
+        {{ end }}
       </td>
-      <td>
-          {{ if .Paginator.HasPrev }}
-            <a class="crosslink" href="{{ .Paginator.Prev.URL | relURL }}">Newer &#9654;</a>
-          {{ else }}
-              <p style="opacity: 0">Newer &#9654;</p>
-          {{ end }}
-      </td>
+      <td></td>
     </tr>
   </table>
 {{ end }}

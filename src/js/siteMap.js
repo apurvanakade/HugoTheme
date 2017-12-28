@@ -2,24 +2,24 @@
 var visible = false;
 
 function showSiteMap() {
-  document.getElementById("siteMap").style.width = "100%";
+  $("#siteMap").css("width","100%");  
+  $("#siteMap").css("overflow-y","auto");  
   visible = true;
 }
 
 function hideSiteMap() {
-  document.getElementById("siteMap").style.width = "0";
+  $("#siteMap").css("width","1%");
+  $("#siteMap").css("overflow-y","hidden");  
   visible = false;
 }
 
 var leftEdge = function(e) {
   if (e.pageX < 20) {
-    $(window).off();
-    if (visible) {
+    $(window).off('mousemove');
+    if (visible) 
       hideSiteMap();
-    }
-    else {
+    else 
       showSiteMap();
-    }
 
     setTimeout(() => {
       $(window).on('mousemove', leftEdge);
