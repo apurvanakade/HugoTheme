@@ -4,7 +4,9 @@
 
 {{ $myURL := .Permalink }}
 <div id="siteMap" onclick="hideSiteMap()">
-<div class="marker wide-screen-only"> A <br> R <br> C <br> H <br> I <br> V <br> E </div>
+  {{ if ne .Type "post"}}
+  <div class="marker wide-screen-only">A<br>R<br>C<br>H<br>I<br>V<br>E</div>
+  {{ end }}
 <table>
 <tr>
   <td>

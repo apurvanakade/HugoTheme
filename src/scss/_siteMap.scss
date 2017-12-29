@@ -18,13 +18,11 @@
     font-family: monospace;
 
   .marker {
-        content: 'A \A R \A C \A H \A I \A V \A E';
-        position: absolute;
-        top: 175px;
-        width: 1%;
-        font-weight: bold;
-        font-size: medium;
-        line-height: 2;
+        position: fixed;
+        width: max-content;
+        line-height: 1;
+        background-color: $hyperlink-old;
+        color: $background-color;
     }
 
     > table{

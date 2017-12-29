@@ -34,7 +34,6 @@ a {
 }
 
 #navBar a {
-  text-decoration: none;
   &:link, &:active, &:visited {
     color: $font-color;
   }

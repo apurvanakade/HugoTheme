@@ -9,7 +9,7 @@
           {{ end }}
       </td>
       <td>
-        <a class="crosslink" href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
+        <a href="javascript:showSiteMap()">Archive</a>
         |
         <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a>
       </td>
@@ -40,9 +40,11 @@
               {{ . }}
             </a> | 
         {{ end }}{{ end }}
-        <a href="javascript:showSiteMap()">Archive</a>
-        {{ if not .IsHome }}
-            | <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a>
+        
+        {{ if .IsHome }}
+            <a href="javascript:showSiteMap()">Archive</a>
+        {{ else }}
+            <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a>
         {{ end }}
         {{ range seq (add .Paginator.PageNumber 1) (add .Paginator.PageNumber 5)}}
             {{ if le . $.Paginator.TotalPages}}
