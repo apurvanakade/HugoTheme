@@ -16,36 +16,53 @@
     
     text-align: left;
     font-family: monospace;
+    
+    line-height: 1;
 
-  .marker {
-        position: fixed;
-        width: max-content;
-        line-height: 1;
-        background-color: $hyperlink-old;
-        color: $background-color;
+  #marker {
+    position: fixed;
+    width: max-content;
+    background-color: $hyperlink-old;
+    color: $background-color;
+    transition: 0.2s ease-in-out;
     }
-
-    > table{
-        margin:auto;
-        margin-top:  5*$unit-margin;
+    
+    table {
+      font-size: small;
+      width: 90%;
+      margin: 5*$unit-padding;
+      td {
+        vertical-align: top;
+        &:last-of-type {
+          background-color: honeydew;
         }
-
-    td {
-        font-size: small;
-         vertical-align: top;
-         line-height: 150%;
-         padding-left: $unit-padding;
-         padding-right: $unit-padding;
       }
-
-    .you_are_here {
-        color: $hyperlink-hover; //darken(red,20%);
-        text-decoration: underline;
-      }
-      
-    #recentPosts {
-        margin-left: 10*$unit-margin;
-        background-color: honeydew;
     }
-      
+  
+  .you_are_here {
+      color: $hyperlink-hover; //darken(red,20%);
+      text-decoration: underline;
+    }
+}
+
+.genericGrid {
+  display: grid;
+  > * {
+    padding: 0.5em;
+  }
+  .column-1 {
+    grid-column:1;
+  }
+  .column-2 {
+    grid-column: 2;
+  }
+  .column-3 {
+    grid-column: 3;
+  }
+  .column-4 {
+    grid-column: 4;
+  }
+  .column-5 {
+    grid-column: 5;
+  }
 }

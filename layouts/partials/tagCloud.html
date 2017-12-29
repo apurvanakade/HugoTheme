@@ -10,7 +10,15 @@ Source: https://www.henriksommerfeld.se/hugo-tag-could/
 {{ range .Site.Home.Sections}}
 {{ if eq .Title "Posts"}}
 {{ range .Sections}}
-<a class="crosslink categories" href="{{ .RelPermalink }}">{{.Title}}</a>
+  {{ if .Pages }}
+  <a class="crosslink categories" href="{{ .RelPermalink }}">{{.Title}}</a>
+  {{ end }}
+  
+  {{ range .Sections}}
+    {{ if .Pages }}
+    <a class="crosslink categories" href="{{ .RelPermalink }}">{{.Title}}</a>
+    {{ end }}
+  {{ end }}
 {{ end }}
 {{ end }}
 {{ end }}

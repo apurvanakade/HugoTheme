@@ -5,63 +5,55 @@
 {{ $myURL := .Permalink }}
 <div id="siteMap" onclick="hideSiteMap()">
   {{ if ne .Type "post"}}
-  <div class="marker wide-screen-only">A<br>R<br>C<br>H<br>I<br>V<br>E</div>
+  <div id="marker" onclick="javascript:showSiteMap()">A<br>R<br>C<br>H<br>I<br>V<br>E</div>
   {{ end }}
-<table>
-<tr>
-  <td>
-    <table>
-      {{ range .Site.Home.Sections}}
-      {{ if eq .Title "Posts"}}
-      {{ range .Sections}}
-        <tr>
-          <td>
-            {{ template "you_are_here" (slice $myURL .Permalink .Title "categories")}}  
-          </td>
-          
-          {{ range .Pages }}
-          <td>
-            {{ template "you_are_here" (slice $myURL .Permalink .Title "")}}  
-          </td>
-          <td>
-            <span class="wide-screen-only">{{ .Date.Format "Jan 02" }}</span>
-          </td>
-          <td>
-            {{ if .Params.tags}}{{ range .Params.tags }}
-              {{ template "you_are_here" (slice $myURL (printf "%stags/%s/" $.Site.BaseURL (. | urlize) ) (printf "#%s" .) "tags") }}
-            {{ end }}{{ end }}
-          </td>
-          </tr>
-          <tr>
-          <td></td>
-          {{ end }}
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      {{ end }}{{ end }}{{ end }}
-    </table>
-  </td>
-  <td class="wide-screen-only">
-    <table id="recentPosts">
-        {{ range where .Site.Pages "Type" "post"}}
-        <tr>
-            <td>
-              {{ template "you_are_here" (slice $myURL .Permalink .Title "")}}
-            </td>
-            <td>
-                <time>{{ .Date.Format "Jan 02, 06" }}</time>
-            </td>
-        </tr>
-        {{ end }}
-    </table>    
-  </td>
-</tr>
 
+
+<table>
+  <tr>
+    <td><div class="genericGrid">
+    {{ range where .Site.Home.Sections "Title" "Posts"}}
+    {{ range .Sections.ByWeight}}
+        {{ $topLevelSection := .Title}}
+        {{ range .Sections.ByWeight}}
+          {{ if .Pages}}
+            <div class="column-1"> 
+              {{$topLevelSection}}/{{- template "add_content" (slice $myURL .Permalink .Title "categories") -}} </div>
+            {{ range .Pages }}
+                <div class="column-2">{{ template "add_content" (slice $myURL .Permalink .Title "")}}</div>
+                <div class="wide-screen-only column-3">{{ .Date.Format "Jan 02" }}</div>
+                <div class="column-4">{{ range .Params.tags}}
+                      {{ template "add_content" (slice $myURL (printf "%stags/%s/" $.Site.BaseURL (. | urlize) ) (printf "#%s" .) "tags") }}
+                      {{ end }}
+              </div>
+            {{ end }}
+            {{ end }}
+        {{ end }}
+        {{ if .Pages}}
+        <div class="column-1"> {{ template "add_content" (slice $myURL .Permalink .Title "categories")}} </div>
+        {{ range .Pages }}
+            <div class="column-2">{{ template "add_content" (slice $myURL .Permalink .Title "")}}</div>
+            <div class="wide-screen-only column-3">{{ .Date.Format "Jan 02" }}</div>
+            <div class="column-4">{{ range .Params.tags}}
+                  {{ template "add_content" (slice $myURL (printf "%stags/%s/" $.Site.BaseURL (. | urlize) ) (printf "#%s" .) "tags") }}
+                  {{ end }}
+          </div>
+        {{ end }}
+        {{ end }}
+    {{ end }}
+    {{ end }}
+    </div></td>
+    <td class="wide-screen-only"><div class="genericGrid">
+    {{ range where .Site.Pages.ByDate.Reverse "Type" "post"}}
+      <div class="column-1">{{ template "add_content" (slice $myURL .Permalink .Title "")}}</div>
+      <div class="column-2">{{ .Date.Format "Jan 02, 06" }}</div>
+    {{ end }}
+    </div></td>
+  </tr>
 </table>
 </div>
 
-{{ define "you_are_here"}}
+{{ define "add_content"}}
   {{ if eq (index . 1) (index . 0)}}
   <span class="you_are_here">{{ index . 2 }}</span>
   {{ else }}
