@@ -12,11 +12,13 @@ $( document ).ready(function() {
 });
 
 $( document ).ready(function() {
-
   $('#mainGrid').contents().each(function (index) {     
     setTimeout(() => {
       $(this).css("opacity","1");
     }, Math.log(index)*350);
   });
+});
 
+$( document ).ready(function() {
+  $('body').css("opacity","1");
 });

@@ -13,9 +13,9 @@
   <tr>
     <td><div class="genericGrid">
     {{ range where .Site.Home.Sections "Title" "Posts"}}
-    {{ range .Sections.ByWeight}}
+    {{ range .Sections.ByWeight.Reverse}}
         {{ $topLevelSection := .Title}}
-        {{ range .Sections.ByWeight}}
+        {{ range .Sections.ByWeight.Reverse}}
           {{ if .Pages}}
             <div class="column-1"> 
               {{$topLevelSection}}/{{- template "add_content" (slice $myURL .Permalink .Title "categories") -}} </div>

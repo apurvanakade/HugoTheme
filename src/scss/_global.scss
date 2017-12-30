@@ -66,6 +66,8 @@ body {
   &.single {
     font-size: $font-size;
     line-height: 175%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 
     .mainGrid {
         margin-left: auto;
