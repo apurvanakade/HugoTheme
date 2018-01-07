@@ -6,32 +6,4 @@
             <a href="javascript:var d=document,w=window,e=w.getSelection,k=d.getSelection,x=d.selection,s=(e?e():(k)?k():(x?x.createRange().text:0)),f='https://www.tumblr.com/widgets/share/tool',l=d.location,e=encodeURIComponent,p='?url='+e(l.href) +'&amp;title='+e(d.title) +'&amp;selection='+e(s) +'&amp;shareSource=bookmarklet',u=f+p,sw=0,sd;try{sd =d.createElement('div');sd.style.height ='100px';sd.style.width='100px';sd.style.overflow='scroll';d.body.appendChild(sd);sw=sd.offsetWidth-sd.clientWidth;d.body.removeChild(sd);}catch(z){};try{if(!/^(.*\.)?tumblr[^.]*$/.test(l.host))throw(0);tstbklt();}catch(z){a =function(){if(!w.open(u,'_blank','toolbar=0,resizable=0,status=1,scrollbars=1,width='+(540+sw)+',height=600'))l.href=u;};setTimeout(a,10);}void(0)" data="tumblr.svg" target="_blank"> </a>
             <a href="https://github.com/apurvnakade/" data="github.svg" target="_blank"> </a>
             <a href="https://gohugo.io/" data="hugo.png" target="_blank"> </a>
-
-
         </div>
-
-<div id="disqus_thread" style="opacity: 0.2;" onmouseover="javaScript: this.style.opacity=1;"></div>
-<script>
-  /**
-   *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-   *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-  var disqus_config = function() {
-    this.page.url = "{{ .Permalink }}"; // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = "ApurvasBlog" + "{{ .Date }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-  };
-
-  (function() { // DON'T EDIT BELOW THIS LINE
-  // if (window.location.hostname == "localhost")
-  //       return;
-
-    var d = document,
-      s = d.createElement('script');
-    s.src = "https://apurvnakade.disqus.com/embed.js";
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-
-</script>
-<!-- <script id="dsq-count-scr" src="//apurvnakade.disqus.com/count.js" async></script> -->
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

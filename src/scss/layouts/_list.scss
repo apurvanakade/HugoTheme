@@ -1,0 +1,40 @@
+//for wider screens
+@media (min-width: 750px) {
+  body.list .mainGrid {
+      grid-column-gap: 4em;
+      grid-row-gap: 2em;
+      margin-top: 5*$unit-margin;
+    }
+}
+
+//for narrower screens
+@media (max-width: 750px) {
+  body.list .mainGrid {
+      grid-column-gap: 0.5em;
+      grid-row-gap: 0.5em;
+    }
+}
+
+body.list .mainGrid {
+    font-size: $small-font-size;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);//minmax(275px, 1fr));
+    grid-template-rows:  repeat(auto-fill, minmax(300px,max-content));
+    justify-content: center;	
+    
+    > * {
+      opacity: 0;
+      transition: opacity 1s;
+    }
+    
+    .Title {
+      padding: 2*$unit-padding;
+      align-self:center;
+    }
+
+    .cell {
+      @include shadow_mouseover(0.5s);
+      padding: 2*$unit-padding;
+    }
+}

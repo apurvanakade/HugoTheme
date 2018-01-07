@@ -4,15 +4,11 @@
 
 {{ $.Scratch.Set "myURL" .Permalink }}
   
-<div id="siteMap">
+<div id="siteMap" onclick="hideSiteMap()">
   <div id="siteMapGrid">
     <div class="Title hline">
-      <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Archive</a>
-      <div class="date">
-        <a href="javascript:hideAllSections();" class="hideShowButton"> Collapse all</a> | <a href="javascript:showAllSections();" class="hideShowButton"> Expand all</a> <br> <br>
-      </div>
+      Archive
     </div>
-    
     
     {{ range where .Site.Home.Sections "Title" "Posts"}}
     {{ range .Sections.ByWeight.Reverse}}
@@ -24,7 +20,7 @@
           {{ if .Pages}}
           {{$.Scratch.Set "section" .Title}}          
             <div class="grid-section"> 
-              <a class="hideShowButton" href="javascript:hideSections('{{$.Scratch.Get "section"}}')" section="{{$.Scratch.Get "section"}}">[—]</a>
+              <a class="hideShowButton" href="javascript:hideSections('{{$.Scratch.Get "section"}}')">[—]</a>
               {{- template "add_content" (slice ($.Scratch.Get "myURL") .Permalink .Title "categories") -}} </div>
             {{ range .Pages }}
                 <div class="grid-topSection dummy" section="{{$.Scratch.Get "section"}}"></div>
@@ -39,9 +35,9 @@
         {{ end }}
         {{ if .Pages}}
         {{$.Scratch.Set "section" .Title}}
-        <div class="grid-topSection dummy"></div>
+        <div class="grid-topSection dummy" section="{{$.Scratch.Get "section"}}"></div>
         <div class="grid-section"> 
-          <a class="hideShowButton" href="javascript:hideSections('{{$.Scratch.Get "section"}}')" section="{{$.Scratch.Get "section"}}">[—]</a>
+          <a class="hideShowButton" href="javascript:hideSections('{{$.Scratch.Get "section"}}')">[—]</a>
           {{ template "add_content" (slice ($.Scratch.Get "myURL") .Permalink .Title "categories")}} </div>
         {{ range .Pages }}
             <div class="grid-topSection dummy" section="{{$.Scratch.Get "section"}}"></div>

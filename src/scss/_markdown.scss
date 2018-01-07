@@ -3,45 +3,135 @@
 /* CSS elements for markdown */
 /*****************************/
 /*****************************/
-.medium {
-    max-width: 50%;
+
+figure {
+  height: max-content;
+  margin: auto;
+  
   img {
-      max-width: 100%;
+    display: block;
+  }
+  
+  figcaption {
+    text-align: left;
+    font-size: small;
+    font-style: italic;
+    height: auto;
+    line-height: 100%;
+    padding: $unit-padding;
+    color: $font-color;
   }
 }
 
-.left {
-  float: left;
-  margin: 0;
-  margin-right: 2*$unit-margin;
+@media (max-width: 750px) {
+  figure {
+    text-align: center;
+    
+    &.medium {
+        max-width: 50%;
+      img {
+          max-width: 100%;
+      }
+    }
+
+    &.large {
+        max-width: 80%;
+      img {
+          max-width: 100%;
+      }
+    }
+
+
+    &.xlarge {
+      padding: 0px;
+      margin: 0px;
+      text-align: center;
+      img {
+        width: 100%;
+      }
+    }
+  }
 }
+
+@media (min-width: 750px) {
+  figure {
+    @include shadow;
+    
+    figcaption {
+      text-align: left;
+      font-size: small;
+      font-style: italic;
+      height: auto;
+      line-height: 100%;
+      padding: $unit-padding;
+    }
+    
+    &.left {
+      float: left;
+      margin: 0;
+      margin-right: 2*$unit-margin;
+    }
+
+    &.right {
+      float: right;
+      margin: 0;
+      margin-left: 2*$unit-margin;
+    }
+
+    &.xleft {
+      float: left;
+      margin-right: 2*$unit-margin;
+      margin-left: -10*$unit-margin;
+    }
+
+    &.xright {
+      float: right;
+      margin-left: 2*$unit-margin;
+      margin-right: -10*$unit-margin;
+    }
+
+    &.center {
+      margin: auto;
+      text-align: center;
+    }
+    
+    
+    &.medium {
+        max-width: 50%;
+      img {
+          max-width: 100%;
+      }
+    }
+
+    &.large {
+        max-width: 80%;
+        margin: auto;
+        text-align: center;
+      img {
+          max-width: 100%;
+      }
+    }
+
+
+    &.xlarge {
+      padding: 0px;
+      margin: 0px;
+      text-align: center;
+      @include no-shadow;
+      
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+}
+
 
 .right {
-  float: right;
-  margin: 0;
-  margin-left: 2*$unit-margin;
-}
-
-.center {
-  margin: auto;
-  text-align: center;
-}
-
-.large {
-    max-width: 80%;
-    margin: auto;
-    text-align: center;
-  img {
-      max-width: 100%;
-  }
+  margin-top: 0;
+  padding-top: 0;
+  text-align: right;
 }
 
 
-.xlarge {
-  padding: 0px;
-  margin: 0px;
-  text-align: center;
-  img {
-    width: 100%;
-  }
-}

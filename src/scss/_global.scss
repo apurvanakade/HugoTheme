@@ -4,26 +4,12 @@
 /***********************/
 /***********************/
 
-//for wider screens
-@media (min-width: 750px) {
-  body.list .mainGrid {
-      margin: $unit-margin;
-    }
-  body.single .mainGrid {
-       margin-top: 5*$unit-padding;
-  }
-}
-
 //for narrower screens
 @media (max-width: 750px) {
   .wide-screen-only {
     display: none;
   }
   
-  body.single .mainGrid {
-       padding: $unit-padding;
-       margin: $unit-margin;
-  }
   .footer {
        margin: $unit-margin;
   }
@@ -35,50 +21,7 @@ body {
   font-family: $font-families;
   color: $font-color;
   line-height: 150%;
-  margin: 0;
-  
-  &.list .mainGrid {
-        font-size: $small-font-size;
-
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 300px);//minmax(275px, 1fr));
-        grid-template-rows:  repeat(auto-fill, minmax(300px,max-content));
-        grid-column-gap: 0.5em;
-        grid-row-gap: 1em;
-        justify-content: center;	
-        
-        > * {
-          opacity: 0;
-          transition: opacity 1s;
-        }
-        
-        .Title {
-          padding: 2*$unit-padding;
-          align-self:center;
-        }
-
-        .cell {
-          @include shadow_mouseover(0.5s);
-          padding: 2*$unit-padding;
-        }
-    }
-
-  &.single {
-    font-size: $font-size;
-    line-height: 175%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-
-    .mainGrid {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: $max-width;
-    }
-
-    .post p {
-        padding-top: 0.5em;
-    }
-  }
+  position: relative;
 }
 
 .Title {

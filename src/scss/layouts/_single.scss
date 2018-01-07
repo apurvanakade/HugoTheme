@@ -1,0 +1,47 @@
+//for wider screens
+@media (min-width: 750px) {
+  body.single {
+    .mainGrid {
+      margin-top: 5*$unit-padding;
+      
+     .post {
+       padding-top: 5*$unit-margin;    
+       padding-left: 3*$unit-margin;    
+       margin-right: -3*$unit-margin;    
+     }
+    }  
+  }
+}
+
+//for narrower screens
+@media (max-width: 750px) {
+  body.single {
+      .mainGrid {
+           padding: $unit-padding;
+           margin: $unit-margin;
+           font-size: 0.9em;
+      }
+  }
+}
+
+body.single {
+  font-size: $font-size;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+  .mainGrid {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10*$unit-margin;
+      max-width: $max-width;
+      line-height: 2em;
+      transition: 1s ease-in-out;          
+  }
+
+  .post {  
+    border-top: 1px solid lightgrey;
+    p {
+      padding-top: 0.5em;
+    }
+  }
+}
