@@ -38,7 +38,7 @@ function hideSections(section){
 function showSections(section){
   $("#siteMap").find('a.hideShowButton').each(function(){
     if(this.getAttribute( "section" ) == section) {
-      $(this).html("[—]");
+      $(this).html("[–]");
       $(this).attr("href","javascript:hideSections('"+section+"');");
     }
   });

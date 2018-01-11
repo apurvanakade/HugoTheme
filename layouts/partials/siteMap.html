@@ -24,7 +24,7 @@
           {{ if .Pages}}
           {{$.Scratch.Set "section" .Title}}          
             <div class="grid-section"> 
-              <a class="hideShowButton" href="javascript:hideSections('{{$.Scratch.Get "section"}}')" section="{{$.Scratch.Get "section"}}">[—]</a>
+              <a class="hideShowButton" href="javascript:hideSections('{{$.Scratch.Get "section"}}')" section="{{$.Scratch.Get "section"}}">[–]</a>
               {{- template "add_content" (slice ($.Scratch.Get "myURL") .Permalink .Title "categories") -}} </div>
             {{ range .Pages }}
                 <div class="grid-topSection dummy" section="{{$.Scratch.Get "section"}}"></div>
@@ -41,7 +41,7 @@
         {{$.Scratch.Set "section" .Title}}
         <div class="grid-topSection dummy"></div>
         <div class="grid-section"> 
-          <a class="hideShowButton" href="javascript:hideSections('{{$.Scratch.Get "section"}}')" section="{{$.Scratch.Get "section"}}">[—]</a>
+          <a class="hideShowButton" href="javascript:hideSections('{{$.Scratch.Get "section"}}')" section="{{$.Scratch.Get "section"}}">[–]</a>
           {{ template "add_content" (slice ($.Scratch.Get "myURL") .Permalink .Title "categories")}} </div>
         {{ range .Pages }}
             <div class="grid-topSection dummy" section="{{$.Scratch.Get "section"}}"></div>

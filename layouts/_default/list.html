@@ -8,6 +8,9 @@
       </div>      
       {{ partial "post-its" .Paginator.Pages}}
       {{ partial "tagCloud" .}}
+      <div style="text-align:right; grid-column-end: -1;">
+        {{.Content}}
+      </div>
     </div>
 
     <div class="footer">
