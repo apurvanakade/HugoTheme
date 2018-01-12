@@ -62,7 +62,10 @@ figure {
 
 @media (min-width: 750px) {
   figure {
-    @include shadow;
+    a {
+      @include shadow;
+      display: block;
+    }
     
     figcaption {
       text-align: left;
@@ -116,7 +119,6 @@ figure {
       padding: 0px;
       margin: 0px;
       text-align: center;
-      @include no-shadow;
       
       img {
         width: 100%;

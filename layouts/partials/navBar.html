@@ -11,7 +11,9 @@
       <td>
         <a href="javascript:showSiteMap()">Archive</a>
         |
-        <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a>
+        <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a> 
+        |
+        <a class="crosslink" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
       </td>
       <td>
           {{ if .NextInSection }}

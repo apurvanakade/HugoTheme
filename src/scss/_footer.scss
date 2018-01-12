@@ -3,6 +3,14 @@
 /* CSS elements used in the footer */
 /***********************************/
 /***********************************/
+@media (min-width: 750px) {
+  body.single {
+     #navBar {
+       padding-left: 5*$unit-margin;    
+    }  
+  }
+}
+
 .footer {
   text-align: center;
   max-width: $max-width;
@@ -19,7 +27,7 @@
   font-size: small;
   width: 100%;
   margin-top: 15*$unit-margin;
-  margin-bottom: 15*$unit-margin;
+  margin-bottom: 30*$unit-margin;
 
   td:first-of-type {
     text-align: left;
