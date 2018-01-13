@@ -49,24 +49,35 @@ a#marker {
     text-align: left;    
     line-height: 1;
     font-size: small;
+    
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    
   .you_are_here {
       color: $hyperlink-hover; //darken(red,20%);
       text-decoration: underline;
+      cursor: default;
     }
+    
+  table {
+    margin-top: 15*$unit-margin;
+    padding: 2*$unit-margin;
+    float:right;
+    line-height: 1.5;
+    border: 1px solid lightgrey;
+    border-left: 3px solid lightgrey;
+  }
 }
 
 #siteMapGrid {
   margin-left: 10*$unit-margin;
-  margin-top: 5*$unit-margin;
   margin-bottom: 10*$unit-margin;
-  
+  margin-top: 5*$unit-margin;
+
   width: max-content;
   display: grid;
   grid-template-columns: min-content minmax(150px,max-content) max-content max-content max-content;
-  
-  opacity: 0;
-  transition: 0.5s ease-in-out;
-  
+    
   > * {
     padding: 0.5em;
   }

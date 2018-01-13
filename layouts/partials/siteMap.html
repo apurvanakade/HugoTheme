@@ -1,72 +1,71 @@
 <!-- need more comments on this page,
 - this is currently very hard to parse
--->
+-->  
+<a id="marker" href="javascript:showSiteMap()">
+  <p>❯</p>
+</a>
 
-{{ $.Scratch.Set "myURL" .Permalink }}
-  
 <div id="siteMap">
+  <table class="wide-screen-only">
+    {{range where $.Site.Pages.ByDate.Reverse "Type" "post"}}
+    <tr>
+      <td><a href="{{.Permalink}}" class="crosslink"> {{ .Title }} </a> </td>
+      <td>{{ .Date.Format "Jan 02, 06" }}</td>
+    </tr>
+    {{end}}
+  </table>
+      
   <div id="siteMapGrid">
     <div class="Title hline">
-      <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Archive</a>
+      <a class="crosslink" href="{{ $.Site.BaseURL }}">Archive</a>
       <div class="date">
         <a href="javascript:hideAllSections();" class="hideShowButton"> Collapse all</a> | <a href="javascript:showAllSections();" class="hideShowButton"> Expand all</a> <br> <br>
       </div>
     </div>
     
     
-    {{ range where .Site.Home.Sections "Title" "Posts"}}
-    {{ range .Sections.ByWeight.Reverse}}
+    {{ range .Site.Home.Sections}}
         {{ if .Sections }}
-        <div class="grid-topSection"> 
-          {{.Title}}</div>
-        {{ end }}
-        {{ range .Sections.ByWeight.Reverse}}
-          {{ if .Pages}}
-          {{$.Scratch.Set "section" .Title}}          
-            <div class="grid-section"> 
-              <a class="hideShowButton" href="javascript:hideSections('{{$.Scratch.Get "section"}}')" section="{{$.Scratch.Get "section"}}">[–]</a>
-              {{- template "add_content" (slice ($.Scratch.Get "myURL") .Permalink .Title "categories") -}} </div>
-            {{ range .Pages }}
-                <div class="grid-topSection dummy" section="{{$.Scratch.Get "section"}}"></div>
-                <div class="grid-title" section="{{$.Scratch.Get "section"}}">{{ template "add_content" (slice ($.Scratch.Get "myURL") .Permalink .Title "")}}</div>
-                <div class="wide-screen-only grid-date" section="{{$.Scratch.Get "section"}}">{{ .Date.Format "Jan 02" }}</div>
-                <div class="grid-tags" section="{{$.Scratch.Get "section"}}">{{ range .Params.tags}}
-                      {{ template "add_content" (slice ($.Scratch.Get "myURL") (printf "%stags/%s/" $.Site.BaseURL (. | urlize) ) (printf "#%s" .) "tags") }}
-                      {{ end }}
-                </div>
-            {{ end }}
-            {{ end }}
-        {{ end }}
-        {{ if .Pages}}
-        {{$.Scratch.Set "section" .Title}}
-        <div class="grid-topSection dummy"></div>
-        <div class="grid-section"> 
-          <a class="hideShowButton" href="javascript:hideSections('{{$.Scratch.Get "section"}}')" section="{{$.Scratch.Get "section"}}">[–]</a>
-          {{ template "add_content" (slice ($.Scratch.Get "myURL") .Permalink .Title "categories")}} </div>
-        {{ range .Pages }}
-            <div class="grid-topSection dummy" section="{{$.Scratch.Get "section"}}"></div>
-            <div class="grid-title" section="{{$.Scratch.Get "section"}}">{{ template "add_content" (slice ($.Scratch.Get "myURL") .Permalink .Title "")}}</div>
-            <div class="wide-screen-only grid-date" section="{{$.Scratch.Get "section"}}">{{ .Date.Format "Jan 02" }}</div>
-            <div class="grid-tags" section="{{$.Scratch.Get "section"}}">{{ range .Params.tags}}
-                  {{ template "add_content" (slice ($.Scratch.Get "myURL") (printf "%stags/%s/" $.Site.BaseURL (. | urlize) ) (printf "#%s" .) "tags") }}
-                  {{ end }}
+          <div class="grid-topSection"> 
+            {{.Title}}
           </div>
+        {{ else }}
+          <div class="grid-topSection dummy"></div>
         {{ end }}
+        {{ range .Sections}}
+          {{ template "print_pages" .}}
+          <div class="grid-topSection dummy"></div>       
         {{ end }}
+        
+        {{ template "print_pages" .}}
         <div class="hline"></div>
-    {{ end }}
     {{ end }}
     </div>
 </div>
 
+{{ define "print_pages"}}
+    {{ if .Pages}}
+            {{$.Scratch.Set "section" .Title}}   
+            <div class="grid-section"> 
+            <a class="hideShowButton" href="javascript:hideSections('{{.Title}}')" section="{{.Title}}">[–]</a>
+            {{ template "add_content" (slice .Permalink .Title "categories") }} </div>
+            {{ range .Pages }}
+                <div class="grid-topSection dummy" section="{{$.Scratch.Get "section"}}"></div>
+                <div class="grid-title" section="{{$.Scratch.Get "section"}}">{{ template "add_content" (slice .Permalink .Title "")}}</div>
+                <div class="wide-screen-only grid-date" section="{{$.Scratch.Get "section"}}">{{ .Date.Format "Jan 02" }}</div>
+                <div class="grid-tags" section="{{$.Scratch.Get "section"}}">
+                {{ range .Params.tags}}
+                      {{ template "add_content" (slice (printf "%stags/%s/" $.Site.BaseURL (. | urlize) ) (printf "#%s" .) "tags") }}
+                {{ end }}
+                </div>
+            {{ end }}
+      {{ end }}
+{{ end }}
+
 {{ define "add_content"}}
-  {{ if eq (index . 1) (index . 0)}}
-  <span class="you_are_here">{{ index . 2 }}</span>
-  {{ else }}
-    <a class="crosslink {{ index . 3}}" href="{{ index . 1 | relURL}}">
-      {{ index . 2 }}
+    <a class="crosslink {{ index . 2}}" href="{{ index . 0 }}">
+      {{ index . 1 }}
     </a>
-  {{ end }}
 {{ end }}
 
 

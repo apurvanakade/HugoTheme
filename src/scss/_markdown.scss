@@ -10,6 +10,7 @@ figure {
   
   img {
     display: block;
+    width: 100%;
   }
   
   figcaption {
@@ -21,44 +22,42 @@ figure {
     padding: $unit-padding;
     color: $font-color;
   }
-  
-  &.small {
-      max-width: 40%;
-    img {
-        max-width: 100%;
-    }
-  }
-  
-  &.medium {
-      max-width: 50%;
-    img {
-        max-width: 100%;
-    }
-  }
 }
+  
+.xsmall {
+    max-width: 30%;
+}
+
+.small {
+    max-width: 40%;
+}
+
+.medium {
+    max-width: 50%;
+}
+
 
 @media (max-width: 750px) {
   figure {
     text-align: center;
 
-    &.large {
-        max-width: 80%;
-      img {
-          max-width: 100%;
-      }
-    }
-
-
-    &.xlarge {
-      padding: 0px;
-      margin: 0px;
-      text-align: center;
-      img {
-        width: 100%;
-      }
+    img {
+        max-width: 100%;
     }
   }
+  
+.large {
+      max-width: 80%;
+  }
+
+
+.xlarge {
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+  }
 }
+
 
 @media (min-width: 750px) {
   figure {
@@ -66,73 +65,50 @@ figure {
       @include shadow;
       display: block;
     }
-    
-    figcaption {
-      text-align: left;
-      font-size: small;
-      font-style: italic;
-      height: auto;
-      line-height: 100%;
-      padding: $unit-padding;
-    }
-    
-    &.left {
-      float: left;
-      margin: 0;
-      margin-right: 2*$unit-margin;
-    }
-
-    &.right {
-      float: right;
-      margin: 0;
-      margin-left: 2*$unit-margin;
-    }
-
-    &.xleft {
-      float: left;
-      margin-right: 2*$unit-margin;
-      margin-left: -10*$unit-margin;
-    }
-
-    &.xright {
-      float: right;
-      margin-left: 2*$unit-margin;
-      margin-right: -10*$unit-margin;
-    }
-
-    &.center {
-      margin: auto;
-      text-align: center;
-    }
-
-    &.large {
-        max-width: 80%;
-        margin: auto;
-        text-align: center;
-      img {
-          max-width: 100%;
-      }
-    }
-
-
-    &.xlarge {
-      padding: 0px;
-      margin: 0px;
-      text-align: center;
-      
-      img {
-        width: 100%;
-      }
-    }
+  }
+  
+  .left {
+    float: left;
+    margin: 0;
+    margin-right: 2*$unit-margin;
   }
 
-}
+  .right {
+    float: right;
+    margin: 0;
+    margin-left: 2*$unit-margin;
+  }
+
+  .xleft {
+    float: left;
+    margin-right: 2*$unit-margin;
+    margin-left: -10*$unit-margin;
+  }
+
+  .xright {
+    float: right;
+    margin-left: 2*$unit-margin;
+    margin-right: -10*$unit-margin;
+  }
+
+  .center {
+    margin: auto;
+    text-align: center;
+  }
+
+  .large {
+      max-width: 80%;
+      margin: auto;
+      text-align: center;
+  }
 
 
-.right {
-  margin-top: 0;
-  padding-top: 0;
-  text-align: right;
+  .xlarge {
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+  }
 }
+
 
 

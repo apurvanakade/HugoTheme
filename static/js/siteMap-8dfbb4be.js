@@ -1,8 +1,17 @@
+function initSiteMap(Permalink) {
+  $("#siteMap").find('a').each(function(){
+    if ($(this).attr("href") == Permalink) {
+      $(this).addClass("you_are_here");
+      $(this).attr("href","javascript:hideSiteMap()");
+    }
+  });
+}
+
 function showSiteMap() {
   $("body").css("overflow-y","hidden");  
   $("#siteMap").css("overflow-y","auto");  
   $("#siteMap").css("z-index","1");  
-  $('#siteMapGrid').css("opacity","1"); 
+  $('#siteMap').css("opacity","1"); 
   $('#marker').html("<p>❮</p>");
   $('#marker').attr("href","javascript:hideSiteMap()");
 }
@@ -11,7 +20,7 @@ function hideSiteMap() {
   $("body").css("overflow-y","auto");  
   $("#siteMap").css("overflow-y","hidden");  
   $("#siteMap").css("z-index","-2");  
-  $('#siteMapGrid').css("opacity","0");
+  $('#siteMap').css("opacity","0");
   $('#marker').html("<p>❯</p>");
   $('#marker').attr("href","javascript:showSiteMap()");
 }

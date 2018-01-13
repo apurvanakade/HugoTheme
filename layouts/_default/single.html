@@ -1,10 +1,6 @@
 {{ partial "header" . }}
 
-<body class="single">
-    <a id="marker" href="javascript:showSiteMap()">
-      <p>❯</p>
-    </a>
-
+<body class="single" onload="initSiteMap({{.Permalink}})">
   <div id="mainGrid" class="mainGrid">
     <div class="Title">
       <a class="crosslink" href="{{ $.Site.BaseURL | relURL}}">{{ .Title }}</a>

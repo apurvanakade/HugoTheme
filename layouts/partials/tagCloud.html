@@ -7,22 +7,19 @@ Source: https://www.henriksommerfeld.se/hugo-tag-could/
 -->
 
 <div class="tags-display">
-{{ range .Site.Home.Sections}}
-{{ if eq .Title "Posts"}}
-{{ range .Sections}}
-  {{ if .Pages }}
-  <a class="crosslink categories" href="{{ .RelPermalink }}">{{.Title}}</a>
-  {{ end }}
-  
+
+  {{ template "show_categories" .Site.Home}}
+
+{{ define "show_categories"}}
   {{ range .Sections}}
     {{ if .Pages }}
     <a class="crosslink categories" href="{{ .RelPermalink }}">{{.Title}}</a>
     {{ end }}
+    
+      {{ template "show_categories" .}}
+      
   {{ end }}
 {{ end }}
-{{ end }}
-{{ end }}
-
 
 {{ $fontUnit := "%" }}
 {{ $largestFontSize := 100 }}
