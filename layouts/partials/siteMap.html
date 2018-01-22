@@ -17,7 +17,7 @@
       
   <div id="siteMapGrid">
     <div class="Title hline">
-      <a class="crosslink" href="{{ $.Site.BaseURL }}">Archive</a>
+      <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Archive</a>
       <div class="date">
         <a href="javascript:hideAllSections();" class="hideShowButton"> Collapse all</a> | <a href="javascript:showAllSections();" class="hideShowButton"> Expand all</a> <br> <br>
       </div>

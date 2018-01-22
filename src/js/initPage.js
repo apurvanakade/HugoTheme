@@ -22,3 +22,11 @@ $( document ).ready(function() {
 $( document ).ready(function() {
   $('body').css("opacity","1");
 });
+
+window.onscroll = () => {
+    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+        document.getElementById("scrollTopBtn").style.opacity = "1";
+    } else {
+        document.getElementById("scrollTopBtn").style.opacity = "0";
+    }
+}
