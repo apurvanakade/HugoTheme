@@ -87,6 +87,8 @@ a#marker {
   .grid-topSection {
     grid-column:1;
     border-right: 1px solid lightgrey;
+    height: 1em;
+    overflow-y: visible;
   }
   
   .dummy {
@@ -97,6 +99,13 @@ a#marker {
     grid-column-start:1;
     grid-column-end: 5;
   }
+  
+  .grid-section {
+    grid-column:2;
+    height: 1em;
+    overflow-y: visible;
+  }
+  
   .grid-title {
     grid-column: 3;
   }
@@ -105,10 +114,6 @@ a#marker {
   }
   .grid-tags {
     grid-column: 5;
-  }
-  
-  .grid-section {
-    grid-column:2;
   }
   
   a.hideShowButton {
