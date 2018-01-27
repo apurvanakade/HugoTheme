@@ -1,5 +1,5 @@
 function initSiteMap(Permalink) {
-  $("#siteMap").find('a').each(function(){
+  $("#siteMapFrame").contents().find("#siteMap").find('a').each(function(){
     if ($(this).attr("href") == Permalink) {
       $(this).addClass("you_are_here");
       $(this).attr("href","javascript:hideSiteMap()");
@@ -9,18 +9,18 @@ function initSiteMap(Permalink) {
 
 function showSiteMap() {
   $("body").css("overflow-y","hidden");  
-  $("#siteMap").css("overflow-y","auto");  
-  $("#siteMap").css("z-index","1");  
-  $('#siteMap').css("opacity","1"); 
+  $("#siteMapFrame").css("z-index","1");  
+  $("#siteMapFrame").contents().find("#siteMap").css("overflow-y","auto");  
+  $("#siteMapFrame").contents().find("#siteMap").css("opacity","1"); 
   $('#marker').html("<p>❮</p>");
   $('#marker').attr("href","javascript:hideSiteMap()");
 }
 
 function hideSiteMap() {
   $("body").css("overflow-y","auto");  
-  $("#siteMap").css("overflow-y","hidden");  
-  $("#siteMap").css("z-index","-2");  
-  $('#siteMap').css("opacity","0");
+  $("#siteMapFrame").css("z-index","-1");  
+  $("#siteMapFrame").contents().find("#siteMap").css("overflow-y","hidden");  
+  $("#siteMapFrame").contents().find("#siteMap").css("opacity","0");
   $('#marker').html("<p>❯</p>");
   $('#marker').attr("href","javascript:showSiteMap()");
 }
@@ -30,14 +30,14 @@ $(document).keyup(function(e) {
 });
 
 function hideSections(section){
-  $("#siteMap").find('a.hideShowButton').each(function(){
+  $("#siteMapFrame").contents().find("#siteMap").find('a.hideShowButton').each(function(){
     if(this.getAttribute( "section" ) == section) {
       $(this).html("[+]");
       $(this).attr("href","javascript:showSections('"+section+"');");
     }
   });
   
-  $("#siteMap").find('div[section]').each(function () {     
+  $("#siteMapFrame").contents().find("#siteMap").find('div[section]').each(function () {     
     if(this.getAttribute( "section" ) == section) {
       $(this).css("display", "none");
     }
@@ -45,14 +45,14 @@ function hideSections(section){
 }
 
 function showSections(section){
-  $("#siteMap").find('a.hideShowButton').each(function(){
+  $("#siteMapFrame").contents().find("#siteMap").find('a.hideShowButton').each(function(){
     if(this.getAttribute( "section" ) == section) {
       $(this).html("[–]");
       $(this).attr("href","javascript:hideSections('"+section+"');");
     }
   });
   
-    $("#siteMap").find('div[section]').each(function () {     
+    $("#siteMapFrame").contents().find("#siteMap").find('div[section]').each(function () {     
     if(this.getAttribute( "section" ) == section) {
       $(this).css("display", "");
     }
@@ -60,14 +60,14 @@ function showSections(section){
 }
 
 function showAllSections(){
-  $("#siteMap").find('a.hideShowButton[section]').each(function(){  
+  $("#siteMapFrame").contents().find("#siteMap").find('a.hideShowButton[section]').each(function(){  
     var section = this.getAttribute("section");
     showSections(section);
   });
 }
 
 function hideAllSections(){
-  $("#siteMap").find('a.hideShowButton[section]').each(function(){ 
+  $("#siteMapFrame").contents().find("#siteMap").find('a.hideShowButton[section]').each(function(){ 
     var section = this.getAttribute("section");
     hideSections(section);
   });

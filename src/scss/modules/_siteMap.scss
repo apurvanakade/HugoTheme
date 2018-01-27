@@ -7,12 +7,31 @@
   a#marker {
     width: 0.75em;
   }
+  
+  #siteMapGrid {
+    margin-left: 2em;
+  }
 }
 
 @media (min-width: 750px) {
   a#marker {
     width: 1em;
   }
+
+  #siteMapGrid {
+    margin-left: 10*$unit-margin;
+    margin-bottom: 10*$unit-margin;
+    margin-top: 5*$unit-margin;
+  }
+}
+
+#siteMapFrame {
+  position: fixed; 
+  height: 100vh; 
+  width: 100%; 
+  z-index:-1; 
+  top: 0; 
+  left: 0;
 }
 
 a#marker {
@@ -70,10 +89,6 @@ a#marker {
 }
 
 #siteMapGrid {
-  margin-left: 10*$unit-margin;
-  margin-bottom: 10*$unit-margin;
-  margin-top: 5*$unit-margin;
-
   width: max-content;
   display: grid;
   grid-template-columns: min-content minmax(150px,max-content) max-content max-content max-content;

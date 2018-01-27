@@ -1,6 +1,7 @@
 {{ partial "header" . }}
-
 <body class="single" onload="initSiteMap({{.Permalink}})">
+  {{ partial "siteMap" .}}
+  
   <div id="mainGrid" class="mainGrid">
     <div class="Title">
       <a class="crosslink" href="{{ $.Site.BaseURL | relURL}}">{{ .Title }}</a>
@@ -19,7 +20,6 @@
     </div>
     {{ end }}
   </div>
-  {{ partial "siteMap" .}}
 
   <div class="footer">
     {{ partial "navBar" . }}

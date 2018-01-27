@@ -1,20 +1,20 @@
 {{ partial "header" .}}
-
 <body class="list" onload="initSiteMap({{.Permalink}})">
-    <div id="mainGrid" class="mainGrid">
-      <div class="Title">
-        <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">{{ .Title }}</a>
-      </div>      
-      {{ partial "post-its" .Paginator.Pages}}
-      {{ partial "tagCloud" .}}
-      <div style="text-align:right; grid-column-end: -1;">
-        {{.Content}}
-      </div>
+  {{ partial "siteMap" .}}
+  <div id="mainGrid" class="mainGrid">
+    <div class="Title">
+      <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">{{ .Title }}</a>
+    </div>      
+    {{ partial "post-its" .Paginator.Pages}}
+    <iframe id="tagsCloudFrame" src="{{ $.Site.BaseURL }}tagcloud/"  frameborder="0"  class="tags-display" height="auto">
+    </iframe>
+    <div style="text-align:right; grid-column-end: -1;">
+      {{.Content}}
     </div>
+  </div>
 
-    <div class="footer">
-      {{ partial "navBar" .}} {{ partial "siteMap" .}}
-    </div>
-  </body>
-
+  <div class="footer">
+    {{ partial "navBar" .}} 
+  </div>
+</body>
 </html>

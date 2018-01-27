@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+  
   $('#footer-credits').find('a').each(function() {
     image = document.createElement('img');
     src1 = "https://apurvnakade.github.io/blog/images/icons/white/" + $(this).attr("data");
