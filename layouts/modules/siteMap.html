@@ -4,13 +4,21 @@
 {{ partial "header" . }}
 
 <div id="siteMap">
-  <table class="wide-screen-only">
+  <table id="archiveTable" class="wide-screen-only">
+    <thead>
+      <tr>
+        <th onclick="javascript:sortTable(0);">Name</th>
+        <th class="sortDesc" onclick="javascript:sortTable(1);">Date</th>
+      </tr>
+    </thead>
+    <tbody>
     {{range where $.Site.Pages.ByDate.Reverse "Type" "post"}}
     <tr>
       <td><a target="_parent" href="{{.Permalink}}" class="crosslink"> {{ .Title }} </a> </td>
-      <td>{{ .Date.Format "Jan 02, 06" }}</td>
+      <td>{{ .Date.Format "06/01/02" }}</td>
     </tr>
     {{end}}
+    </tbody>  
   </table>
       
   <div id="siteMapGrid">
