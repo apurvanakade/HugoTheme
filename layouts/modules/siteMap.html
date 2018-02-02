@@ -30,7 +30,7 @@
     </div>
     
     
-    {{ range .Site.Home.Sections}}
+    {{ range where .Site.Home.Sections "Title" "ne" "_modules" }}
         {{ if .Sections }}
           <div class="grid-topSection wide-screen-only"> 
             {{.Title}}
