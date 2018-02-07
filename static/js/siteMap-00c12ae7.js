@@ -2,7 +2,6 @@ function initSiteMap(Permalink) {
   $("#siteMapFrame").contents().find("#siteMap").find('a').each(function(){
     if ($(this).attr("href") == Permalink) {
       $(this).addClass("you_are_here");
-      $(this).attr("href","javascript:hideSiteMap()");
     }
   });
 }
@@ -20,7 +19,7 @@ function hideSiteMap() {
   $("body").css("overflow-y","auto");  
   $("#siteMapFrame").css("z-index","-1");  
   $("#siteMapFrame").contents().find("#siteMap").css("overflow-y","hidden");  
-  $("#siteMapFrame").contents().find("#siteMap").css("opacity","0");
+  $("#siteMapFrame").contents().find("#siteMap").css("opacity","0"); 
   $('#marker').html("<p>❯</p>");
   $('#marker').attr("href","javascript:showSiteMap()");
 }
@@ -30,14 +29,14 @@ $(document).keyup(function(e) {
 });
 
 function hideSections(section){
-  $("#siteMapFrame").contents().find("#siteMap").find('a.hideShowButton').each(function(){
+  $("#siteMap").find('a.hideShowButton').each(function(){
     if(this.getAttribute( "section" ) == section) {
       $(this).html("[+]");
       $(this).attr("href","javascript:showSections('"+section+"');");
     }
   });
   
-  $("#siteMapFrame").contents().find("#siteMap").find('div[section]').each(function () {     
+  $("#siteMap").find('div[section]').each(function () {     
     if(this.getAttribute( "section" ) == section) {
       $(this).css("display", "none");
     }
@@ -45,14 +44,14 @@ function hideSections(section){
 }
 
 function showSections(section){
-  $("#siteMapFrame").contents().find("#siteMap").find('a.hideShowButton').each(function(){
+  $("#siteMap").find('a.hideShowButton').each(function(){
     if(this.getAttribute( "section" ) == section) {
       $(this).html("[–]");
       $(this).attr("href","javascript:hideSections('"+section+"');");
     }
   });
   
-    $("#siteMapFrame").contents().find("#siteMap").find('div[section]').each(function () {     
+    $("#siteMap").find('div[section]').each(function () {     
     if(this.getAttribute( "section" ) == section) {
       $(this).css("display", "");
     }
@@ -60,14 +59,14 @@ function showSections(section){
 }
 
 function showAllSections(){
-  $("#siteMapFrame").contents().find("#siteMap").find('a.hideShowButton[section]').each(function(){  
+  $("#siteMap").find('a.hideShowButton[section]').each(function(){  
     var section = this.getAttribute("section");
     showSections(section);
   });
 }
 
 function hideAllSections(){
-  $("#siteMapFrame").contents().find("#siteMap").find('a.hideShowButton[section]').each(function(){ 
+  $("#siteMap").find('a.hideShowButton[section]').each(function(){ 
     var section = this.getAttribute("section");
     hideSections(section);
   });

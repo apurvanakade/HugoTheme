@@ -1,4 +1,5 @@
 {{ range sort . }}
+{{- if eq .Type "post" -}}
 <div class="cell">
   <a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a>
   <br>
@@ -14,5 +15,5 @@
     <a class="crosslink tags" href="/tags/{{ . | urlize }}">#{{.}}</a> {{ end }} {{ end }}
   </div>
 </div>
-
+{{- end -}}
 {{ end }} 
