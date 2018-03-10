@@ -17,6 +17,7 @@
 
 body.list .mainGrid {
     font-size: $small-font-size;
+    line-height: 150%;
 
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);//minmax(275px, 1fr));
