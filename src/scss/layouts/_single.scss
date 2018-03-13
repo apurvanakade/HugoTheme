@@ -42,6 +42,12 @@ body.single {
     border-top: 1px solid lightgrey;
     p {
       padding-top: 1em;
+      
+      &::selection,
+      *::selection {
+        background-color: black;
+        color: white;
+      }
     }
   }
 }

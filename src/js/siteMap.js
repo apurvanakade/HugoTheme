@@ -10,6 +10,7 @@ function initSiteMap(Permalink) {
   siteMap.find('a').each(function(){
     if ($(this).attr("href") == Permalink) {
       $(this).addClass("you_are_here");
+      $(this).removeAttr("href");
       if($(this).parent().attr('section'))
         uncollapsed_sections.push($(this).parent().attr('section'));
       if($(this).prev().attr('section'))

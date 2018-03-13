@@ -79,12 +79,11 @@ a#marker {
     }
     
   #archiveTable {
-    margin-top: 15*$unit-margin;
     padding: 2*$unit-margin;
     float:right;
     line-height: 1.5;
-    border: 1px solid lightgrey;
-    border-left: 3px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
     
     th {
       cursor: pointer;
