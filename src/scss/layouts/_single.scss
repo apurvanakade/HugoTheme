@@ -40,14 +40,18 @@ body.single {
 
   .post {  
     border-top: 1px solid lightgrey;
+    
+    *::selection {
+      background-color: black;
+      color: white;
+    }
+    
     p {
       padding-top: 1em;
-      
-      &::selection,
-      *::selection {
-        background-color: black;
-        color: white;
-      }
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      padding-top: 1em;
     }
   }
 }
