@@ -1,46 +1,58 @@
 {{ partial "header" . }}
+
+<!--  These scripts are for enabling MathJax etc. -->
 {{ if .GetParam "hasMath"}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/contrib/auto-render.min.js"></script>
+  <noscript>
+    <style>.jsonly { display: none }</style>
+  </noscript>
 {{ end }}
 
-<noscript>
-  <style>.jsonly { display: none }</style>
-</noscript>
-
 <body class="single" onload="initSiteMap({{.Permalink}})">
-  {{ partial "siteMap" .}}
   
-  <div id="mainGrid" class="mainGrid">
-    <div class="Title">
-      <a class="crosslink" href="{{ $.Site.BaseURL | relURL}}">{{ .Title }}</a>
-    </div>
-
-    <div class = "date">
-      Filed under 
-      <a class="crosslink categories" href="{{ .Parent.RelPermalink }}" style="display:inline">{{ .CurrentSection.Title }}</a>, {{ .Date.Format "January 2, 2006" }}.
-    </div>
-    <div class="post">{{ .Content }}</div>
-
-    {{ if .Params.tags}}
-    <div class="tags-display">
-      {{ range .Params.tags }}
-      <a class="crosslink tags" href="/tags/{{ . | urlize }}">#{{.}}</a> {{ end }}
-    </div>
-    {{ end }}
+{{ partial "siteMap" .}}
+<div id="mainGrid" class="mainGrid">
+  <div class="Title">
+    <a class="crosslink" href="{{ $.Site.BaseURL | relURL}}">{{ .Title }}</a>
   </div>
 
-  <div class="footer">
-    {{ partial "navBar" . }}
-    {{ partial "social" . }}
+  <div class = "date">
+    Filed under 
+    <a class="crosslink categories" href="{{ .Parent.RelPermalink }}" style="display:inline">{{ .CurrentSection.Title }}</a>, {{ .Date.Format "January 2, 2006" }}.
   </div>
+  <div class="post">{{ .Content }}</div>
 
-  <a id="scrollTopBtn" class="wide-screen-only tags" href='javascript:$("html, body").animate({ scrollTop: 0 }, "slow");'>↑ Top</a>
+  {{ if .Params.tags}}
+  <div class="tags-display">
+    {{ range .Params.tags }}
+    <a class="crosslink tags" href="/tags/{{ . | urlize }}">#{{.}}</a> {{ end }}
+  </div>
+  {{ end }}
+  
+  <div id="comments">
+    <h3><br><br>I would love to hear from you. <br> <br> </h3>
+    {{ partial "staticman/form-comments" . }}
+    {{ partial "staticman/show-comments" . }}  
+  </div> 
+</div>
+    
+<div class="footer">
+  {{ partial "navBarSingle" . }}
+</div>
+
+<a 
+  id="scrollTopBtn" 
+  class="wide-screen-only tags" 
+  href='javascript:$("html, body").animate({ scrollTop: 0 }, "slow");'
+>
+↑ Top
+</a>
 
 </body>
 
-<!-- bottom of page -->
+<!--  These scripts are for enabling MathJax etc. -->
 {{ if .GetParam "hasMath"}}
   <script>renderMathInElement(document.body);</script>
 {{ end }}

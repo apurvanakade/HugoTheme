@@ -6,11 +6,18 @@ Based on the code from Hendrik Sommerfeld
 Source: https://www.henriksommerfeld.se/hugo-tag-could/
 -->
 
+<!--  
+This page is a standalone page. It simply lists all the sections and tags in the blog. 
+-->
+
 <link rel="stylesheet" href='/css/{{ index .Site.Data.css.hash "style.css" }}'>
 <div class="tags-display">
 
-  {{ template "show_categories" .Site.Home}}
+{{ template "show_categories" .Site.Home}}
 
+<!-- 
+This is a recursive function that lists all the posts in a section and then passes to the section.
+-->
 {{ define "show_categories"}}
   {{ range .Sections}}
     {{ if .Pages }}
@@ -22,6 +29,9 @@ Source: https://www.henriksommerfeld.se/hugo-tag-could/
   {{ end }}
 {{ end }}
 
+<!--  
+I've no idea how the following thing works. The only thing that needs tweaking is the largestFontSize and smallestFontSize.
+-->
 {{ $fontUnit := "%" }}
 {{ $largestFontSize := 120 }}
 {{ $smallestFontSize := 80 }}

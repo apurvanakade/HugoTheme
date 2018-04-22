@@ -1,0 +1,9 @@
+<div id="show-comments">
+  {{range $.Site.Data.comments}}
+    {{if eq .postID $.UniqueID}}
+    <br>
+    <p> {{.name}} <span class="date">{{ dateFormat "Jan 2, 2006" .date}},</span> <br>
+       {{.body | markdownify}} </p> 
+    {{end}} 
+  {{ end }}
+</div>

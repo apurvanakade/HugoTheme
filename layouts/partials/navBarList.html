@@ -1,0 +1,28 @@
+<table id="navBar">
+   <tr>
+     <td></td>
+    <td>
+      {{ if ne .Paginator.PageNumber 1}}
+        {{ range seq 1 (sub .Paginator.PageNumber 1)}}
+            <a class="crosslink" href="{{ $.RelPermalink}}page/{{ . }}">
+              {{ . }}
+            </a> | 
+        {{ end }}
+      {{ end }}
+      
+      {{ if .IsHome }}
+          <a href="javascript:showSiteMap('{{.Permalink }}')">Archive</a>
+      {{ else }}
+          <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a>
+      {{ end }}
+      {{ if ne .Paginator.PageNumber .Paginator.TotalPages}}
+        {{ range seq (add .Paginator.PageNumber 1) $.Paginator.TotalPages}}
+            | <a class="crosslink" href="{{ $.RelPermalink}}page/{{ . }}">
+              {{ . }}
+            </a>  
+        {{ end }}
+      {{ end }}
+    </td>
+    <td></td>
+  </tr>
+</table>

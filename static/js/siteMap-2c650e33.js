@@ -4,6 +4,7 @@
 var siteMap;
 //This variable is of use only when called by the parent page.
 function initSiteMap(Permalink) {
+  //This function is called by the parent page to collapse the unwanted sections and mark the relevant pages pink.
   var uncollapsed_sections = [];
   siteMap = $("#siteMapFrame").contents().find("#siteMap");
   

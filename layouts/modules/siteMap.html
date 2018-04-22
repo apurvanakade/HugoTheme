@@ -1,9 +1,15 @@
-<!-- need more comments on this page,
-- this is currently very hard to parse
--->  
+<!--  
+This is a standalone page and is generated only once.
+There is a javascript that makes it specific for each page.
+
+This page is included in an iframe.
+-->
 {{ partial "header" . }}
 
 <div id="siteMap">
+  <!--  
+  This table lists all the posts in chronological order, with an option of sorting by name, or reversing the order.
+  -->
   <table id="archiveTable" class="wide-screen-only">
     <thead>
       <tr>
@@ -20,7 +26,12 @@
     {{end}}
     </tbody>  
   </table>
-      
+  
+  <!--  
+  This is the list of all posts arranged in a heirarchical manner. 
+  
+  The depth is 2, every post has a section and a top level section.
+  -->
   <div id="siteMapGrid">
     <div class="Title hline">
       <a target="_parent" class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Archive</a>
@@ -49,6 +60,9 @@
     </div>
 </div>
 
+<!--  
+This function loops through all the posts in a single section, printing out the Section, Title, Date, Tags.
+-->
 {{ define "print_pages"}}
     {{ if .Pages}}
             {{$.Scratch.Set "section" .Title}}   
@@ -68,6 +82,9 @@
       {{ end }}
 {{ end }}
 
+<!--  
+This function packages the raw data into html.
+-->
 {{ define "add_content"}}
     <a target="_parent"class="crosslink {{ index . 2}}" href="{{ index . 0 }}">
       {{ index . 1 }}

@@ -37,6 +37,28 @@ body.single {
       line-height: 2em;
       transition: 1s ease-in-out;          
   }
+  
+  #comments {
+    margin-top: 10*$unit-margin;
+    display: none;
+    input, textarea {
+      font-size: 1.25em;
+    }
+    .button {
+      float:right;
+      background-color: darkgrey;
+      color: white;
+      border: darkgrey solid 2px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      &:hover, &:focus {
+        background-color: black;
+        border: black solid 2px;
+      }
+    }
+  }
 
   .post {  
     border-top: 1px solid lightgrey;

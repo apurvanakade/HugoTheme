@@ -18,6 +18,7 @@
 }
 
 #footer-credits {
+  text-align: right;
   img {
     height: 20px;
   }
@@ -27,8 +28,11 @@
   font-size: small;
   width: 100%;
   margin-top: 15*$unit-margin;
-  margin-bottom: 30*$unit-margin;
+  margin-bottom: 20*$unit-margin;
 
+  td {
+    width: 33%;
+  }
   td:first-of-type {
     text-align: left;
   }
