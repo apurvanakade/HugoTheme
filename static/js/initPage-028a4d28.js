@@ -28,9 +28,11 @@ $( document ).ready(function() {
 
 window.onscroll = () => {
   // This makes the scrollTopBtn visible on enough scrolling.
-    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-        document.getElementById("scrollTopBtn").style.opacity = "1";
-    } else {
-        document.getElementById("scrollTopBtn").style.opacity = "0";
+    if ($('#scrollTopBtn').length > 0) {
+      if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+          document.getElementById("scrollTopBtn").style.opacity = "1";
+      } else {
+          document.getElementById("scrollTopBtn").style.opacity = "0";
+      }
     }
 }

@@ -6,8 +6,14 @@
       <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">{{ .Title }}</a>
     </div>      
     {{ partial "post-its" .Paginator.Pages}}
-    <iframe id="tagsCloudFrame" src="{{ $.Site.BaseURL }}modules/tagcloud/"  frameborder="0"  class="tags-display" height="auto">
+    <iframe id="tagsCloudFrame" src="{{ $.Site.BaseURL }}modules/tagcloud/"  frameborder="0"  class="tags-display" scrolling="no">
     </iframe>
+    <script type="text/javascript" language="javascript"> 
+        var iFrameID = document.getElementById('tagsCloudFrame');
+        iFrameID.style.height = iFrameID.contentWindow.document.body.scrollHeight + 50 + 'px';
+        console.log(iFrameID.height + " : " + iFrameID.contentWindow.document.body.scrollHeight);
+    </script>
+
     <div style="text-align:right; grid-column-end: -1;">
       {{.Content}}
     </div>
