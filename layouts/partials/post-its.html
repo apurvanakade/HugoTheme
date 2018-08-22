@@ -3,7 +3,7 @@ Displays all the pages in a Paginator.
 -->
 {{ range sort . }}
 {{- if eq .Type "post" -}}
-<div class="cell">
+<div class="cell" onclick="window.open('{{ .Permalink }}','_self')">
   <a class="crosslink" href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}(D){{ end }}</a>
   <br>
   <a class="crosslink categories date" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>

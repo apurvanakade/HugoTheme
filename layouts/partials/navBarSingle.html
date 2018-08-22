@@ -1,13 +1,3 @@
-<script>
-// Comments are hidden by default. This displays the form-comments.
-  function showComments(){
-    $("#comments").fadeIn(800);
-    $('html, body').animate({
-        scrollTop: $("#comments").offset().top
-    }, 600);
-  }
-</script>
-
 <table id="navBar">
    <tr>
     <td>
@@ -16,18 +6,10 @@
         {{ end }}
     </td>
     <td>
-      
-      {{ $.Scratch.Add "numComments" 0 }}
-      {{range $.Site.Data.comments}}
-        {{if eq .postID $.UniqueID}}
-          {{ $.Scratch.Add "numComments" 1 }}  
-        {{end}} 
-      {{ end }}
-      <a href="javascript:showComments()">{{ $.Scratch.Get "numComments" }} comments</a>
-      |
+
       <a href="javascript:showSiteMap()">Archive</a>
       |
-      <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a> 
+      <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Home</a>
       |
       <a class="crosslink" href="{{ .Parent.RelPermalink }}">{{ .CurrentSection.Title }}</a>
     </td>
