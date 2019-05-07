@@ -1,7 +1,7 @@
 {{ partial "header" . }}
 
 <!--  These scripts are for enabling MathJax etc. -->
-{{ if .GetParam "hasMath"}}
+{{ if .Param "hasMath"}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/contrib/auto-render.min.js"></script>
@@ -47,7 +47,7 @@
 </body>
 
 <!--  These scripts are for enabling MathJax etc. -->
-{{ if .GetParam "hasMath"}}
+{{ if .Param "hasMath"}}
   <script>renderMathInElement(document.body);</script>
 {{ end }}
 
