@@ -2,7 +2,11 @@
 *.scssc
 *.css.map
 *.map
-gulpfile.js
-package.json
 package-lock.json
 node_modules/
+*/.DS_Store
+*/*.scssc
+*/*.css.map
+*/*.map
+*/package-lock.json
+*/node_modules/
