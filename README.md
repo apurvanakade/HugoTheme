@@ -1,7 +1,10 @@
 # HugoTheme
 A Hugo theme I designed for my blog at https://apurvnakade.github.io/blog/
 
-Finally, can't think of any more major changes and the theme is more or less stable.
+
+
+
+This README is mostly meant for myself. I intend to update this soon along with providing documentation for the rest of the theme. 
 
 
 
