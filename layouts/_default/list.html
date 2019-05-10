@@ -4,15 +4,13 @@
   <div id="mainGrid" class="mainGrid">
     <div class="Title">
       <a class="crosslink" href="{{ $.Site.BaseURL | relURL }}">{{ .Title }}</a>
-    </div>      
+    </div>
+
     {{ partial "post-its" .Paginator.Pages}}
-    <iframe id="tagsCloudFrame" src="{{ $.Site.BaseURL }}modules/tagcloud/"  frameborder="0"  class="tags-display" scrolling="no">
+
+    <script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "displayTagCloudFrame.js" }}'></script>
+    <iframe id="tagsCloudFrame" src="{{ $.Site.BaseURL }}modules/tagcloud/"  frameborder="0"  class="tags-display" scrolling="no" onload="setIframeHeight(this.id)">
     </iframe>
-    <script type="text/javascript" language="javascript"> 
-        var iFrameID = document.getElementById('tagsCloudFrame');
-        iFrameID.style.height = iFrameID.contentWindow.document.body.scrollHeight + 50 + 'px';
-        console.log(iFrameID.height + " : " + iFrameID.contentWindow.document.body.scrollHeight);
-    </script>
 
     <div style="text-align:right; grid-column-end: -1;">
       {{.Content}}
@@ -20,7 +18,7 @@
   </div>
 
   <div class="footer">
-    {{ partial "navBarList" .}} 
+    {{ partial "navBarList" .}}
   </div>
 </body>
 </html>
