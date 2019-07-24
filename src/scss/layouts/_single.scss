@@ -3,13 +3,13 @@
   body.single {
     .mainGrid {
       margin-top: 5*$unit-padding;
-      
+
      .post {
-       padding-top: 5*$unit-margin;    
-       padding-left: 3*$unit-margin;    
-       margin-right: -3*$unit-margin;    
+       padding-top: 5*$unit-margin;
+       padding-left: 3*$unit-margin;
+       margin-right: -3*$unit-margin;
      }
-    }  
+    }
   }
 }
 
@@ -19,7 +19,7 @@
       .mainGrid {
            padding: $unit-padding;
            margin: $unit-margin;
-           font-size: 0.9em;
+           font-size: 0.75em;
       }
   }
 }
@@ -35,9 +35,9 @@ body.single {
       margin-top: 10*$unit-margin;
       max-width: $max-width;
       line-height: 2em;
-      transition: 1s ease-in-out;          
+      transition: 1s ease-in-out;
   }
-  
+
   #comments {
     margin-top: 10*$unit-margin;
     display: none;
@@ -60,18 +60,18 @@ body.single {
     }
   }
 
-  .post {  
-    border-top: 1px solid lightgrey;
-    
+  .post {
+    border-top: 2px solid;
+
     *::selection {
-      background-color: black;
+      background-color: white;
       color: white;
     }
-    
+
     p {
       padding-top: 1em;
     }
-    
+
     h1, h2, h3, h4, h5, h6 {
       padding-top: 1em;
     }

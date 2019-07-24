@@ -7,12 +7,12 @@
 figure {
   height: max-content;
   margin: auto;
-  
+
   img {
     display: block;
     width: 100%;
   }
-  
+
   figcaption {
     text-align: left;
     font-size: small;
@@ -23,19 +23,6 @@ figure {
     color: $font-color;
   }
 }
-  
-.xsmall {
-    max-width: 30%;
-}
-
-.small {
-    max-width: 40%;
-}
-
-.medium {
-    max-width: 50%;
-}
-
 
 @media (max-width: 750px) {
   figure {
@@ -45,7 +32,7 @@ figure {
         max-width: 100%;
     }
   }
-  
+
 .large {
       max-width: 80%;
   }
@@ -66,7 +53,7 @@ figure {
       display: block;
     }
   }
-  
+
   .left {
     float: left;
     margin: 0;
@@ -91,24 +78,31 @@ figure {
     margin-right: -10*$unit-margin;
   }
 
-  .center {
-    margin: auto;
-    text-align: center;
-  }
-
   .large {
       max-width: 80%;
       margin: auto;
-      text-align: center;
   }
 
 
   .xlarge {
     padding: 0px;
-    margin: 0px;
-    text-align: center;
   }
 }
 
 
+.xsmall {
+  max-width: 30%;
+}
 
+.small {
+  max-width: 40%;
+}
+
+.medium {
+  max-width: 50%;
+}
+
+.center, .large, .xlarge {
+  text-align:center;
+  margin:auto;
+}
