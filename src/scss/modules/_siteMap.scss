@@ -3,17 +3,17 @@
 /* CSS elements used in the tree */
 /*********************************/
 /*********************************/
-@media (max-width: 750px) {
+@media (max-width: $max-width) {
   a#marker {
     width: 0.75em;
   }
-  
+
   #siteMapGrid {
     margin-left: 2em;
   }
 }
 
-@media (min-width: 750px) {
+@media (min-width: $max-width) {
   a#marker {
     width: 1em;
   }
@@ -26,11 +26,11 @@
 }
 
 #siteMapFrame {
-  position: fixed; 
-  height: 100vh; 
-  width: 100%; 
-  z-index:-1; 
-  top: 0; 
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index:-1;
+  top: 0;
   left: 0;
 }
 
@@ -40,9 +40,9 @@ a#marker {
   height: 100%;
   @include shadow;
   z-index: 2;
-  
+
   position:fixed;
-  
+
   color: lightgrey;
   &:hover {
     color: black;
@@ -64,33 +64,33 @@ a#marker {
     left: 0;
     background-color: rgba(255,255,255, 0.98);
     overflow-y: hidden;
-    
-    text-align: left;    
+
+    text-align: left;
     line-height: 1;
     font-size: small;
-    
+
     opacity: 0;
     transition: 0.5s ease-in-out;
-    
+
   .you_are_here {
       color: $hyperlink-hover; //darken(red,20%);
       text-decoration: underline;
       cursor: default;
     }
-    
+
   #archiveTable {
     padding: 2*$unit-margin;
     float:right;
     line-height: 1.5;
     border-bottom: 1px solid lightgrey;
     border-left: 1px solid lightgrey;
-    
+
     th {
       cursor: pointer;
       &.sortDesc::before {
         content:"↓";
       }
-      
+
       &.sortAsc::before {
         content:"↑";
       }
@@ -102,12 +102,12 @@ a#marker {
   width: max-content;
   display: grid;
   grid-template-columns: min-content minmax(150px,max-content) max-content max-content max-content;
-    
+
   > * {
     padding: 0.5em;
   }
   .Title {
-    margin-left: -4*$unit-margin;    
+    margin-left: -4*$unit-margin;
   }
   .grid-topSection {
     grid-column:1;
@@ -116,22 +116,22 @@ a#marker {
     overflow-y: visible;
     text-align: right;
   }
-  
+
   .dummy {
     border-right: 1px solid lightgrey;
   }
-  
+
   .hline {
     grid-column-start:1;
     grid-column-end: 5;
   }
-  
+
   .grid-section {
     grid-column:2;
     height: 1em;
     overflow-y: visible;
   }
-  
+
   .grid-title {
     grid-column: 3;
   }
@@ -141,7 +141,7 @@ a#marker {
   .grid-tags {
     grid-column: 5;
   }
-  
+
   a.hideShowButton {
     font-size: small;
     color: $font-color;

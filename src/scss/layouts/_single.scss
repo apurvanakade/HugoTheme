@@ -1,5 +1,5 @@
 //for wider screens
-@media (min-width: 750px) {
+@media (min-width: $max-width) {
   body.single {
     .mainGrid {
       margin-top: 5*$unit-padding;
@@ -14,12 +14,12 @@
 }
 
 //for narrower screens
-@media (max-width: 750px) {
+@media (max-width: $max-width) {
   body.single {
       .mainGrid {
            padding: $unit-padding;
            margin: $unit-margin;
-           font-size: 0.75em;
+           font-size: $font-size-small-screen;
       }
   }
 }
@@ -38,33 +38,11 @@ body.single {
       transition: 1s ease-in-out;
   }
 
-  #comments {
-    margin-top: 10*$unit-margin;
-    display: none;
-    input, textarea {
-      font-size: 1.25em;
-    }
-    .button {
-      float:right;
-      background-color: darkgrey;
-      color: white;
-      border: darkgrey solid 2px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      cursor: pointer;
-      &:hover, &:focus {
-        background-color: black;
-        border: black solid 2px;
-      }
-    }
-  }
-
   .post {
     border-top: 2px solid;
 
     *::selection {
-      background-color: white;
+      background-color: black;
       color: white;
     }
 
