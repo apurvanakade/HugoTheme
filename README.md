@@ -1,10 +1,10 @@
 # HugoTheme
-A Hugo theme I designed for my blog at https://apurvnakade.github.io/blog/
+A Hugo theme I designed for my blog at https://apurvanakade.github.io/blog/
 
 
 
 
-This README is mostly meant for myself. I intend to update this soon along with providing documentation for the rest of the theme. 
+This README is mostly meant for myself. I intend to update this soon along with providing documentation for the rest of the theme.
 
 
 

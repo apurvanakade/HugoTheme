@@ -1,7 +1,7 @@
 {
   "name": "HugoTheme",
   "version": "1.0.0",
-  "description": "A Hugo theme I designed for my blog at https://apurvnakade.github.io/blog/",
+  "description": "A Hugo theme I designed for my blog at https://apurvanakade.github.io/blog/",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
