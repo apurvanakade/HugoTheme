@@ -9,14 +9,13 @@
   .wide-screen-only {
     display: none;
   }
-  
+
   .footer {
        margin: $unit-margin;
   }
 }
 
 body {
-  background-color: $background-color;
   font-family: $font-families;
   color: $font-color;
   position: relative;
