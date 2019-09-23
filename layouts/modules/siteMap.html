@@ -1,4 +1,4 @@
-<!--  
+<!--
 This is a standalone page and is generated only once.
 There is a javascript that makes it specific for each page.
 
@@ -7,7 +7,7 @@ This page is included in an iframe.
 {{ partial "header" . }}
 
 <div id="siteMap">
-  <!--  
+  <!--
   This table lists all the posts in chronological order, with an option of sorting by name, or reversing the order.
   -->
   <table id="archiveTable" class="wide-screen-only">
@@ -24,12 +24,12 @@ This page is included in an iframe.
       <td>{{ .Date.Format "06/01/02" }}</td>
     </tr>
     {{end}}
-    </tbody>  
+    </tbody>
   </table>
-  
-  <!--  
-  This is the list of all posts arranged in a heirarchical manner. 
-  
+
+  <!--
+  This is the list of all posts arranged in a heirarchical manner.
+
   The depth is 2, every post has a section and a top level section.
   -->
   <div id="siteMapGrid">
@@ -39,11 +39,11 @@ This page is included in an iframe.
         <a href="javascript:hideAllSections();" class="hideShowButton"> Collapse all</a> | <a href="javascript:showAllSections();" class="hideShowButton"> Expand all</a> <br> <br>
       </div>
     </div>
-    
-    
+
+
     {{ range where .Site.Home.Sections "Title" "ne" " " }}
         {{ if .Sections }}
-          <div class="grid-topSection wide-screen-only"> 
+          <div class="grid-topSection wide-screen-only">
             {{.Title}}
           </div>
         {{ else }}
@@ -51,22 +51,21 @@ This page is included in an iframe.
         {{ end }}
         {{ range .Sections}}
           {{ template "print_pages" .}}
-          <div class="grid-topSection dummy wide-screen-only"></div>       
+          <div class="grid-topSection dummy wide-screen-only"></div>
         {{ end }}
-        
-        {{ template "print_pages" .}}
+
         <div class="hline"></div>
     {{ end }}
     </div>
 </div>
 
-<!--  
+<!--
 This function loops through all the posts in a single section, printing out the Section, Title, Date, Tags.
 -->
 {{ define "print_pages"}}
     {{ if .Pages}}
-            {{$.Scratch.Set "section" .Title}}   
-            <div class="grid-section"> 
+            {{$.Scratch.Set "section" .Title}}
+            <div class="grid-section">
             <a class="hideShowButton" href="javascript:hideSections('{{.Title}}')" section="{{.Title}}">[–]</a>
             {{ template "add_content" (slice .Permalink .Title "categories") }} </div>
             {{ range .Pages }}
@@ -82,7 +81,7 @@ This function loops through all the posts in a single section, printing out the 
       {{ end }}
 {{ end }}
 
-<!--  
+<!--
 This function packages the raw data into html.
 -->
 {{ define "add_content"}}
@@ -93,6 +92,3 @@ This function packages the raw data into html.
 
 </body>
 </html>
-
-
-

@@ -273,8 +273,9 @@ a#marker {
     padding: 20px;
     float: right;
     line-height: 1.5;
-    border-bottom: 1px solid lightgrey;
-    border-left: 1px solid lightgrey; }
+    border: 1px solid lightgrey;
+    margin-right: 10px;
+    margin-top: 125px; }
     #siteMap #archiveTable th {
       cursor: pointer; }
       #siteMap #archiveTable th.sortDesc::before {
