@@ -38,10 +38,12 @@ body {
   body.single .mainGrid {
     padding: 10px;
     margin: 10px;
-    font-size: 90%; } }
+    font-size: 90%; }
+  body.single .post {
+    padding-left: 30px; } }
 
 body.single {
-  font-size: 130%;
+  font-size: 120%;
   opacity: 0;
   -webkit-transition: opacity 0.5s ease-in-out;
   -o-transition: opacity 0.5s ease-in-out;

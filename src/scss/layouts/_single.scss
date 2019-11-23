@@ -21,6 +21,11 @@
            margin: $unit-margin;
            font-size: $font-size-small-screen;
       }
+
+      .post {
+        padding-left: 3*$unit-margin;
+      }
+
   }
 }
 
