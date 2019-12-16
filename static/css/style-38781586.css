@@ -68,7 +68,8 @@ body.single {
     body.single .post p {
       padding-top: 1em; }
     body.single .post h1, body.single .post h2, body.single .post h3, body.single .post h4, body.single .post h5, body.single .post h6 {
-      padding-top: 1em; }
+      padding-top: 1em;
+      font-weight: normal; }
 
 #scrollTopBtn {
   opacity: 0;
