@@ -6,7 +6,7 @@ This page is included in an iframe.
 -->
 {{ partial "header" . }}
 
-<body>
+<body onload="javascript: tsorter.create('archiveTable', 1);">
   <div id="siteMap">
     <!--
     This table lists all the posts in chronological order, with an option of sorting by name, or reversing the order.
@@ -14,7 +14,7 @@ This page is included in an iframe.
     <table id="archiveTable" class="wide-screen-only">
       <thead>
         <tr>
-           <th data-tsorter="default">Name</th>
+           <th data-tsorter="link">Name</th>
            <th data-tsorter="default" class="sortDesc">Date</th>
         </tr>
       </thead>

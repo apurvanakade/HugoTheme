@@ -12,11 +12,6 @@ $( document ).ready(function() {
   $('body').css("opacity","1");
 });
 
-$(document).ready(function() {
-  //Needed for sorting the archiveTable on click
-  tsorter.create('archiveTable', 1);
-})
-
 window.onscroll = () => {
   // This makes the scrollTopBtn visible on enough scrolling.
     if ($('#scrollTopBtn').length > 0) {

@@ -101,6 +101,7 @@ var tsorter = (function()
             {
                 case "link":
                     return function(row){
+                        console.log(that.getCell(row).firstChild.firstChild.nodeValue);
                         return that.getCell(row).firstChild.firstChild.nodeValue;
                     };
                 case "input":
