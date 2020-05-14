@@ -22,10 +22,12 @@
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-hash": "^4.2.2",
-    "gulp-sass": "^4.0.2"
+    "gulp-sass": "^4.1.0"
   },
   "dependencies": {
-    "node-sass": "^4.13.1"
+    "node-sass": "^4.14.1"
   },
-  "browserslist": ["last 20 versions"]
+  "browserslist": [
+    "last 20 versions"
+  ]
 }

@@ -22,13 +22,13 @@ body.list .mainGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);//minmax(275px, 1fr));
     grid-template-rows:  repeat(auto-fill, minmax(300px,max-content));
-    justify-content: center;	
-    
+    justify-content: center;
+
     > * {
       opacity: 0;
       transition: opacity 1s;
     }
-    
+
     .Title {
       padding: 2*$unit-padding;
       align-self:center;
@@ -38,4 +38,6 @@ body.list .mainGrid {
       @include shadow_mouseover(0.5s);
       padding: 2*$unit-padding;
     }
+
+    transition: visibility 0.2s linear;
 }

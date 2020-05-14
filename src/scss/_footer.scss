@@ -6,8 +6,8 @@
 @media (min-width: 750px) {
   body.single {
      .footer {
-       padding-left: 5*$unit-margin;    
-    }  
+       padding-left: 5*$unit-margin;
+    }
   }
 }
 
@@ -26,9 +26,10 @@
 
 #navBar {
   font-size: small;
-  width: 100%;
   margin-top: 15*$unit-margin;
   margin-bottom: 20*$unit-margin;
+  margin-left:auto;
+  margin-right:auto;
 
   td {
     width: 33%;
@@ -38,5 +39,9 @@
   }
   td:last-of-type {
     text-align: right;
+  }
+  
+  @media (min-width: $max-width) {
+    width: 100%;
   }
 }

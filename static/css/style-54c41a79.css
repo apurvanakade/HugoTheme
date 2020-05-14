@@ -19,10 +19,6 @@ body {
   font-size: 3em;
   padding-bottom: 10px; }
 
-/*.post {
-  text-align: justify;
-  hyphens: auto;
-}*/
 .date, .read-more {
   font-size: small; }
 
@@ -39,8 +35,8 @@ body {
     padding: 10px;
     margin: 10px;
     font-size: 90%; }
-  body.single .post {
-    padding-left: 30px; } }
+    body.single .mainGrid .Title, body.single .mainGrid .date, body.single .mainGrid .post {
+      margin-left: 20px; } }
 
 body.single {
   font-size: 120%;
@@ -99,7 +95,10 @@ body.list .mainGrid {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
-          justify-content: center; }
+          justify-content: center;
+  -webkit-transition: visibility 0.2s linear;
+  -o-transition: visibility 0.2s linear;
+  transition: visibility 0.2s linear; }
   body.list .mainGrid > * {
     opacity: 0;
     -webkit-transition: opacity 1s;
@@ -122,13 +121,12 @@ body.list .mainGrid {
               box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       width: 100%;
       left: 0;
-      /* one half of the remaining 30% */
       height: 100%;
       bottom: 0;
       opacity: 0;
-      -webkit-transition: 0.5s;
-      -o-transition: 0.5s;
-      transition: 0.5s; }
+      -webkit-transition: opacity 0.5s;
+      -o-transition: opacity 0.5s;
+      transition: opacity 0.5s; }
     body.list .mainGrid .cell:hover::after {
       opacity: 1;
       -webkit-transition: opacity 0s;
@@ -158,15 +156,19 @@ body.list .mainGrid {
 
 #navBar {
   font-size: small;
-  width: 100%;
   margin-top: 150px;
-  margin-bottom: 200px; }
+  margin-bottom: 200px;
+  margin-left: auto;
+  margin-right: auto; }
   #navBar td {
     width: 33%; }
   #navBar td:first-of-type {
     text-align: left; }
   #navBar td:last-of-type {
     text-align: right; }
+  @media (min-width: 950px) {
+    #navBar {
+      width: 100%; } }
 
 a {
   text-decoration: none; }
@@ -203,7 +205,8 @@ a {
   a#marker {
     width: 0.75em; }
   #siteMapGrid {
-    margin-left: 2em; } }
+    margin-left: 2em;
+    margin-top: 50px; } }
 
 @media (min-width: 950px) {
   a#marker {
@@ -215,35 +218,25 @@ a {
 
 #siteMapFrame {
   position: fixed;
-  height: 100vh;
-  width: 100%;
-  z-index: -1;
+  height: 100%;
   top: 0;
-  left: 0; }
+  left: 0;
+  width: 100%;
+  opacity: 1;
+  z-index: 1; }
+  #siteMapFrame.open {
+    width: 100%; }
+  #siteMapFrame.close {
+    width: 0%; }
 
 a#marker {
   top: 0px;
   left: 0px;
   height: 100%;
-  position: relative;
+  border-right: 1px solid lightgrey;
   z-index: 2;
   position: fixed;
   color: lightgrey; }
-  a#marker::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    /* hide shadow behind image */
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 100%;
-    left: 0;
-    /* one half of the remaining 30% */
-    height: 100%;
-    bottom: 0;
-    opacity: 1; }
-  a#marker:active::after {
-    opacity: 0; }
   a#marker:hover {
     color: black; }
   a#marker p {
@@ -255,16 +248,12 @@ a#marker {
 #siteMap {
   height: 100%;
   width: 100%;
-  position: fixed;
-  z-index: -2;
   top: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.98);
-  overflow-y: hidden;
   text-align: left;
   line-height: 1;
   font-size: small;
-  opacity: 0;
   -webkit-transition: 0.5s ease-in-out;
   -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out; }
@@ -278,7 +267,7 @@ a#marker {
     line-height: 1.5;
     border: 1px solid lightgrey;
     margin-right: 10px;
-    margin-top: 125px; }
+    margin-top: 50px; }
     #siteMap #archiveTable th {
       cursor: pointer; }
       #siteMap #archiveTable th.sortDesc::before {
@@ -296,7 +285,7 @@ a#marker {
   #siteMapGrid > * {
     padding: 0.5em; }
   #siteMapGrid .Title {
-    margin-left: -40px; }
+    margin-left: -10px; }
   #siteMapGrid .grid-topSection {
     grid-column: 1;
     border-right: 1px solid lightgrey;
@@ -380,7 +369,6 @@ figure {
               box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       width: 100%;
       left: 0;
-      /* one half of the remaining 30% */
       height: 100%;
       bottom: 0;
       opacity: 1; }

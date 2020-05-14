@@ -6,12 +6,12 @@
     z-index: -1; /* hide shadow behind image */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 100%;
-    left: 0; /* one half of the remaining 30% */
+    left: 0;
     height: 100% ;
     bottom: 0;
     opacity: 1;
   }
-  
+
   &:active::after{
     opacity: 0;
   }
@@ -32,11 +32,11 @@
     z-index: -1; /* hide shadow behind image */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 100%;
-    left: 0; /* one half of the remaining 30% */
+    left: 0;
     height: 100% ;
     bottom: 0;
     opacity: 0;
-    transition: $upTime;
+    transition: opacity $upTime;
   }
   &:hover::after{
     opacity: 1;

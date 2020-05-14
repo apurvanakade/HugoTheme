@@ -9,7 +9,13 @@
     {{ partial "post-its" .Paginator.Pages}}
 
     <script type="text/javascript" src='/js/{{ index .Site.Data.js.hash "displayTagCloudFrame.js" }}'></script>
-    <iframe id="tagsCloudFrame" src="{{ $.Site.BaseURL }}modules/tagcloud/"  frameborder="0"  class="tags-display" scrolling="no" onload="setIframeHeight(this.id)">
+    <iframe
+      id="tagsCloudFrame"
+      src="{{ $.Site.BaseURL }}modules/tagcloud/"
+      frameborder="0"
+      class="tags-display"
+      scrolling="no"
+      onload="setIframeHeight(this.id)">
     </iframe>
 
     <div style="text-align:right; grid-column-end: -1;">

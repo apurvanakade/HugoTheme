@@ -20,12 +20,11 @@
            padding: $unit-padding;
            margin: $unit-margin;
            font-size: $font-size-small-screen;
-      }
 
-      .post {
-        padding-left: 3*$unit-margin;
+        .Title, .date, .post{
+          margin-left: 2*$unit-margin;
+        }
       }
-
   }
 }
 

@@ -7,7 +7,7 @@ function initSiteMap(Permalink) {
   //This function is called by the parent page to collapse the unwanted sections and mark the relevant pages pink.
   var uncollapsed_sections = [];
   siteMap = $("#siteMapFrame").contents().find("#siteMap");
-  
+
   siteMap.find('a').each(function(){
     if ($(this).attr("href") == Permalink) {
       $(this).addClass("you_are_here");
@@ -18,9 +18,9 @@ function initSiteMap(Permalink) {
         uncollapsed_sections.push($(this).prev().attr('section'));
     }
   });
-  
+
   if(uncollapsed_sections.length > 0) {
-    siteMap.find('a.hideShowButton[section]').each(function(){ 
+    siteMap.find('a.hideShowButton[section]').each(function(){
       var section = this.getAttribute("section");
       siteMap.find('a.hideShowButton').each(function(){
         if(this.getAttribute( "section" ) == section) {
@@ -28,14 +28,14 @@ function initSiteMap(Permalink) {
           $(this).attr("href","javascript:showSections('"+section+"');");
         }
       });
-      
-      siteMap.find('div[section]').each(function () {     
+
+      siteMap.find('div[section]').each(function () {
         if(this.getAttribute( "section" ) == section) {
           $(this).css("display", "none");
         }
       });
     });
-    
+
     for (i = 0; i < uncollapsed_sections.length; i++) {
       var section = uncollapsed_sections[i];
       siteMap.find('a.hideShowButton').each(function(){
@@ -44,8 +44,8 @@ function initSiteMap(Permalink) {
           $(this).attr("href","javascript:hideSections('"+section+"');");
         }
       });
-      
-        siteMap.find('div[section]').each(function () {     
+
+        siteMap.find('div[section]').each(function () {
         if(this.getAttribute( "section" ) == section) {
           $(this).css("display", "");
         }
@@ -55,21 +55,21 @@ function initSiteMap(Permalink) {
 }
 
 function showSiteMap() {
-  $("body").css("overflow-y","hidden");  
-  $("#siteMapFrame").css("z-index","1");  
-  siteMap.css("overflow-y","auto");  
-  siteMap.css("opacity","1"); 
+  $('#siteMapFrame').removeClass("close");
+  $('#siteMapFrame').addClass("open");
   $('#marker').html("<p>❮</p>");
   $('#marker').attr("href","javascript:hideSiteMap()");
+  $('#mainGrid').css("display","none");
+  $('.footer').css("display","none");
 }
 
 function hideSiteMap() {
-  $("body").css("overflow-y","auto");  
-  $("#siteMapFrame").css("z-index","-1");  
-  siteMap.css("overflow-y","hidden");  
-  siteMap.css("opacity","0"); 
+  $('#siteMapFrame').removeClass("open");
+  $('#siteMapFrame').addClass("close");
   $('#marker').html("<p>❯</p>");
   $('#marker').attr("href","javascript:showSiteMap()");
+  $('#mainGrid').css("display","grid");
+  $('.footer').css("display","block");
 }
 
 $(document).keyup(function(e) {
@@ -83,8 +83,8 @@ function hideSections(section){
       $(this).attr("href","javascript:showSections('"+section+"');");
     }
   });
-  
-  $("#siteMap").find('div[section]').each(function () {     
+
+  $("#siteMap").find('div[section]').each(function () {
     if(this.getAttribute( "section" ) == section) {
       $(this).css("display", "none");
     }
@@ -98,8 +98,8 @@ function showSections(section){
       $(this).attr("href","javascript:hideSections('"+section+"');");
     }
   });
-  
-    $("#siteMap").find('div[section]').each(function () {     
+
+    $("#siteMap").find('div[section]').each(function () {
     if(this.getAttribute( "section" ) == section) {
       $(this).css("display", "");
     }
@@ -107,14 +107,14 @@ function showSections(section){
 }
 
 function showAllSections(){
-  $("#siteMap").find('a.hideShowButton[section]').each(function(){  
+  $("#siteMap").find('a.hideShowButton[section]').each(function(){
     var section = this.getAttribute("section");
     showSections(section);
   });
 }
 
 function hideAllSections(){
-  $("#siteMap").find('a.hideShowButton[section]').each(function(){ 
+  $("#siteMap").find('a.hideShowButton[section]').each(function(){
     var section = this.getAttribute("section");
     hideSections(section);
   });
