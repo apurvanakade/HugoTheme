@@ -201,21 +201,6 @@ a {
 /* CSS elements used in the tree */
 /*********************************/
 /*********************************/
-@media (max-width: 950px) {
-  a#marker {
-    width: 0.75em; }
-  #siteMapGrid {
-    margin-left: 2em;
-    margin-top: 50px; } }
-
-@media (min-width: 950px) {
-  a#marker {
-    width: 1em; }
-  #siteMapGrid {
-    margin-left: 100px;
-    margin-bottom: 100px;
-    margin-top: 50px; } }
-
 #siteMapFrame {
   position: fixed;
   height: 100%;
@@ -244,6 +229,12 @@ a#marker {
     width: 100%;
     text-align: center;
     position: absolute; }
+  @media (max-width: 950px) {
+    a#marker {
+      width: 0.75em; } }
+  @media (min-width: 950px) {
+    a#marker {
+      width: 1em; } }
 
 #siteMap {
   height: 100%;
@@ -261,19 +252,23 @@ a#marker {
     color: #d50a83;
     text-decoration: underline;
     cursor: default; }
+  #siteMap td {
+    vertical-align: top; }
+  #siteMap .Title {
+    margin-left: 50px;
+    margin-top: 50px; }
   #siteMap #archiveTable {
     padding: 20px;
     float: right;
-    line-height: 1.5;
-    border: 1px solid lightgrey;
-    margin-right: 10px;
-    margin-top: 50px; }
+    line-height: 1.5; }
     #siteMap #archiveTable th {
       cursor: pointer; }
       #siteMap #archiveTable th.sortDesc::before {
         content: "↓"; }
       #siteMap #archiveTable th.sortAsc::before {
         content: "↑"; }
+    #siteMap #archiveTable td {
+      white-space: nowrap; }
 
 #siteMapGrid {
   width: -webkit-max-content;
@@ -281,11 +276,10 @@ a#marker {
   width: max-content;
   display: grid;
   grid-template-columns: -webkit-min-content minmax(150px, -webkit-max-content) -webkit-max-content -webkit-max-content -webkit-max-content;
-  grid-template-columns: min-content minmax(150px, max-content) max-content max-content max-content; }
+  grid-template-columns: min-content minmax(150px, max-content) max-content max-content max-content;
+  margin-left: 50px; }
   #siteMapGrid > * {
     padding: 0.5em; }
-  #siteMapGrid .Title {
-    margin-left: -10px; }
   #siteMapGrid .grid-topSection {
     grid-column: 1;
     border-right: 1px solid lightgrey;

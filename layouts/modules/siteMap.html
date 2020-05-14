@@ -7,64 +7,66 @@ This page is included in an iframe.
 {{ partial "header" . }}
 
 <body onload="javascript: tsorter.create('archiveTable', 1);">
-  <div id="siteMap">
-    <!--
-    This table lists all the posts in chronological order, with an option of sorting by name, or reversing the order.
-    -->
-    <table id="archiveTable" class="wide-screen-only">
-      <thead>
-        <tr>
-           <th data-tsorter="link">Name</th>
-           <th data-tsorter="default" class="sortDesc">Date</th>
-        </tr>
-      </thead>
-      <tbody>
-      {{range where $.Site.Pages.ByDate.Reverse "Type" "post"}}
-      <tr>
-        <td><a target="_parent" href="{{.Permalink}}" class="crosslink"> {{ .Title }} </a> </td>
-        <td>{{ .Date.Format "06/01/02" }}</td>
-      </tr>
-      {{end}}
-      </tbody>
-    </table>
-    <!-- <script type="text/javascript">
-      function init() {
-        // var sorter = tsorter.create('archiveTable');
-      }
-      window.onload = init;
-    </script> -->
-
-    <!--
-    This is the list of all posts arranged in a heirarchical manner.
-
-    The depth is 2, every post has a section and a top level section.
-    -->
-    <div id="siteMapGrid">
-      <div class="Title hline">
-        <a target="_parent" class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Archive</a>
-        <div class="date">
-          <a href="javascript:hideAllSections();" class="hideShowButton"> Collapse all</a> | <a href="javascript:showAllSections();" class="hideShowButton"> Expand all</a> <br> <br>
+  <table id="siteMap">
+    <tr>
+      <td>
+        <div class="Title hline">
+          <a target="_parent" class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Archive</a>
+          <div class="date">
+            <a href="javascript:hideAllSections();" class="hideShowButton"> Collapse all</a> | <a href="javascript:showAllSections();" class="hideShowButton"> Expand all</a> <br> <br>
+          </div>
         </div>
-      </div>
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <!--
+        This is the list of all posts arranged in a heirarchical manner.
+        The depth is 2, every post has a section and a top level section.
+        -->
+        <div id="siteMapGrid">
+          {{ range where .Site.Home.Sections "Title" "ne" " " }}
+              {{ if .Sections }}
+                <div class="grid-topSection">
+                  {{.Title}}
+                </div>
+              {{ else }}
+                <div class="grid-topSection dummy"></div>
+              {{ end }}
+              {{ range .Sections}}
+                {{ template "print_pages" .}}
+                <div class="grid-topSection dummy"></div>
+              {{ end }}
 
-
-      {{ range where .Site.Home.Sections "Title" "ne" " " }}
-          {{ if .Sections }}
-            <div class="grid-topSection wide-screen-only">
-              {{.Title}}
-            </div>
-          {{ else }}
-            <div class="grid-topSection dummy wide-screen-only"></div>
+              <div class="hline"></div>
           {{ end }}
-          {{ range .Sections}}
-            {{ template "print_pages" .}}
-            <div class="grid-topSection dummy wide-screen-only"></div>
-          {{ end }}
-
-          <div class="hline"></div>
-      {{ end }}
-      </div>
-  </div>
+          </div>
+      </td>
+      <td>
+        <!--
+        This table lists all the posts in chronological order, with an option of sorting by name, or reversing the order.
+        -->
+        <table id="archiveTable">
+          <thead>
+            <tr>
+               <th data-tsorter="link">Name</th>
+               <th data-tsorter="default" class="sortDesc">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          {{range where $.Site.Pages.ByDate.Reverse "Type" "post"}}
+          <tr>
+            <td><a target="_parent" href="{{.Permalink}}" class="crosslink"> {{ .Title }} </a> </td>
+            <td>{{ .Date.Format "06/01/02" }}</td>
+          </tr>
+          {{end}}
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </table>
 
   <!--
   This function loops through all the posts in a single section, printing out the Section, Title, Date, Tags.
@@ -76,9 +78,9 @@ This page is included in an iframe.
               <a class="hideShowButton" href="javascript:hideSections('{{.Title}}')" section="{{.Title}}">[–]</a>
               {{ template "add_content" (slice .Permalink .Title "categories") }} </div>
               {{ range .Pages }}
-                  <div class="grid-topSection dummy wide-screen-only" section="{{$.Scratch.Get "section"}}"></div>
+                  <div class="grid-topSection dummy" section="{{$.Scratch.Get "section"}}"></div>
                   <div class="grid-title" section="{{$.Scratch.Get "section"}}">{{ template "add_content" (slice .Permalink .Title "")}}</div>
-                  <div class="wide-screen-only grid-date" section="{{$.Scratch.Get "section"}}">{{ .Date.Format "Jan 02" }}</div>
+                  <div class="grid-date" section="{{$.Scratch.Get "section"}}">{{ .Date.Format "Jan 02" }}</div>
                   <div class="grid-tags" section="{{$.Scratch.Get "section"}}">
                   {{ range .Params.tags}}
                         {{ template "add_content" (slice (printf "%stags/%s/" $.Site.BaseURL (. | urlize) ) (printf "#%s" .) "tags") }}

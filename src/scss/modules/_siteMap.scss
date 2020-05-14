@@ -3,28 +3,6 @@
 /* CSS elements used in the tree */
 /*********************************/
 /*********************************/
-@media (max-width: $max-width) {
-  a#marker {
-    width: 0.75em;
-  }
-
-  #siteMapGrid {
-    margin-left: 2em;
-    margin-top: 5*$unit-margin;
-  }
-}
-
-@media (min-width: $max-width) {
-  a#marker {
-    width: 1em;
-  }
-
-  #siteMapGrid {
-    margin-left: 10*$unit-margin;
-    margin-bottom: 10*$unit-margin;
-    margin-top: 5*$unit-margin;
-  }
-}
 
 #siteMapFrame {
   position: fixed;
@@ -47,7 +25,6 @@ a#marker {
   top: 0px;
   left: 0px;
   height: 100%;
-  // @include shadow;
   border-right: 1px solid lightgrey;
   z-index: 2;
 
@@ -62,6 +39,14 @@ a#marker {
     width:100%;
     text-align:center;
     position:absolute;
+  }
+
+  @media (max-width: $max-width) {
+    width: 0.75em;
+  }
+
+  @media (min-width: $max-width) {
+    width: 1em;
   }
 }
 
@@ -84,13 +69,19 @@ a#marker {
       cursor: default;
     }
 
+  td {
+    vertical-align: top;
+  }
+
+  .Title {
+    margin-left: 5*$unit-margin;
+    margin-top: 5*$unit-margin;
+  }
+
   #archiveTable {
     padding: 2*$unit-margin;
     float:right;
     line-height: 1.5;
-    border: 1px solid lightgrey;
-    margin-right: $unit-margin;
-    margin-top: 5*$unit-margin;
 
     th {
       cursor: pointer;
@@ -102,6 +93,10 @@ a#marker {
         content:"↑";
       }
     }
+
+    td {
+      white-space: nowrap;
+    }
   }
 }
 
@@ -109,13 +104,12 @@ a#marker {
   width: max-content;
   display: grid;
   grid-template-columns: min-content minmax(150px,max-content) max-content max-content max-content;
+  margin-left: 5*$unit-margin;
 
   > * {
     padding: 0.5em;
   }
-  .Title {
-    margin-left: -1*$unit-margin;
-  }
+
   .grid-topSection {
     grid-column:1;
     border-right: 1px solid lightgrey;
