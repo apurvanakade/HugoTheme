@@ -6,89 +6,96 @@ This page is included in an iframe.
 -->
 {{ partial "header" . }}
 
-<div id="siteMap">
-  <!--
-  This table lists all the posts in chronological order, with an option of sorting by name, or reversing the order.
-  -->
-  <table id="archiveTable" class="wide-screen-only">
-    <thead>
+<body>
+  <div id="siteMap">
+    <!--
+    This table lists all the posts in chronological order, with an option of sorting by name, or reversing the order.
+    -->
+    <table id="archiveTable" class="wide-screen-only">
+      <thead>
+        <tr>
+           <th data-tsorter="default">Name</th>
+           <th data-tsorter="default" class="sortDesc">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{range where $.Site.Pages.ByDate.Reverse "Type" "post"}}
       <tr>
-        <th onclick="javascript:sortTable(0);">Name</th>
-        <th class="sortDesc" onclick="javascript:sortTable(1);">Date</th>
+        <td><a target="_parent" href="{{.Permalink}}" class="crosslink"> {{ .Title }} </a> </td>
+        <td>{{ .Date.Format "06/01/02" }}</td>
       </tr>
-    </thead>
-    <tbody>
-    {{range where $.Site.Pages.ByDate.Reverse "Type" "post"}}
-    <tr>
-      <td><a target="_parent" href="{{.Permalink}}" class="crosslink"> {{ .Title }} </a> </td>
-      <td>{{ .Date.Format "06/01/02" }}</td>
-    </tr>
-    {{end}}
-    </tbody>
-  </table>
+      {{end}}
+      </tbody>
+    </table>
+    <!-- <script type="text/javascript">
+      function init() {
+        // var sorter = tsorter.create('archiveTable');
+      }
+      window.onload = init;
+    </script> -->
+
+    <!--
+    This is the list of all posts arranged in a heirarchical manner.
+
+    The depth is 2, every post has a section and a top level section.
+    -->
+    <div id="siteMapGrid">
+      <div class="Title hline">
+        <a target="_parent" class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Archive</a>
+        <div class="date">
+          <a href="javascript:hideAllSections();" class="hideShowButton"> Collapse all</a> | <a href="javascript:showAllSections();" class="hideShowButton"> Expand all</a> <br> <br>
+        </div>
+      </div>
+
+
+      {{ range where .Site.Home.Sections "Title" "ne" " " }}
+          {{ if .Sections }}
+            <div class="grid-topSection wide-screen-only">
+              {{.Title}}
+            </div>
+          {{ else }}
+            <div class="grid-topSection dummy wide-screen-only"></div>
+          {{ end }}
+          {{ range .Sections}}
+            {{ template "print_pages" .}}
+            <div class="grid-topSection dummy wide-screen-only"></div>
+          {{ end }}
+
+          <div class="hline"></div>
+      {{ end }}
+      </div>
+  </div>
 
   <!--
-  This is the list of all posts arranged in a heirarchical manner.
-
-  The depth is 2, every post has a section and a top level section.
+  This function loops through all the posts in a single section, printing out the Section, Title, Date, Tags.
   -->
-  <div id="siteMapGrid">
-    <div class="Title hline">
-      <a target="_parent" class="crosslink" href="{{ $.Site.BaseURL | relURL }}">Archive</a>
-      <div class="date">
-        <a href="javascript:hideAllSections();" class="hideShowButton"> Collapse all</a> | <a href="javascript:showAllSections();" class="hideShowButton"> Expand all</a> <br> <br>
-      </div>
-    </div>
-
-
-    {{ range where .Site.Home.Sections "Title" "ne" " " }}
-        {{ if .Sections }}
-          <div class="grid-topSection wide-screen-only">
-            {{.Title}}
-          </div>
-        {{ else }}
-          <div class="grid-topSection dummy wide-screen-only"></div>
+  {{ define "print_pages"}}
+      {{ if .Pages}}
+              {{$.Scratch.Set "section" .Title}}
+              <div class="grid-section">
+              <a class="hideShowButton" href="javascript:hideSections('{{.Title}}')" section="{{.Title}}">[–]</a>
+              {{ template "add_content" (slice .Permalink .Title "categories") }} </div>
+              {{ range .Pages }}
+                  <div class="grid-topSection dummy wide-screen-only" section="{{$.Scratch.Get "section"}}"></div>
+                  <div class="grid-title" section="{{$.Scratch.Get "section"}}">{{ template "add_content" (slice .Permalink .Title "")}}</div>
+                  <div class="wide-screen-only grid-date" section="{{$.Scratch.Get "section"}}">{{ .Date.Format "Jan 02" }}</div>
+                  <div class="grid-tags" section="{{$.Scratch.Get "section"}}">
+                  {{ range .Params.tags}}
+                        {{ template "add_content" (slice (printf "%stags/%s/" $.Site.BaseURL (. | urlize) ) (printf "#%s" .) "tags") }}
+                  {{ end }}
+                  </div>
+              {{ end }}
         {{ end }}
-        {{ range .Sections}}
-          {{ template "print_pages" .}}
-          <div class="grid-topSection dummy wide-screen-only"></div>
-        {{ end }}
+  {{ end }}
 
-        <div class="hline"></div>
-    {{ end }}
-    </div>
-</div>
+  <!--
+  This function packages the raw data into html.
+  -->
+  {{ define "add_content"}}
+      <a target="_parent"class="crosslink {{ index . 2}}" href="{{ index . 0 }}">
+        {{ index . 1 }}
+      </a>
+  {{ end }}
 
-<!--
-This function loops through all the posts in a single section, printing out the Section, Title, Date, Tags.
--->
-{{ define "print_pages"}}
-    {{ if .Pages}}
-            {{$.Scratch.Set "section" .Title}}
-            <div class="grid-section">
-            <a class="hideShowButton" href="javascript:hideSections('{{.Title}}')" section="{{.Title}}">[–]</a>
-            {{ template "add_content" (slice .Permalink .Title "categories") }} </div>
-            {{ range .Pages }}
-                <div class="grid-topSection dummy wide-screen-only" section="{{$.Scratch.Get "section"}}"></div>
-                <div class="grid-title" section="{{$.Scratch.Get "section"}}">{{ template "add_content" (slice .Permalink .Title "")}}</div>
-                <div class="wide-screen-only grid-date" section="{{$.Scratch.Get "section"}}">{{ .Date.Format "Jan 02" }}</div>
-                <div class="grid-tags" section="{{$.Scratch.Get "section"}}">
-                {{ range .Params.tags}}
-                      {{ template "add_content" (slice (printf "%stags/%s/" $.Site.BaseURL (. | urlize) ) (printf "#%s" .) "tags") }}
-                {{ end }}
-                </div>
-            {{ end }}
-      {{ end }}
-{{ end }}
-
-<!--
-This function packages the raw data into html.
--->
-{{ define "add_content"}}
-    <a target="_parent"class="crosslink {{ index . 2}}" href="{{ index . 0 }}">
-      {{ index . 1 }}
-    </a>
-{{ end }}
-
-</body>
+  </body>
 </html>

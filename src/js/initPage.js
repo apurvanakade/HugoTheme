@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-  // This functions loads all the "post-its" on a list page gradually.
+  // This function loads all the "post-its" on a list page gradually.
   $('#mainGrid').contents().each(function (index) {
     setTimeout(() => {
       $(this).css("opacity","1");
@@ -11,6 +11,11 @@ $( document ).ready(function() {
   // This function is useful for the single page. It gives a fade in effect to the page on load.
   $('body').css("opacity","1");
 });
+
+$(document).ready(function() {
+  //Needed for sorting the archiveTable on click
+  tsorter.create('archiveTable', 1);
+})
 
 window.onscroll = () => {
   // This makes the scrollTopBtn visible on enough scrolling.
