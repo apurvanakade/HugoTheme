@@ -254,9 +254,14 @@ a#marker {
     cursor: default; }
   #siteMap td {
     vertical-align: top; }
-  #siteMap .Title {
-    margin-left: 50px;
-    margin-top: 50px; }
+  @media (min-width: 950px) {
+    #siteMap .Title {
+      margin-left: 50px;
+      margin-top: 50px; } }
+  @media (max-width: 950px) {
+    #siteMap .Title {
+      margin-left: 10px;
+      margin-top: 10px; } }
   #siteMap #archiveTable {
     padding: 20px;
     float: right;
@@ -276,8 +281,13 @@ a#marker {
   width: max-content;
   display: grid;
   grid-template-columns: -webkit-min-content minmax(150px, -webkit-max-content) -webkit-max-content -webkit-max-content -webkit-max-content;
-  grid-template-columns: min-content minmax(150px, max-content) max-content max-content max-content;
-  margin-left: 50px; }
+  grid-template-columns: min-content minmax(150px, max-content) max-content max-content max-content; }
+  @media (min-width: 950px) {
+    #siteMapGrid {
+      margin-left: 50px; } }
+  @media (max-width: 950px) {
+    #siteMapGrid {
+      margin-left: 10px; } }
   #siteMapGrid > * {
     padding: 0.5em; }
   #siteMapGrid .grid-topSection {

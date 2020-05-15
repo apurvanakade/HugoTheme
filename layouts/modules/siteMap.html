@@ -29,22 +29,22 @@ This page is included in an iframe.
         <div id="siteMapGrid">
           {{ range where .Site.Home.Sections "Title" "ne" " " }}
               {{ if .Sections }}
-                <div class="grid-topSection">
+                <div class="grid-topSection wide-screen-only">
                   {{.Title}}
                 </div>
               {{ else }}
-                <div class="grid-topSection dummy"></div>
+                <div class="grid-topSection dummy wide-screen-only"></div>
               {{ end }}
               {{ range .Sections}}
                 {{ template "print_pages" .}}
-                <div class="grid-topSection dummy"></div>
+                <div class="grid-topSection dummy wide-screen-only"></div>
               {{ end }}
 
-              <div class="hline"></div>
+              <div class="hline wide-screen-only"></div>
           {{ end }}
           </div>
       </td>
-      <td>
+      <td  class="wide-screen-only">
         <!--
         This table lists all the posts in chronological order, with an option of sorting by name, or reversing the order.
         -->
@@ -78,7 +78,7 @@ This page is included in an iframe.
               <a class="hideShowButton" href="javascript:hideSections('{{.Title}}')" section="{{.Title}}">[–]</a>
               {{ template "add_content" (slice .Permalink .Title "categories") }} </div>
               {{ range .Pages }}
-                  <div class="grid-topSection dummy" section="{{$.Scratch.Get "section"}}"></div>
+                  <div class="grid-topSection dummy wide-screen-only" section="{{$.Scratch.Get "section"}}"></div>
                   <div class="grid-title" section="{{$.Scratch.Get "section"}}">{{ template "add_content" (slice .Permalink .Title "")}}</div>
                   <div class="grid-date" section="{{$.Scratch.Get "section"}}">{{ .Date.Format "Jan 02" }}</div>
                   <div class="grid-tags" section="{{$.Scratch.Get "section"}}">
