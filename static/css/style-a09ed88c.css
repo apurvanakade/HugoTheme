@@ -27,7 +27,6 @@ body {
     margin-top: 50px; }
     body.single .mainGrid .post {
       padding-top: 50px;
-      padding-left: 30px;
       margin-right: -30px; } }
 
 @media (max-width: 950px) {
@@ -64,8 +63,11 @@ body.single {
     body.single .post p {
       padding-top: 1em; }
     body.single .post h1, body.single .post h2, body.single .post h3, body.single .post h4, body.single .post h5, body.single .post h6 {
-      padding-top: 3em;
-      font-weight: normal; }
+      padding-top: 1.5em;
+      font-weight: 500;
+      width: 100%;
+      padding-bottom: 10px;
+      border-bottom: 2px solid whitesmoke; }
 
 #scrollTopBtn {
   opacity: 0;
@@ -205,14 +207,23 @@ a {
   position: fixed;
   height: 100%;
   top: 0;
-  left: 0;
   width: 100%;
   opacity: 1;
-  z-index: 1; }
+  z-index: 1;
+  left: -100%;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  -o-transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out; }
   #siteMapFrame.open {
-    width: 100%; }
+    -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+            transform: translateX(100%); }
   #siteMapFrame.close {
-    width: 0%; }
+    -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+            transform: translateX(-100%); }
 
 a#marker {
   top: 0px;

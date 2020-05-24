@@ -6,7 +6,6 @@
 
      .post {
        padding-top: 5*$unit-margin;
-       padding-left: 3*$unit-margin;
        margin-right: -3*$unit-margin;
      }
     }
@@ -55,8 +54,11 @@ body.single {
     }
 
     h1, h2, h3, h4, h5, h6 {
-      padding-top: 3em;
-      font-weight: normal;
+      padding-top: 1.5em;
+      font-weight: 500;
+      width: 100%;
+      padding-bottom: $unit-padding;
+      border-bottom: 2px solid whitesmoke;
     }
   }
 }

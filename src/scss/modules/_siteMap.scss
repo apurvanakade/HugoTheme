@@ -8,16 +8,17 @@
   position: fixed;
   height: 100%;
   top: 0;
-  left: 0;
   width: 100%;
   opacity: 1;
   z-index: 1;
+  left: -100%;
+  transition: transform 0.3s ease-out;
 
   &.open {
-    width: 100%;
+    transform: translateX(100%);
   }
   &.close {
-    width: 0%;
+    transform: translateX(-100%);
   }
 }
 
