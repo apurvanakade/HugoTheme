@@ -59,8 +59,6 @@ function showSiteMap() {
   $('#siteMapFrame').addClass("open");
   $('#marker').html("<p>❮</p>");
   $('#marker').attr("href","javascript:hideSiteMap()");
-  $('#mainGrid').css("display","none");
-  $('.footer').css("display","none");
 }
 
 function hideSiteMap() {
@@ -68,8 +66,6 @@ function hideSiteMap() {
   $('#siteMapFrame').addClass("close");
   $('#marker').html("<p>❯</p>");
   $('#marker').attr("href","javascript:showSiteMap()");
-  $('#mainGrid').css("display","grid");
-  $('.footer').css("display","block");
 }
 
 $(document).keyup(function(e) {
