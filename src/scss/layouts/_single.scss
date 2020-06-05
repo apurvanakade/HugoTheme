@@ -1,28 +1,12 @@
-//for wider screens
-@media (min-width: $max-width) {
-  body.single {
-    .mainGrid {
-      margin-top: 5*$unit-padding;
 
-     .post {
-       padding-top: 5*$unit-margin;
-       margin-right: -3*$unit-margin;
-     }
-    }
-  }
-}
 
-//for narrower screens
-@media (max-width: $max-width) {
   body.single {
       .mainGrid {
-           padding: $unit-padding;
-           margin: $unit-margin;
-           font-size: $font-size-small-screen;
-
-        .Title, .date, .post{
-          margin-left: 2*$unit-margin;
+        @media (min-width: $max-width) { //for wider screens
+          font-size: $font-size;
         }
+        @media (max-width: $max-width) { //for narrower screens
+           font-size: $font-size-small-screen;
       }
   }
 }
@@ -61,6 +45,10 @@ body.single {
       border-bottom: 2px solid whitesmoke;
     }
   }
+
+  .Title, .date, .post{
+    margin-left: 2*$unit-margin;
+ }
 }
 
 #scrollTopBtn {
