@@ -1,17 +1,26 @@
 
 
-  body.single {
-      .mainGrid {
-        @media (min-width: $max-width) { //for wider screens
-          font-size: $font-size;
-        }
-        @media (max-width: $max-width) { //for narrower screens
-           font-size: $font-size-small-screen;
-      }
+body.single .mainGrid {
+  @media (min-width: $max-width) { //for wider screens
+    font-size: $font-size;
+    line-height: 200%;
+  }
+  @media (max-width: $max-width) { //for narrower screens
+     font-size: $font-size-small-screen;
+     padding-left: 4*$unit-padding;
+     padding-right: 3*$unit-padding;
+     line-height: 175%;
+     text-align: justify;
+     hyphens: auto;
+
+    // .Title, .date, .post{
+    // margin-left: 2*$unit-margin;
+    // } 
   }
 }
 
 body.single {
+  -webkit-font-smoothing: antialiased;
   font-size: $font-size;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -19,14 +28,14 @@ body.single {
   .mainGrid {
       margin-left: auto;
       margin-right: auto;
-      margin-top: 10*$unit-margin;
+      margin-top: 20*$unit-margin;
       max-width: $max-width;
-      line-height: 2em;
       transition: 1s ease-in-out;
   }
 
   .post {
     border-top: 2px solid;
+    padding-top: 2em;
 
     *::selection {
       background-color: black;
@@ -34,21 +43,17 @@ body.single {
     }
 
     p {
-      padding-top: 1em;
+      padding-bottom: 0.5em;
     }
 
     h1, h2, h3, h4, h5, h6 {
-      padding-top: 1.5em;
       font-weight: 500;
       width: 100%;
-      padding-bottom: $unit-padding;
-      border-bottom: 2px solid whitesmoke;
+      padding-top: 0.75em;
+      padding-bottom: 0;
+      margin-bottom: 0;
     }
   }
-
-  .Title, .date, .post{
-    margin-left: 2*$unit-margin;
- }
 }
 
 #scrollTopBtn {

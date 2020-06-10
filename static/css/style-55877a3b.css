@@ -12,7 +12,7 @@
 
 body {
   font-family: "Helvetica Neue", "Helvetica", "sans-serif";
-  color: darkslategrey;
+  color: black;
   position: relative; }
 
 .Title {
@@ -24,14 +24,23 @@ body {
 
 @media (min-width: 950px) {
   body.single .mainGrid {
-    font-size: 115%; } }
+    font-size: 110%;
+    line-height: 200%; } }
 
 @media (max-width: 950px) {
   body.single .mainGrid {
-    font-size: 100%; } }
+    font-size: 100%;
+    padding-left: 40px;
+    padding-right: 30px;
+    line-height: 175%;
+    text-align: justify;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto; } }
 
 body.single {
-  font-size: 115%;
+  -webkit-font-smoothing: antialiased;
+  font-size: 110%;
   opacity: 0;
   -webkit-transition: opacity 0.5s ease-in-out;
   -o-transition: opacity 0.5s ease-in-out;
@@ -39,14 +48,14 @@ body.single {
   body.single .mainGrid {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 200px;
     max-width: 950px;
-    line-height: 2em;
     -webkit-transition: 1s ease-in-out;
     -o-transition: 1s ease-in-out;
     transition: 1s ease-in-out; }
   body.single .post {
-    border-top: 2px solid; }
+    border-top: 2px solid;
+    padding-top: 2em; }
     body.single .post *::-moz-selection {
       background-color: black;
       color: white; }
@@ -54,15 +63,13 @@ body.single {
       background-color: black;
       color: white; }
     body.single .post p {
-      padding-top: 1em; }
+      padding-bottom: 0.5em; }
     body.single .post h1, body.single .post h2, body.single .post h3, body.single .post h4, body.single .post h5, body.single .post h6 {
-      padding-top: 1.5em;
       font-weight: 500;
       width: 100%;
-      padding-bottom: 10px;
-      border-bottom: 2px solid whitesmoke; }
-  body.single .Title, body.single .date, body.single .post {
-    margin-left: 20px; }
+      padding-top: 0.75em;
+      padding-bottom: 0;
+      margin-bottom: 0; }
 
 #scrollTopBtn {
   opacity: 0;
@@ -185,10 +192,10 @@ a {
     color: #d50a83; }
 
 .Title a {
-  color: darkslategrey; }
+  color: black; }
 
 #navBar a:link, #navBar a:active, #navBar a:visited {
-  color: darkslategrey; }
+  color: black; }
 
 #navBar a:hover {
   color: #d50a83; }
@@ -319,7 +326,7 @@ a#marker {
     grid-column: 5; }
   #siteMapGrid a.hideShowButton {
     font-size: small;
-    color: darkslategrey; }
+    color: black; }
 
 /*********************************/
 /*********************************/
@@ -352,7 +359,7 @@ figure {
     height: auto;
     line-height: 100%;
     padding: 10px;
-    color: darkslategrey; }
+    color: black; }
 
 @media (max-width: 750px) {
   figure {
