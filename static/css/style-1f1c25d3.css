@@ -333,11 +333,18 @@ a#marker {
 /* CSS elements used in the tagCloud */
 /*********************************/
 /*********************************/
+#tagsCloudFrame {
+  width: 100%;
+  grid-column-start: 2;
+  grid-column-end: -1; }
+
 .tags-display {
-  font-size: 80%;
+  margin: auto;
   text-align: right;
-  line-height: 125%;
-  grid-column: 1; }
+  line-height: 125%; }
+
+.tags {
+  font-size: 80%; }
 
 /*****************************/
 /*****************************/

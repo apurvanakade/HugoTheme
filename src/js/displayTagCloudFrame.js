@@ -1,8 +1,3 @@
-// $( document ).ready(function() {
-//   console.log($('#tagsCloudFrame').css('height'));
-//   $('#tagsCloudFrame').css('height', $(window).height()-100);
-//   console.log($('#tagsCloudFrame').css('height'));
-// });
 function getDocHeight(doc) {
     doc = doc || document;
     // stackoverflow.com/questions/1145850/
@@ -21,4 +16,5 @@ function setIframeHeight(id) {
     // IE opt. for bing/msn needs a bit added or scrollbar appears
     ifrm.style.height = getDocHeight( doc ) + 4 + "px";
     ifrm.style.visibility = 'visible';
+    window.addEventListener('resize', function(){setIframeHeight(id)});
 }
