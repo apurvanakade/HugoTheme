@@ -19,10 +19,18 @@ body.list .mainGrid {
     font-size: $small-font-size;
     line-height: 150%;
 
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 300px);//minmax(275px, 1fr));
-    grid-template-rows:  repeat(auto-fill, minmax(300px,max-content));
-    justify-content: center;
+    @media (max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (min-width: 600px) {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 300px);
+      grid-template-rows: repeat(auto-fill, minmax(300px, max-content));
+      justify-content: center;
+    }
 
     > * {
       opacity: 0;
@@ -32,11 +40,13 @@ body.list .mainGrid {
     .Title {
       padding: 2*$unit-padding;
       align-self:center;
+      max-width: 300px;
     }
 
     .cell {
       @include shadow_mouseover(0.5s);
       padding: 2*$unit-padding;
+      max-width: 300px;
     }
 
     transition: visibility 0.2s linear;

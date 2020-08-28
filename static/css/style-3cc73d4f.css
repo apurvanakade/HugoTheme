@@ -92,17 +92,34 @@ body.single {
 body.list .mainGrid {
   font-size: 100%;
   line-height: 150%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  grid-template-rows: repeat(auto-fill, minmax(300px, -webkit-max-content));
-  grid-template-rows: repeat(auto-fill, minmax(300px, max-content));
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-transition: visibility 0.2s linear;
   -o-transition: visibility 0.2s linear;
   transition: visibility 0.2s linear; }
+  @media (max-width: 600px) {
+    body.list .mainGrid {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center; } }
+  @media (min-width: 600px) {
+    body.list .mainGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 300px);
+      grid-template-rows: repeat(auto-fill, minmax(300px, -webkit-max-content));
+      grid-template-rows: repeat(auto-fill, minmax(300px, max-content));
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; } }
   body.list .mainGrid > * {
     opacity: 0;
     -webkit-transition: opacity 1s;
@@ -112,10 +129,12 @@ body.list .mainGrid {
     padding: 20px;
     -webkit-align-self: center;
         -ms-flex-item-align: center;
-            align-self: center; }
+            align-self: center;
+    max-width: 300px; }
   body.list .mainGrid .cell {
     position: relative;
-    padding: 20px; }
+    padding: 20px;
+    max-width: 300px; }
     body.list .mainGrid .cell::after {
       content: '';
       position: absolute;
@@ -341,7 +360,8 @@ a#marker {
 .tags-display {
   margin: auto;
   text-align: right;
-  line-height: 125%; }
+  line-height: 125%;
+  padding: 20px; }
 
 .tags {
   font-size: 80%; }
