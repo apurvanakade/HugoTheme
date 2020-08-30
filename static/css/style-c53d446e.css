@@ -297,7 +297,9 @@ a#marker {
   #siteMap #archiveTable {
     padding: 20px;
     float: right;
-    line-height: 1.5; }
+    line-height: 1.5;
+    border-collapse: separate;
+    border-spacing: 15px 0; }
     #siteMap #archiveTable th {
       cursor: pointer; }
       #siteMap #archiveTable th.sortDesc::before {
@@ -346,6 +348,9 @@ a#marker {
   #siteMapGrid a.hideShowButton {
     font-size: small;
     color: black; }
+
+.sitemap-open {
+  display: none !important; }
 
 /*********************************/
 /*********************************/

@@ -89,6 +89,8 @@ a#marker {
     padding: 2*$unit-margin;
     float:right;
     line-height: 1.5;
+    border-collapse: separate;
+    border-spacing: 1.5*$unit-margin 0;
 
     th {
       cursor: pointer;
@@ -159,4 +161,8 @@ a#marker {
     font-size: small;
     color: $font-color;
   }
+}
+
+.sitemap-open {
+  display: none !important;
 }
